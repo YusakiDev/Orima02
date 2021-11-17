@@ -8,7 +8,8 @@ namespace Orima02
         {
             
             Console.WriteLine("Hello World");
-            
+            string name = Console.ReadLine();
+
         }
     }
 }
