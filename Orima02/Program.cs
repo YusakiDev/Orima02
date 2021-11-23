@@ -40,9 +40,22 @@ namespace Orima02
                 "Narrator: During a long journey \n"
             });
             
-            Scene scene2 = new Scene(2, 10, new[]
+            Scene scene1c1 = new Scene(1, 10, new[]
             {
+                "Scene1c1 \n",
+                "asaaaaaaaaaaaaaaaaaaaaaaaaa \n",
                 "Narrator: During a long journey \n",
+                "Narrator: During a long journey \n",
+                "Narrator: During a long journey \n",
+                "Narrator: During a long journey \n",
+                "Narrator: During a long journey \n",
+                "Narrator: During a long journey \n",
+                "Narrator: During a long journey \n"
+            });
+            
+            Scene scene1c2 = new Scene(1, 10, new[]
+            {
+                "Scene1c2 \n",
                 "asaaaaaaaaaaaaaaaaaaaaaaaaa \n",
                 "Narrator: During a long journey \n",
                 "Narrator: During a long journey \n",
@@ -60,9 +73,16 @@ namespace Orima02
             
             //Method
             scene1.DisplayScene();
-            gameController.ChoiceSelector(scene1.SceneIndex);
-            scene2.DisplayScene();
-            gameController.ChoiceSelector(scene2.SceneIndex);
+            if (gameController.ChoiceSelector(scene1.SceneIndex) == 1)
+            {
+                scene1c1.DisplayScene();
+            }
+            else if(gameController.ChoiceSelector(scene1.SceneIndex) == 2)
+            {
+                scene1c2.DisplayScene();
+            }
+            
+            
             inventory.OpenInventory();
             
             
