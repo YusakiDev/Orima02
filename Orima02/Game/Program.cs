@@ -75,7 +75,7 @@ namespace Orima02
             //Method
             
             gameController.Menu();
-            gameController.SelectClass(player);
+            gameController.SelectClass();
             
             player = new Magician(gameController.PreGame(), 2, 2, 2, 2, 2, true, true, true);
             player.Attack();
