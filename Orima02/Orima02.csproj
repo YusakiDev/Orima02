@@ -41,7 +41,12 @@
         <Compile Include="Character.cs" />
         <Compile Include="Enemy.cs" />
         <Compile Include="Entity.cs" />
+        <Compile Include="GoblinGuard.cs" />
+        <Compile Include="GoblinWarrior.cs" />
+        <Compile Include="KingGoblin.cs" />
         <Compile Include="Magician.cs" />
+        <Compile Include="MuscularGoblin.cs" />
+        <Compile Include="PoisonGoblin.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="Swordsman.cs" />

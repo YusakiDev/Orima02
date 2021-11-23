@@ -4,13 +4,12 @@
     {
         public int Mp;
         public int MaxMp;
-            
-        public Character(string name, int hp, int maxHp, int atk, bool isAlive, bool isStun, bool isPoison) : base(name, hp, maxHp, atk, isAlive, isStun, isPoison)
+
+        protected Character(string name, int hp, int maxHp, int mp, int maxMp, int atk, bool isAlive, bool isStun, bool isPoison) : base(name, hp, maxHp, atk, isAlive, isStun, isPoison)
         {
-            
-        } 
-        
-        
+            Mp = mp;
+            MaxMp = maxMp;
+        }
 
         
     }
