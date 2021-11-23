@@ -4,9 +4,9 @@ namespace Orima02
 {
     public class GameController
     {
-        public void GameFunction()
+        public void ChoiceSelector()
         {
-            throw new System.NotImplementedException();
+            
         }
     }
 }

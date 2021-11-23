@@ -23,11 +23,29 @@ namespace Orima02
             Inventory inventory = new Inventory(new Item[]{fullRegen});
 
 
+            //Scene Declaration
+            Scene Scene1 = new Scene("Name1", 10, new[]
+            {
+                "Narrator: During a long journey \n",
+                "asaaaaaaaaaaaaaaaaaaaaaaaaa \n",
+                "Narrator: During a long journey \n",
+                "Narrator: During a long journey \n",
+                "Narrator: During a long journey \n",
+                "Narrator: During a long journey \n",
+                "Narrator: During a long journey \n",
+                "Narrator: During a long journey \n",
+                "Narrator: During a long journey \n"
+            });
 
 
 
             //Method
 
+            
+            
+            Scene1.DisplayScene();
+            
+            
             inventory.OpenInvetory();
             
             

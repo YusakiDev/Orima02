@@ -24,9 +24,10 @@ namespace Orima02
     
     public class Item: IStats
     {
-        public ItemName Name;
-        public string Info;
-        public int MpCost;
+        public readonly ItemName Name;
+        public readonly string Info;
+        public int MpCost { get; private set; }
+    
 
 
         public Item(ItemName name, int mpCost, string info)
