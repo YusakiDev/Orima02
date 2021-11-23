@@ -7,6 +7,9 @@ namespace Orima02
         public static void Main(string[] args)
         {
 
+            
+            
+            
             //Enemy Declaration
             GoblinGuard goblinGuard = new GoblinGuard("Goblin Guard", 1, 1, 1, 1, 1, true, false, true);
             GoblinWarrior goblinWarrior = new GoblinWarrior("Goblin Warrior", 1, 1, 1, 1, 1, true, true, true);
@@ -22,9 +25,22 @@ namespace Orima02
             //Inventory Declaration
             Inventory inventory = new Inventory(new Item[]{fullRegen});
 
-
+            
             //Scene Declaration
-            Scene Scene1 = new Scene("Name1", 10, new[]
+            Scene scene1 = new Scene(1, 10, new[]
+            {
+                "Narrator: During a long journey \n",
+                "asaaaaaaaaaaaaaaaaaaaaaaaaa \n",
+                "Narrator: During a long journey \n",
+                "Narrator: During a long journey \n",
+                "Narrator: During a long journey \n",
+                "Narrator: During a long journey \n",
+                "Narrator: During a long journey \n",
+                "Narrator: During a long journey \n",
+                "Narrator: During a long journey \n"
+            });
+            
+            Scene scene2 = new Scene(2, 10, new[]
             {
                 "Narrator: During a long journey \n",
                 "asaaaaaaaaaaaaaaaaaaaaaaaaa \n",
@@ -38,15 +54,16 @@ namespace Orima02
             });
 
 
-
+            //game controller Declaration
+            GameController gameController = new GameController();
+            
+            
             //Method
-
-            
-            
-            Scene1.DisplayScene();
-            
-            
-            inventory.OpenInvetory();
+            scene1.DisplayScene();
+            gameController.ChoiceSelector(scene1.SceneIndex);
+            scene2.DisplayScene();
+            gameController.ChoiceSelector(scene2.SceneIndex);
+            inventory.OpenInventory();
             
             
         }

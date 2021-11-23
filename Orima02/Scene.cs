@@ -4,21 +4,20 @@ namespace Orima02
 {
     public class Scene
     {
-        public string SceneName;
+        public int SceneIndex { get; private set; }
         public int TextDelay;
         public string[] Text;
 
 
-        public Scene(string sceneName, int textDelay, string[] text)
+        public Scene(int sceneIndex, int textDelay, string[] text)
         {
-            SceneName = sceneName;
+            SceneIndex= sceneIndex;
             TextDelay = textDelay;
             Text = text;
         }
 
         public void DisplayScene()
         {
-            
             int line = 0;
             while (line < Text.Length)
             {

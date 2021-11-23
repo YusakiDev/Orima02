@@ -16,26 +16,32 @@ namespace Orima02
 
 
         //Open Inventory Method, Show Items In inventory
-        public void OpenInvetory()
+        public void OpenInventory()
         {
-            int i = 0;
-            Console.WriteLine("===================\n" +
-                              "|    Inventory    |                          Press 0 to Exit ....\n" +
-                              "===================");
-            
-            foreach (Item item in Items)
+            while (true)
             {
-                i++;
-                Console.WriteLine($"\n" +
-                                  $"   {i}. {item.Name}");
+                int i = 0;
+                Console.WriteLine("===================\n" + "|    Inventory    |                          Press 0 to Exit ....\n" + "===================");
+
+                foreach (Item item in Items)
+                {
+                    i++;
+                    Console.WriteLine($"\n" + $"   {i}. {item.Name}");
+                }
+
+                if (Console.ReadKey(true).Key == ConsoleKey.D0)
+                {
+                    Console.Clear();
+                }
+                else
+                {
+                    Console.Clear();
+                    continue;
+                }
+
+
+                break;
             }
-            
-            if (Console.ReadKey(true).Key == ConsoleKey.D0)
-            {
-                Console.Clear();
-            }
-            
-            
         }
     }
 }
