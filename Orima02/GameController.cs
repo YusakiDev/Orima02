@@ -1,10 +1,12 @@
-﻿namespace Orima02
+﻿using System;
+
+namespace Orima02
 {
     public class GameController
     {
-        public void GameMethod()
+        public void GameFunction()
         {
-            
+            throw new System.NotImplementedException();
         }
     }
 }

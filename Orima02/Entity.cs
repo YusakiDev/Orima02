@@ -5,11 +5,11 @@ namespace Orima02
     public abstract class Entity
     {
         // Entity Properties
-        public string Name;
-        public int Hp;
-        public int MaxHp;
+        public static string Name;
+        public static int Hp { get; private set; }
+        public static int MaxHp { get; private set; }
         public int Atk;
-        public bool IsAlive;
+        public static bool IsAlive { get; private set; }
         public bool IsStun;
         public bool IsPoison;
 
@@ -31,7 +31,26 @@ namespace Orima02
         public abstract void Attack();
 
 
-        public string CheckIfPoison()
+
+        public static void HpSet(int hp)
+        {
+            if (Hp > MaxHp)
+            {
+                Hp = MaxHp;
+            }
+            else if (Hp < 0)
+            {
+                Hp = 0;
+                IsAlive = false;
+            }
+        }
+        
+        
+        
+        
+        
+        //Check Stats
+        protected string CheckIfPoison()
         {
             if (IsPoison == true)
             {
@@ -43,7 +62,7 @@ namespace Orima02
             }
         }
 
-        public string CheckIfStunned()
+        protected string CheckIfStunned()
         {
             if (IsStun == true)
             {

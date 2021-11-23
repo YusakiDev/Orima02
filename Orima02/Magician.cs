@@ -11,11 +11,6 @@
         {
             throw new System.NotImplementedException();
         }
-
-
-        public override void DamageCalculation()
-        {
-            throw new System.NotImplementedException();
-        }
+        
     }
 }

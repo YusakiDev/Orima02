@@ -14,8 +14,6 @@ namespace Orima02
             MaxMp = maxMp;
         }
 
-        public abstract void DamageCalculation();
-
 
         public void Stats()
         {

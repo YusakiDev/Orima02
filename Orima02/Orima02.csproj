@@ -45,7 +45,10 @@
         <Compile Include="GameController.cs" />
         <Compile Include="GoblinGuard.cs" />
         <Compile Include="GoblinWarrior.cs" />
+        <Compile Include="FullRegen.cs" />
+        <Compile Include="Inventory.cs" />
         <Compile Include="IStats.cs" />
+        <Compile Include="Item.cs" />
         <Compile Include="KingGoblin.cs" />
         <Compile Include="Magician.cs" />
         <Compile Include="MuscularGoblin.cs" />
