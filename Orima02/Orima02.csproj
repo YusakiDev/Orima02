@@ -11,6 +11,7 @@
         <AssemblyName>Orima02</AssemblyName>
         <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
+        <LangVersion>latest</LangVersion>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
         <PlatformTarget>AnyCPU</PlatformTarget>
@@ -41,8 +42,10 @@
         <Compile Include="Character.cs" />
         <Compile Include="Enemy.cs" />
         <Compile Include="Entity.cs" />
+        <Compile Include="GameController.cs" />
         <Compile Include="GoblinGuard.cs" />
         <Compile Include="GoblinWarrior.cs" />
+        <Compile Include="IStats.cs" />
         <Compile Include="KingGoblin.cs" />
         <Compile Include="Magician.cs" />
         <Compile Include="MuscularGoblin.cs" />

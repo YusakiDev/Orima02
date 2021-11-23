@@ -6,9 +6,14 @@ namespace Orima02
     {
         public static void Main(string[] args)
         {
+
+            GoblinGuard goblinGuard = new GoblinGuard("Goblin Guard", 1, 1, 1, 1, 1, true, false, true);
+            Magician magician = new Magician("Magician", 1, 1, 1, 1, 1, true, true, true);
             
-            Console.WriteLine("Hello World");
-            Console.Write("sdwhjjkhkjsafa");
+            magician.Stats();
+            goblinGuard.Stats();
+
+
         }
     }
 }

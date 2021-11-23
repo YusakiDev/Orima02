@@ -1,4 +1,6 @@
-﻿namespace Orima02
+﻿using System;
+
+namespace Orima02
 {
     public abstract class Entity
     {
@@ -27,5 +29,30 @@
         
         //force abstract use
         public abstract void Attack();
+
+
+        public string CheckIfPoison()
+        {
+            if (IsPoison == true)
+            {
+                return "Poisoned";
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public string CheckIfStunned()
+        {
+            if (IsStun == true)
+            {
+                return "Stunned";
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }

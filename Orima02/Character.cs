@@ -1,6 +1,9 @@
-﻿namespace Orima02
+﻿using System;
+using System.Linq;
+
+namespace Orima02
 {
-    public abstract class Character: Entity
+    public abstract class Character: Entity, IStats
     {
         public int Mp;
         public int MaxMp;
@@ -11,6 +14,19 @@
             MaxMp = maxMp;
         }
 
-        
+        public abstract void DamageCalculation();
+
+
+        public void Stats()
+        {
+            string[] stats = new string[] {CheckIfPoison(), CheckIfStunned()};
+
+
+            Console.WriteLine("===Character Stats===\n" +
+                              $"| Hp       | {Hp, 10}/{MaxHp}\n" +
+                              $"| Atk      | {Atk, 10}\n" +
+                              $"| Mp       | {Mp, 10}/{MaxMp}\n" +
+                              "| Stats    |          {0}", string.Join(" ", stats.Where(s => !string.IsNullOrEmpty(s))));
+        }
     }
 }
