@@ -24,7 +24,7 @@ namespace Orima02
     
     public class Item: IStats
     {
-        public static ItemName Name;
+        public ItemName Name;
         public string Info;
         public int MpCost;
 
@@ -37,17 +37,13 @@ namespace Orima02
         }
 
 
-        public static void Stats()
+        public void Stats()
         {
             Console.WriteLine("===Enemy Stats===\n" +
                               $"| Name        | {Name}\n" +
                               $"| MpCost      | {MpCost, 10}\n" +
                               $"| Info        | {Info}\n");
         }
-
-        void IStats.Stats()
-        {
-            Stats();
-        }
+        
     }
 }

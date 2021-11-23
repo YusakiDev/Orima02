@@ -28,7 +28,7 @@ namespace Orima02
                               $"| Atk      | {Atk, 10}\n" +
                               $"| Ultpoint | {UltPoint, 10}/{MaxUltPoint}\n" +
                               "| Stats    |          {0}", string.Join(" ", stats.Where(s => !string.IsNullOrEmpty(s))));
-            
+
         }
         
         

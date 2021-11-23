@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 
 namespace Orima02
 {
@@ -14,10 +15,27 @@ namespace Orima02
 
 
 
+        //Open Inventory Method, Show Items In inventory
         public void OpenInvetory()
         {
+            int i = 0;
+            Console.WriteLine("===================\n" +
+                              "|    Inventory    |                          Press 0 to Exit ....\n" +
+                              "===================");
             
-            Console.WriteLine("{0}" , string.Join(", ", (object) Items));
+            foreach (Item item in Items)
+            {
+                i++;
+                Console.WriteLine($"\n" +
+                                  $"   {i}. {item.Name}");
+            }
+            
+            if (Console.ReadKey(true).Key == ConsoleKey.D0)
+            {
+                Console.Clear();
+            }
+            
+            
         }
     }
 }
