@@ -72,6 +72,8 @@ namespace Orima02
             
             
             //Method
+            
+            gameController.Menu();
             scene1.DisplayScene();
             if (gameController.ChoiceSelector(scene1.SceneIndex) == 1)
             {
@@ -81,6 +83,23 @@ namespace Orima02
             {
                 scene1c2.DisplayScene();
             }
+            
+            // scene2.DisplayScene();
+            //
+            // if (gameController.ChoiceSelector(scene2.SceneIndex) == 1)
+            // {
+            //     scene2c1.DisplayScene();
+            // }
+            // else if(gameController.ChoiceSelector(scene2.SceneIndex) == 2)
+            // {
+            //     scene2c2.DisplayScene();
+            // }
+            //
+            // scene3.DisplayScene();
+            
+            
+            
+            
             
             
             inventory.OpenInventory();

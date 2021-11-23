@@ -20,7 +20,7 @@ namespace Orima02
             string[] stats = new string[] {CheckIfPoison(), CheckIfStunned()};
 
 
-            Console.WriteLine("===Character Stats===\n" +
+            Console.WriteLine($"==={Name} Stats===\n" +
                               $"| Hp       | {Hp, 10}/{MaxHp}\n" +
                               $"| Atk      | {Atk, 10}\n" +
                               $"| Mp       | {Mp, 10}/{MaxMp}\n" +
