@@ -37,30 +37,34 @@ namespace Orima02
         }
 
 
-        public string PreGame()
+        public string GetName()
         {
             //pre game setting input
             Console.Clear();
             Console.Write("Please Enter Your Name:");
             string name = Console.ReadLine();
-            //TODO
             return name;
         }
 
 
+        // ReSharper disable once UnusedMethodReturnValue.Global
         public int SelectClass()
         {
-            Console.Clear();
-            Console.WriteLine("Choose Your Class");
-            Console.WriteLine("1. Magician\n" +
-                              "2. Swordsman\n" +
-                              "3. Volunteer");
-            ConsoleKey userInput = Console.ReadKey().Key;
-            Console.Clear();
-
-            if (userInput == ConsoleKey.D1)
+            while (true)
             {
-                Console.WriteLine(@"
+                
+            
+                Console.Clear();
+                Console.WriteLine("Choose Your Class");
+                Console.WriteLine("1. Magician\n" +
+                                  "2. Swordsman\n" +
+                                  "3. Volunteer");
+                ConsoleKey userInput = Console.ReadKey().Key;
+                Console.Clear();
+
+                if (userInput == ConsoleKey.D1)
+                {
+                    Console.WriteLine(@"
               _,._      
   .||,       /_ _\\     
  \.`',/      |'L'| |    
@@ -82,10 +86,11 @@ namespace Orima02
    ||        ccc/       
    ||                hjm
 ");
-            }
-            else if(userInput == ConsoleKey.D2)
-            {
-                Console.WriteLine(@"
+                    return 1;
+                }
+                else if(userInput == ConsoleKey.D2)
+                {
+                    Console.WriteLine(@"
 
  /\
  ||
@@ -113,11 +118,11 @@ _||_    .-;`\..../`;_.-^-._
     jgs  /____/\____\
 
 ");
-                
-            }
-            else if (userInput == ConsoleKey.D3)
-            {
-               Console.WriteLine(@"
+                    return 2;
+                }
+                else if (userInput == ConsoleKey.D3)
+                {
+                    Console.WriteLine(@"
 
       ////^\\\\
       | ^   ^ |
@@ -136,14 +141,14 @@ _||_    .-;`\..../`;_.-^-._
    \ \|
 
 ");
-               
+                    return 3;
+                }
+                else
+                {
+                    continue;
+                }
+                
             }
-            else
-            {
-               
-            }
-
-            return 0;
         }
         
         

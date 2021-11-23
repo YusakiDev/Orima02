@@ -5,13 +5,13 @@ namespace Orima02
     public abstract class Entity
     {
         // Entity Properties
-        public static string Name;
+        public string Name;
         public static int Hp { get; private set; }
         public static int MaxHp { get; private set; }
-        public static int Atk;
+        public int Atk;
         public static bool IsAlive { get; private set; }
-        public static bool IsStun;
-        public static bool IsPoison;
+        public bool IsStun;
+        public bool IsPoison;
 
         
         //Entity Constructors
@@ -55,7 +55,7 @@ namespace Orima02
         
         
         //Check Stats
-        protected static string CheckIfPoison()
+        protected string CheckIfPoison()
         {
             if (IsPoison == true)
             {
@@ -67,7 +67,7 @@ namespace Orima02
             }
         }
 
-        protected static string CheckIfStunned()
+        protected string CheckIfStunned()
         {
             if (IsStun == true)
             {
