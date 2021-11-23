@@ -8,10 +8,10 @@ namespace Orima02
         public static string Name;
         public static int Hp { get; private set; }
         public static int MaxHp { get; private set; }
-        public int Atk;
+        public static int Atk;
         public static bool IsAlive { get; private set; }
-        public bool IsStun;
-        public bool IsPoison;
+        public static bool IsStun;
+        public static bool IsPoison;
 
         
         //Entity Constructors
@@ -26,7 +26,12 @@ namespace Orima02
             IsPoison = isPoison;
         }
 
-        
+        protected Entity()
+        {
+            
+        }
+
+
         //force abstract use
         public abstract void Attack();
 
@@ -50,7 +55,7 @@ namespace Orima02
         
         
         //Check Stats
-        protected string CheckIfPoison()
+        protected static string CheckIfPoison()
         {
             if (IsPoison == true)
             {
@@ -62,7 +67,7 @@ namespace Orima02
             }
         }
 
-        protected string CheckIfStunned()
+        protected static string CheckIfStunned()
         {
             if (IsStun == true)
             {

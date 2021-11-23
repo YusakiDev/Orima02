@@ -17,7 +17,12 @@ namespace Orima02
             
             
             //Character Declaration
-            Magician magician = new Magician("Magician", 1, 1, 1, 1, 1, true, true, true);
+            Character magician = new Magician("Magician", 1, 1, 1, 1, 1, true, true, true);
+            Character swordsman = new Swordsman("Swordsman", 1, 1, 1, 1, 1, true, true, true);
+            Character volunteer = new Volunteer("Volunteer", 1, 1, 1, 1, 1, true, true, true);
+
+            Character player = new EmptyCharacter();
+            
             
             //Item Declaration
             FullRegen fullRegen = new FullRegen(ItemName.FullRegen, 1, $"Instantly regenerate your hp to {Entity.MaxHp}");
@@ -74,6 +79,12 @@ namespace Orima02
             //Method
             
             gameController.Menu();
+            gameController.PreGame();
+            
+            
+            gameController.SelectClass(player);
+            
+
             scene1.DisplayScene();
             if (gameController.ChoiceSelector(scene1.SceneIndex) == 1)
             {
