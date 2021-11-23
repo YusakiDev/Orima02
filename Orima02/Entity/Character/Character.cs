@@ -14,10 +14,11 @@ namespace Orima02
             MaxMp = maxMp;
         }
 
-        protected Character() : base()
+        protected Character()
         {
             
         }
+        
 
 
         public static void Stats()

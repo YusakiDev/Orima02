@@ -17,10 +17,6 @@ namespace Orima02
             
             
             //Character Declaration
-            Character magician = new Magician("Magician", 1, 1, 1, 1, 1, true, true, true);
-            Character swordsman = new Swordsman("Swordsman", 1, 1, 1, 1, 1, true, true, true);
-            Character volunteer = new Volunteer("Volunteer", 1, 1, 1, 1, 1, true, true, true);
-
             Character player = new EmptyCharacter();
             
             
@@ -79,10 +75,11 @@ namespace Orima02
             //Method
             
             gameController.Menu();
-            gameController.PreGame();
-            
-            
             gameController.SelectClass(player);
+            
+            player = new Magician(gameController.PreGame(), 2, 2, 2, 2, 2, true, true, true);
+            player.Attack();
+            
             
 
             scene1.DisplayScene();

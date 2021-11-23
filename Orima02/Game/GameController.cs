@@ -48,7 +48,7 @@ namespace Orima02
         }
 
 
-        public void SelectClass(Character character)
+        public int SelectClass()
         {
             Console.Clear();
             Console.WriteLine("Choose Your Class");
@@ -82,7 +82,6 @@ namespace Orima02
    ||        ccc/       
    ||                hjm
 ");
-                character = new Magician(PreGame(),2,2,2,2, 5,true,true,true);
             }
             else if(userInput == ConsoleKey.D2)
             {
@@ -114,7 +113,7 @@ _||_    .-;`\..../`;_.-^-._
     jgs  /____/\____\
 
 ");
-                return typeof(Swordsman);
+                
             }
             else if (userInput == ConsoleKey.D3)
             {
@@ -137,11 +136,11 @@ _||_    .-;`\..../`;_.-^-._
    \ \|
 
 ");
-               return typeof(Volunteer);
+               
             }
             else
             {
-                return null;
+               
             }
         }
         

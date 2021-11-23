@@ -1,4 +1,6 @@
-﻿namespace Orima02
+﻿using System;
+
+namespace Orima02
 {
     public class Magician: Character
     {
@@ -10,7 +12,7 @@
 
         public override void Attack()
         {
-            throw new System.NotImplementedException();
+            Console.WriteLine("Magician Attack!");
         }
         
     }

@@ -1,11 +1,12 @@
 ﻿namespace Orima02
 {
-    public class EmptyCharacter: Orima02.Character
+    public class EmptyCharacter: Character
     {
-        public EmptyCharacter() : base()
+        public EmptyCharacter()
         {
             
         }
+        
 
         public override void Attack()
         {
