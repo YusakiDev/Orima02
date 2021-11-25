@@ -1,0 +1,6 @@
+C:\Users\Gus\RiderProjects\Orima02\Orima02\bin\Debug\Orima02.exe
+C:\Users\Gus\RiderProjects\Orima02\Orima02\bin\Debug\Orima02.pdb
+C:\Users\Gus\RiderProjects\Orima02\Orima02\obj\Debug\Orima02.csprojAssemblyReference.cache
+C:\Users\Gus\RiderProjects\Orima02\Orima02\obj\Debug\Orima02.csproj.CoreCompileInputs.cache
+C:\Users\Gus\RiderProjects\Orima02\Orima02\obj\Debug\Orima02.exe
+C:\Users\Gus\RiderProjects\Orima02\Orima02\obj\Debug\Orima02.pdb
