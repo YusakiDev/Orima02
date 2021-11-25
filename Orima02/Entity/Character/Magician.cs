@@ -14,6 +14,13 @@ namespace Orima02
         {
             Console.WriteLine("Magician Attack!");
         }
+
+        public void Passive()
+        {
+            AddMp(1);
+        }
+        
+        
         
     }
 }

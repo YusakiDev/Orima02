@@ -98,25 +98,24 @@ namespace Orima02
             {
                 case 1:
                 {
-                    player = new Magician(gameController.GetName(), 2, 2, 2, 2, 2, true, true, true);
+                    player = new Magician(gameController.GetName(), 12, 12, 0, 12, 3, true, true, true);
                     break;
                 }
                 case 2:
                 {
-                    player = new Swordsman(gameController.GetName(), 2, 2, 2, 2, 2, true, true, true);
+                    player = new Swordsman(gameController.GetName(), 12, 15, 0, 9, 4, true, true, true);
                     break;
                 }
                 case 3:
                 {
                 
-                    player = new Volunteer(gameController.GetName(), 2, 2, 2, 2, 2, true, true, true);
+                    player = new Volunteer(gameController.GetName(), 15, 12, 9, 9, 3, true, true, true);
                     break;
                 }
             }
             //Debug
             player.Stats();
-            
-            
+
             gameController.CombatPhase(player, goblinGuard, new Combat());
             
             //Scene1
