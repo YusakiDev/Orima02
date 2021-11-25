@@ -45,6 +45,7 @@ namespace Orima02
 
             Scene scene1_1C1 = new Scene(1.1, 10, new[]
             {
+                /////////
                 "(Player) : Hey that woman over there.\n",
                 "??? : Who are you?\n",
                 "(Player) : My name is (Player)\n",
