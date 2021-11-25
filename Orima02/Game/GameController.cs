@@ -35,8 +35,7 @@ namespace Orima02
                 }
             }
         }
-
-
+        
         public string GetName()
         {
             //pre game setting input
@@ -45,8 +44,6 @@ namespace Orima02
             string name = Console.ReadLine();
             return name;
         }
-
-
         
         public int SelectClass()
         {
@@ -151,52 +148,42 @@ _||_    .-;`\..../`;_.-^-._
             }
         }
 
-        // public int SelectSet(Character player, EquipableItem atkset,EquipableItem mpset, EquipableItem hpset, EquipableItem balancedset)
-        // {
-        //     Console.Clear();
-        //     Console.WriteLine("Choose Your Beginner Enhancement\n" +
-        //                       "1. Atk Set\n" +
-        //                       "2. Mp Set\n" +
-        //                       "3. Hp Set\n" +
-        //                       "3. Balanced set");
-        //     ConsoleKey userinput = Console.ReadKey().Key;
-        //     if (userinput == ConsoleKey.D1)
-        //     {
-        //         EquipSet(player, atkset);
-        //     }
-        //     else if (userinput == ConsoleKey.D2)
-        //     {
-        //         EquipSet(player, mpset);
-        //     }
-        //     else if (userinput == ConsoleKey.D3)
-        //     {
-        //         EquipSet(player, hpset);
-        //     }
-        //     else if (userinput == ConsoleKey.D4)
-        //     {
-        //         EquipSet(player,balancedset);
-        //     }
-        //     
-        //     return 0;
-        // }
-        //
-        // public void EquipSet(Character player, EquipableItem item)
-        // {
-        //     player.MaxHp = player.MaxHp + item.MaxHp;
-        //     player.Atk = player.Atk + item.Atk;
-        //     player.MaxMp = player.MaxMp + item.MaxMp;
-        // }
+        public void SelectSet(Character player, EquipableItem atkset,EquipableItem mpset, EquipableItem hpset, EquipableItem balancedset)
+        {
+            Console.Clear();
+            Console.WriteLine("Choose Your Beginner Enhancement\n" +
+                              "1. Atk Set\n" +
+                              "2. Mp Set\n" +
+                              "3. Hp Set\n" +
+                              "3. Balanced set");
+            ConsoleKey userinput = Console.ReadKey().Key;
+            if (userinput == ConsoleKey.D1)
+            {
+                EquipSet(player, atkset);
+            }
+            else if (userinput == ConsoleKey.D2)
+            {
+                EquipSet(player, mpset);
+            }
+            else if (userinput == ConsoleKey.D3)
+            {
+                EquipSet(player, hpset);
+            }
+            else if (userinput == ConsoleKey.D4)
+            {
+                EquipSet(player,balancedset);
+            }
+            
+        }
         
-
+        public void EquipSet(Character player, EquipableItem item)
+        {
+            player.MaxHp = player.MaxHp + item.MaxHp;
+            player.Atk = player.Atk + item.Atk;
+            player.MaxMp = player.MaxMp + item.MaxMp;
+        }
         
-
-
-
-
-
-
-
-            public int ChoiceSelector(double sceneIndex)
+        public int ChoiceSelector(double sceneIndex)
         {
             while (true)
             {
@@ -240,6 +227,20 @@ _||_    .-;`\..../`;_.-^-._
 
             return 0;
         }
+
+
+        public void CombatPhase(Character player, Enemy enemy, Combat combat)
+        {
+            Console.Clear();
+            Console.WriteLine("Enter Combat Mode");
+
+            combat.CharPassive(player);
+            
+
+        }
+        
+        
+        
         
     }
 }

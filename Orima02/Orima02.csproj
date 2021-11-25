@@ -51,6 +51,7 @@
         <Compile Include="Entity\Enemy\MuscularGoblin.cs" />
         <Compile Include="Entity\Enemy\PoisonGoblin.cs" />
         <Compile Include="Entity\Entity.cs" />
+        <Compile Include="Game\Combat.cs" />
         <Compile Include="Game\GameController.cs" />
         <Compile Include="Game\Inventory.cs" />
         <Compile Include="Game\IStats.cs" />

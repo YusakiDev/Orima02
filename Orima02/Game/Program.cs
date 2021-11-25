@@ -12,8 +12,8 @@ namespace Orima02
 
 
             //Enemy Declaration
-            GoblinGuard goblinGuard = new GoblinGuard("Goblin Guard", 1, 1, 1, 1, 1, true, false, true);
-            GoblinWarrior goblinWarrior = new GoblinWarrior("Goblin Warrior", 1, 1, 1, 1, 1, true, true, true);
+            Enemy goblinGuard = new GoblinGuard("Goblin Guard", 1, 1, 1, 1, 1, true, false, true);
+            Enemy goblinWarrior = new GoblinWarrior("Goblin Warrior", 1, 1, 1, 1, 1, true, true, true);
 
 
 
@@ -80,13 +80,10 @@ namespace Orima02
             {
                 "Narrator : You met the princess of the Feri City Kingdom……but in the forest?\n",
             });
-            
-            Scene scene1_3C2 = new Scene(1.2, 10, new[]
-            {
-                "asijudhaskdhjasdjhasdgkhjasdgjaskdhasdg\n",
-            });
-            
-  
+
+
+
+
 
 
             //game controller Declaration
@@ -94,6 +91,7 @@ namespace Orima02
 
 
             //Method
+            
             gameController.Menu();
             //Select Class
             switch (gameController.SelectClass())
@@ -117,6 +115,10 @@ namespace Orima02
             }
             //Debug
             player.Stats();
+            
+            
+            gameController.CombatPhase(player, goblinGuard, new Combat());
+            
             //Scene1
             scene1_1.DisplayScene();
             //Scene1 Choice1
@@ -128,6 +130,7 @@ namespace Orima02
             {
                 scene1_1C2.DisplayScene();
             }
+            
 
 
 
@@ -135,7 +138,14 @@ namespace Orima02
 
 
 
-            // gameController.SelectSet(player, atkset, mpset, hpset, balanceset);
+            gameController.SelectSet(player, atkset, mpset, hpset, balanceset);
+            //more dialouge
+            
+            
+            
+            
+            //combat
+            gameController.CombatPhase(player, goblinGuard, new Combat());
             
             inventory.OpenInventory();
             
