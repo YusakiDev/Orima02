@@ -16,6 +16,7 @@ namespace Orima02
             GoblinWarrior goblinWarrior = new GoblinWarrior("Goblin Warrior", 1, 1, 1, 1, 1, true, true, true);
 
             
+            
             //Combat Class Declaration
             Combat combat = new Combat();
 
@@ -30,37 +31,36 @@ namespace Orima02
             EquipableItem hpset = new EquipableItem(ItemName.HpSet, 1, 3, 1, "Equip HP Set");
             EquipableItem balanceset = new EquipableItem(ItemName.BalanceSet, 2, 2, 2, "Equip Balance Set");
             Item fullRegen =
-                new FullRegen(ItemName.FullRegen, $"Instantly regenerate your hp to {player.MaxHp}");
+                new UseableItem(ItemName.FullRegen, $"Instantly regenerate your hp to {player.MaxHp}");
             Item doubleDamage =
-                new DoubleDamage(ItemName.DoubleDamage, $"Double your atk to {player.Atk*2}");
+                new UseableItem(ItemName.DoubleDamage, $"Double your atk to {player.Atk*2}");
             Item fullMp =
-                new FullMp(ItemName.FullMp, $"Instantly regenerate your mp to {player.MaxMp}");
+                new UseableItem(ItemName.FullMp, $"Instantly regenerate your mp to {player.MaxMp}");
             Item stunBomb =
-                new StunBomb(ItemName.StunBomb, "Stun your enemy for 1 turn");
+                new UseableItem(ItemName.StunBomb, "Stun your enemy for 1 turn");
             Item poisonBomb =
-                new PoisonBomb(ItemName.PoisonBomb, "poisoned your enemy");
+                new UseableItem(ItemName.PoisonBomb, "poisoned your enemy");
             Item damageBomb =
-                new DamageBomb(ItemName.DamageBomb, $"deals {player.Atk/2} damage at the enemy");
+                new UseableItem(ItemName.DamageBomb, $"deals {player.Atk/2} damage at the enemy");
             Item trapDeflect =
-                new TrapDeflect(ItemName.TrapDeflect, "Reverse all damage to the enemy (this item will be active on the enemy turn");
+                new UseableItem(ItemName.TrapDeflect, "Reverse all damage to the enemy (this item will be active on the enemy turn");
             Item trapUltimate =
-                new TrapUltimate(ItemName.TrapUltimate, "Steal enemy's Ultimate (this item will be active on the enemy turn)");
+                new UseableItem(ItemName.TrapUltimate, "Steal enemy's Ultimate (this item will be active on the enemy turn)");
             Item abilityTheWorld =
-                new AbilityTheWorld(ItemName.AbilityTheWorld, "Stunt enemy for 1-3 turn");
+                new UseableItem(ItemName.AbilityTheWorld, "Stunt enemy for 1-3 turn");
             Item abilityOra =
-                new AbilityOra(ItemName.AbilityOra, "multiply player attack by 4");
+                new UseableItem(ItemName.AbilityOra, "multiply player attack by 4");
             Item abilityUseLeg =
-                new AbilityUseLeg(ItemName.AbilityUseLeg, "50/50 chance to skip the current stage");
+                new UseableItem(ItemName.AbilityUseLeg, "50/50 chance to skip the current stage");
             
             
             
             
 
             //Inventory Declaration
-            Inventory inventory = new Inventory(new [] {fullRegen,doubleDamage,fullMp,stunBomb,poisonBomb,damageBomb
-                ,trapDeflect,trapUltimate,abilityTheWorld,abilityOra,abilityUseLeg});
+            Inventory inventory = new Inventory(new [] {fullRegen,doubleDamage});
 
-            Inventory fullinventory = new Inventory(new[] {fullRegen});
+            Inventory fullinventory = new Inventory(new [] {fullRegen,doubleDamage,fullMp,stunBomb,poisonBomb,damageBomb,trapDeflect,trapUltimate,abilityTheWorld,abilityOra,abilityUseLeg});
 
 
              //Scene Declaration
@@ -75,7 +75,6 @@ namespace Orima02
 
             Scene scene1_1C1 = new Scene(1.1, 10, new[]
             {
-                /////////
                 "(Player) : Hey that woman over there.\n",
                 "??? : Who are you?\n",
                 "(Player) : My name is (Player)\n",
@@ -115,7 +114,7 @@ namespace Orima02
                 "(Player) : Princess, why are you here?\n",
                 "Irene : I don't like the atmosphere in the palace. So I went out for a walk.\n",
                 "Irene : Accidentally wandered into the forest So I had to stop walking Otherwise I would have been lost in the deep forest.\n",
-                "(Player) : Princess, you shouldn't be here.\n",
+                $"{player.Name} : Princess, you shouldn't be here.\n",
                 "(Player) : This forest was inhabited by goblins. They are also very dangerous.\n",
                 "(Player) : You should hurry out of here.\n",
                 "(Player) : Let me protect you until you return to the palace?\n",
@@ -196,21 +195,27 @@ namespace Orima02
             {
                 case 1:
                 {
-                    player = new Magician(gameController.GetName(), 2, 2, 2, 2, 2, true, true, true);
+                    player = new Magician(gameController.GetName(), 12, 12, 0, 12, 3, true, true, true);
                     break;
                 }
                 case 2:
                 {
-                    player = new Swordsman(gameController.GetName(), 2, 2, 2, 2, 2, true, true, true);
+                    player = new Swordsman(gameController.GetName(), 12, 12, 0, 9, 5, true, true, true);
                     break;
                 }
                 case 3:
                 {
                 
-                    player = new Volunteer(gameController.GetName(), 2, 2, 2, 2, 2, true, true, true);
+                    player = new Volunteer(gameController.GetName(), 15, 12, 0, 9, 3, true, true, true);
                     break;
                 }
             }
+            
+            
+            
+            gameController.CombatPhase(player, goblinGuard, inventory.Items, fullinventory.Items, combat);
+            
+            
             //Debug
             player.Stats();
             //Scene1
@@ -242,30 +247,6 @@ namespace Orima02
             }
             
             
-            
-            
-            
-            
-            
-            
-            
-            // scene1 choice2
-            // scene2.DisplayScene();
-            // scene2
-            // if (gameController.ChoiceSelector(scene2.SceneIndex) == 3)
-            // {
-            //     scene2c3.DisplayScene();
-            // }
-            // else if(gameController.ChoiceSelector(scene2.SceneIndex) == 4)
-            // {
-            //     scene2c4.DisplayScene();
-            // }
-            //
-            // scene3.DisplayScene();
-
-
-
-
 
 
 

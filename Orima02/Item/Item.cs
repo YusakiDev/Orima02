@@ -35,11 +35,7 @@ namespace Orima02
             Name = name;
             Info = info;
         }
-
-        protected Item()
-        {
-            throw new NotImplementedException();
-        }
+        
 
 
         public void Stats()
@@ -49,6 +45,7 @@ namespace Orima02
                               $"| MpCost      | 0 \n" +
                               $"| Info        | {Info}\n");
         }
+
         
     }
 }

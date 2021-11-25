@@ -7,6 +7,8 @@ namespace Orima02
         //menu method
         public void Menu()
         {
+            while (true)
+            {
             Console.WriteLine("                              ==============================================\n" +
                               "                              |                                            |\n" +
                               "                              |    ________        .__                     |\n" +
@@ -19,8 +21,7 @@ namespace Orima02
                               "                              |          A Goblin Slayer Origin Story      |\n" +
                               "                              ==============================================");
             Console.WriteLine("\n\n\n\n\n");
-            while (true)
-            {
+            
                 Console.WriteLine("                                             Press Enter to Start...\n");
                 
                 Console.WriteLine("                                         x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x");
@@ -31,6 +32,7 @@ namespace Orima02
                 }
                 else
                 {
+                    Console.Clear();
                     continue;
                 }
             }
@@ -179,7 +181,7 @@ _||_    .-;`\..../`;_.-^-._
         public void EquipSet(Character player, EquipableItem item)
         {
             player.MaxHp = player.MaxHp + item.MaxHp;
-            player.Atk = player.Atk + item.Atk;
+            player.AddAtk(item.Atk);
             player.MaxMp = player.MaxMp + item.MaxMp;
         }
         
@@ -272,7 +274,7 @@ _||_    .-;`\..../`;_.-^-._
 
             combat.CharPassive(player);
             System.Threading.Thread.Sleep(5000);
-            combat.ItemPhase(inventory, fullinventory);
+            combat.CheckItem(combat.ItemPhase(inventory),fullinventory, player);
 
         }
         

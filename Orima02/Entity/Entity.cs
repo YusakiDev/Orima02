@@ -8,7 +8,7 @@ namespace Orima02
         public string Name;
         public int Hp { get; private set; }
         public int MaxHp;
-        public int Atk;
+        public int Atk { get; private set; }
         public static bool IsAlive { get; private set; }
         public bool IsStun;
         public bool IsPoison;
@@ -47,6 +47,18 @@ namespace Orima02
             {
                 Hp = 0;
                 IsAlive = false;
+            }
+        }
+        
+        public void AddAtk(int atk)
+        {
+            if (atk >= 0 && Atk <= 0)
+            {
+                Atk = Atk + atk;
+            }
+            else
+            {
+                Atk = 0;
             }
         }
         
