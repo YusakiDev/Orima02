@@ -151,42 +151,44 @@ _||_    .-;`\..../`;_.-^-._
             }
         }
 
-        public int SelectSet(Character player, EquipableItem atkset,EquipableItem mpset, EquipableItem hpset, EquipableItem balancedset)
-        {
-            Console.Clear();
-            Console.WriteLine("Choose Your Beginner Enhancement\n" +
-                              "1. Atk Set\n" +
-                              "2. Mp Set\n" +
-                              "3. Hp Set\n" +
-                              "3. Balanced set");
-            ConsoleKey userinput = Console.ReadKey().Key;
-            if (userinput == ConsoleKey.D1)
-            {
-                EquipSet(player, atkset);
-            }
-            else if (userinput == ConsoleKey.D2)
-            {
-                EquipSet(player, mpset);
-            }
-            else if (userinput == ConsoleKey.D3)
-            {
-                EquipSet(player, hpset);
-            }
-            else if (userinput == ConsoleKey.D4)
-            {
-                EquipSet(player,balancedset);
-            }
-            
-            return 0;
-        }
+        // public int SelectSet(Character player, EquipableItem atkset,EquipableItem mpset, EquipableItem hpset, EquipableItem balancedset)
+        // {
+        //     Console.Clear();
+        //     Console.WriteLine("Choose Your Beginner Enhancement\n" +
+        //                       "1. Atk Set\n" +
+        //                       "2. Mp Set\n" +
+        //                       "3. Hp Set\n" +
+        //                       "3. Balanced set");
+        //     ConsoleKey userinput = Console.ReadKey().Key;
+        //     if (userinput == ConsoleKey.D1)
+        //     {
+        //         EquipSet(player, atkset);
+        //     }
+        //     else if (userinput == ConsoleKey.D2)
+        //     {
+        //         EquipSet(player, mpset);
+        //     }
+        //     else if (userinput == ConsoleKey.D3)
+        //     {
+        //         EquipSet(player, hpset);
+        //     }
+        //     else if (userinput == ConsoleKey.D4)
+        //     {
+        //         EquipSet(player,balancedset);
+        //     }
+        //     
+        //     return 0;
+        // }
+        //
+        // public void EquipSet(Character player, EquipableItem item)
+        // {
+        //     player.MaxHp = player.MaxHp + item.MaxHp;
+        //     player.Atk = player.Atk + item.Atk;
+        //     player.MaxMp = player.MaxMp + item.MaxMp;
+        // }
+        
 
-        public void EquipSet(Character player, EquipableItem item)
-        {
-            player.MaxHp = player.MaxHp + item.MaxHp;
-            player.Atk = player.Atk + item.Atk;
-            player.MaxMp = player.MaxMp + item.MaxMp;
-        }
-
+        
 
 
 

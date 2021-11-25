@@ -113,19 +113,6 @@ namespace Orima02
             {
                 scene1C2.DisplayScene();
             }
-            // scene1 choice2
-            // scene2.DisplayScene();
-            // scene2
-            // if (gameController.ChoiceSelector(scene2.SceneIndex) == 3)
-            // {
-            //     scene2c3.DisplayScene();
-            // }
-            // else if(gameController.ChoiceSelector(scene2.SceneIndex) == 4)
-            // {
-            //     scene2c4.DisplayScene();
-            // }
-            //
-            // scene3.DisplayScene();
 
 
 
@@ -133,7 +120,7 @@ namespace Orima02
 
 
 
-            gameController.SelectSet(player, atkset, mpset, hpset, balanceset);
+            // gameController.SelectSet(player, atkset, mpset, hpset, balanceset);
             
             inventory.OpenInventory();
             
