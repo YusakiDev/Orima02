@@ -37,7 +37,7 @@ namespace Orima02
 
 
 
-        public void HpSet(int hp)
+        public void AddHp(int hp)
         {
             if (Hp > MaxHp)
             {

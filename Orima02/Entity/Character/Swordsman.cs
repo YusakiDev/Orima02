@@ -10,5 +10,20 @@
         {
             throw new System.NotImplementedException();
         }
+
+        public override void Skill1()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override void Skill2()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override void Passive()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

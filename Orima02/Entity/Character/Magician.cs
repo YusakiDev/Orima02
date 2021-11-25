@@ -14,6 +14,21 @@ namespace Orima02
         {
             Console.WriteLine("Magician Attack!");
         }
-        
+
+        public override void Passive()
+        {
+            AddMp(1);
+        }
+
+
+        public override void Skill1()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Skill2()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

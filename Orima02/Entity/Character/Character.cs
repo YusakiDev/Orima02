@@ -5,7 +5,7 @@ namespace Orima02
 {
     public abstract class Character: Entity, IStats
     {
-        public int Mp;
+        public int Mp { get; private set; }
         public int MaxMp;
 
         protected Character(string name, int hp, int maxHp, int mp, int maxMp, int atk, bool isAlive, bool isStun, bool isPoison) : base(name, hp, maxHp, atk, isAlive, isStun, isPoison)
@@ -18,8 +18,29 @@ namespace Orima02
         {
             
         }
-        
 
+        public abstract void Skill1();
+        public abstract void Skill2();
+        public abstract void Passive();
+
+        public void AddMp(int mp)
+        {
+            Mp = Mp + mp;
+            
+            
+            
+            if (Mp > MaxMp)
+            {
+                Mp = MaxMp;
+            }
+            else if (Hp < 0)
+            {
+                Mp = 0;
+            }
+        }
+        
+        
+        
 
         public void Stats()
         {
@@ -33,14 +54,7 @@ namespace Orima02
                               "| Stats    |          {0}", string.Join(" ", stats.Where(s => !string.IsNullOrEmpty(s))));
         }
         
-
-        public virtual void What()
-        {
-            Console.WriteLine("sadasdasdadadadsas");
-            Console.WriteLine("sadasdasdadadadsas");
-            Console.WriteLine("sadasdasdadadadsas");
-            Console.WriteLine("sadasdasdadadadsas");
-        }
+        
         
         
         

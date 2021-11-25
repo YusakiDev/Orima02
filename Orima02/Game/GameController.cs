@@ -35,8 +35,7 @@ namespace Orima02
                 }
             }
         }
-
-
+        
         public string GetName()
         {
             //pre game setting input
@@ -45,8 +44,6 @@ namespace Orima02
             string name = Console.ReadLine();
             return name;
         }
-
-
         
         public int SelectClass()
         {
@@ -151,7 +148,7 @@ _||_    .-;`\..../`;_.-^-._
             }
         }
 
-        public int SelectSet(Character player, EquipableItem atkset,EquipableItem mpset, EquipableItem hpset, EquipableItem balancedset)
+        public void SelectSet(Character player, EquipableItem atkset,EquipableItem mpset, EquipableItem hpset, EquipableItem balancedset)
         {
             Console.Clear();
             Console.WriteLine("Choose Your Beginner Enhancement\n" +
@@ -177,24 +174,16 @@ _||_    .-;`\..../`;_.-^-._
                 EquipSet(player,balancedset);
             }
             
-            return 0;
         }
-
+        
         public void EquipSet(Character player, EquipableItem item)
         {
             player.MaxHp = player.MaxHp + item.MaxHp;
             player.Atk = player.Atk + item.Atk;
             player.MaxMp = player.MaxMp + item.MaxMp;
         }
-
-
-
-
-
-
-
-
-            public int ChoiceSelector(double sceneIndex)
+        
+        public int ChoiceSelector(double sceneIndex)
         {
             while (true)
             {
@@ -274,6 +263,21 @@ _||_    .-;`\..../`;_.-^-._
 
             return 0;
         }
+
+
+        public void CombatPhase(Character player, Enemy enemy,Item[] inventory,Item[] fullinventory, Combat combat)
+        {
+            Console.Clear();
+            Console.WriteLine("Enter Combat Mode");
+
+            combat.CharPassive(player);
+            System.Threading.Thread.Sleep(5000);
+            combat.ItemPhase(inventory, fullinventory);
+
+        }
+        
+        
+        
         
     }
 }

@@ -11,7 +11,7 @@
 
         public static void FullHpRegen(Entity entity)
         {
-            entity.HpSet(entity.MaxHp);
+            entity.AddHp(entity.MaxHp);
         }
 
         
