@@ -216,9 +216,45 @@ _||_    .-;`\..../`;_.-^-._
                     }
                     case 1.2:
                     {
-                        Console.WriteLine("scene2");
-                        return 2;
+                        Console.WriteLine("1.Why did you come here?");
+                        Console.WriteLine("2.pay homage to the princess?");
+                        if (Console.ReadKey(true).Key == ConsoleKey.D1)
+                        {
+                            Console.Clear();
+                            return 1;
+                        } 
+                        if (Console.ReadKey(true).Key == ConsoleKey.D2)
+                        {
+                            Console.Clear();
+                            return 2;
+                        }
+                        else
+                        {
+                            Console.Clear();
+                            continue;
+                        }
                     }
+                    case 1.3:
+                    {
+                        Console.WriteLine("1.let go help");
+                        Console.WriteLine("2.it's not my business ==");
+                        if (Console.ReadKey(true).Key == ConsoleKey.D1)
+                        {
+                            Console.Clear();
+                            return 1;
+                        } 
+                        if (Console.ReadKey(true).Key == ConsoleKey.D2)
+                        {
+                            Console.Clear();
+                            return 2;
+                        }
+                        else
+                        {
+                            Console.Clear();
+                            continue;
+                        }
+                    }
+                        
                     
                 }
                 break;
