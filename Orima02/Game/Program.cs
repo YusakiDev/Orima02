@@ -149,18 +149,40 @@ namespace Orima02
                  "(Player) : There are too many of them. If I break in without a weapon, I'm sure I will lose.\n",
                  "(Player) : (Equitable Item Set) must be prepared first.\n"
             });
-            Scene scene2_c1 = new Scene(2.1, 10, new[]
+            Scene scene2_2 = new Scene(2.2, 10, new[]
             {
-                "+1 HpPotion \n"
+                "(Player) : Oh hey! Where has the princess gone?\n",
+                "(Player) : Where has the princess gone? I haven't shown off my coolness yet.\n",
+                "(Player) : If I had to guess, they would have taken the princess to the Goblin Castle. in order to bring the princess to their king\n",
+                "(Player) : Wait, which way is Goblin Castle?\n",
+                "(Player) : Ah crap. After getting cool, I don't know the way anymore. If someone can guide me that would be great.\n"
             });
-            Scene scene1_3C2 = new Scene(1.2, 10, new[]
+            Scene scene3_1 = new Scene(3.1, 10, new[]
             {
-                "Narrator : You met the princess of the Feri City Kingdom……but in the forest?\n",
+                "Narrator  You have told Annie about the previous incident.\n",
+                "Annie : ok i get it.\n",
+                "Annie : Goblin again? Do they think they own the forest?\n",
+                "Annie : It's not just humans that are hurt by them. The goblins also attacked my friends. Everyone panicked and ran away.\n",
+                "Annie : So now I have to be alone. And I don't even know where the other fairies are.\n",
+                "(Player) : If so, would you like to go with me?\n",
+                "Annie : Why should I go with you!\n",
+                "(Player) : I don't know. Maybe during the journey to save the princess. I might even meet another fairy.\n",
+                "(Player) : But as you wish, I'll leaving now\n",
+                "Annie : Wait! I'll go with you.\n",
+                "Annie : Where do you want to go? I'm an expert in this forest. Wherever it is, I know it all!\n",
+                "(Player) : Okay, so where's the Goblin Castle?\n",
+                "Annie : Just go left! Or on the right! Maybe.... I don't know, who wants to go for a walk around the Goblin Castle!\n",
+                "(Player) : Be quiet! Behind you have a goblin.\n",
+                "Annie : Come on!! Who's afraid?!!\n",
+                "Goblin : Hokpip!?\n",
+                "(Player) : Wait! The fighter is me!\n",
             });
-
 
             
-  
+                
+
+
+
 
 
             //game controller Declaration
@@ -202,6 +224,31 @@ namespace Orima02
             {
                 scene1_1C2.DisplayScene();
             }
+            if (gameController.ChoiceSelector(scene1_2.SceneIndex) == 1)
+            {
+                scene1_2C1.DisplayScene();
+            }
+            else if(gameController.ChoiceSelector(scene1_2.SceneIndex) == 2)
+            {
+                scene1_2C2.DisplayScene();
+            }
+            if (gameController.ChoiceSelector(scene1_3.SceneIndex) == 1)
+            {
+                scene1_3C1.DisplayScene();
+            }
+            else if(gameController.ChoiceSelector(scene1_3.SceneIndex) == 2)
+            {
+                scene1_3C2.DisplayScene();
+            }
+            
+            
+            
+            
+            
+            
+            
+            
+            
             // scene1 choice2
             // scene2.DisplayScene();
             // scene2
