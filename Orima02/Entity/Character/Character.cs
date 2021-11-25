@@ -19,6 +19,9 @@ namespace Orima02
             
         }
 
+        public abstract void Skill1();
+        public abstract void Skill2();
+        public abstract void Passive();
 
         public void AddMp(int mp)
         {

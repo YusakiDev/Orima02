@@ -8,7 +8,7 @@ namespace Orima02
 
         public void CharPassive(Character player)
         {
-
+            player.Passive();
             player.AddMp(1);
             
             Console.WriteLine($"{player.Mp}/{player.MaxMp}");
