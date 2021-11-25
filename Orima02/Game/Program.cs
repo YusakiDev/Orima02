@@ -81,6 +81,10 @@ namespace Orima02
                 "Narrator : You met the princess of the Feri City Kingdom……but in the forest?\n",
             });
             
+            Scene scene1_3C2 = new Scene(1.2, 10, new[]
+            {
+                "asijudhaskdhjasdjhasdgkhjasdgjaskdhasdg\n",
+            });
             
   
 
