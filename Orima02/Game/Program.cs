@@ -144,22 +144,6 @@ namespace Orima02
                  "(Player) : There are too many of them. If I break in without a weapon, I'm sure I will lose.\n",
                  "(Player) : (Equitable Item Set) must be prepared first.\n"
             });
-            Scene scene2_c1 = new Scene(2.1, 10, new[]
-            {
-                "+1 HpPotion \n"
-            });
-            Scene scene2_c2 = new Scene(2.1, 10, new[]
-            {
-                "+1 MpPotion \n"
-            });
-            Scene scene2_c3 = new Scene(2.1, 10, new[]
-            {
-                "+1 AtkPotion \n"  
-            });
-            Scene scene2_c4 = new Scene(2.1, 10, new[]
-            {
-                "+1 Cleanse \n"
-            });
             Scene scene2_2 = new Scene(2.2, 10, new[]
             {
                 "(Player) : Oh hey! Where has the princess gone?\n",
