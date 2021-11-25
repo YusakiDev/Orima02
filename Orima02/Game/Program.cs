@@ -22,10 +22,10 @@ namespace Orima02
 
 
             //Item Declaration
-            Item atkset = new EquipableItem(ItemName.AtkSet, 3, 1, 1, "Equip Atk Set");
-            Item mpset = new EquipableItem(ItemName.MpSet, 1, 3, 1, "Equip MP Set");
-            Item hpset = new EquipableItem(ItemName.HpSet, 1, 3, 1, "Equip HP Set");
-            Item balanceset = new EquipableItem(ItemName.BalanceSet, 2, 2, 2, "Equip Balance Set");
+            EquipableItem atkset = new EquipableItem(ItemName.AtkSet, 3, 1, 1, "Equip Atk Set");
+            EquipableItem mpset = new EquipableItem(ItemName.MpSet, 1, 3, 1, "Equip MP Set");
+            EquipableItem hpset = new EquipableItem(ItemName.HpSet, 1, 3, 1, "Equip HP Set");
+            EquipableItem balanceset = new EquipableItem(ItemName.BalanceSet, 2, 2, 2, "Equip Balance Set");
             Item fullRegen =
                 new FullRegen(ItemName.FullRegen, $"Instantly regenerate your hp to {player.MaxHp}");
 
@@ -126,14 +126,14 @@ namespace Orima02
             // }
             //
             // scene3.DisplayScene();
-            
-            
-            
-            
-            
-            
-            
-            
+
+
+
+
+
+
+
+            gameController.SelectSet(player, atkset, mpset, hpset, balanceset);
             
             inventory.OpenInventory();
             

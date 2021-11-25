@@ -7,7 +7,7 @@ namespace Orima02
         // Entity Properties
         public string Name;
         public int Hp { get; private set; }
-        public int MaxHp { get; private set; }
+        public int MaxHp;
         public int Atk;
         public static bool IsAlive { get; private set; }
         public bool IsStun;
