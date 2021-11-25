@@ -30,27 +30,27 @@ namespace Orima02
             EquipableItem mpset = new EquipableItem(ItemName.MpSet, 1, 3, 1, "Equip MP Set");
             EquipableItem hpset = new EquipableItem(ItemName.HpSet, 1, 3, 1, "Equip HP Set");
             EquipableItem balanceset = new EquipableItem(ItemName.BalanceSet, 2, 2, 2, "Equip Balance Set");
-            Item fullRegen =
+            UseableItem fullRegen =
                 new UseableItem(ItemName.FullRegen, $"Instantly regenerate your hp to {player.MaxHp}");
-            Item doubleDamage =
+            UseableItem doubleDamage =
                 new UseableItem(ItemName.DoubleDamage, $"Double your atk to {player.Atk*2}");
-            Item fullMp =
+            UseableItem fullMp =
                 new UseableItem(ItemName.FullMp, $"Instantly regenerate your mp to {player.MaxMp}");
-            Item stunBomb =
+            UseableItem stunBomb =
                 new UseableItem(ItemName.StunBomb, "Stun your enemy for 1 turn");
-            Item poisonBomb =
+            UseableItem poisonBomb =
                 new UseableItem(ItemName.PoisonBomb, "poisoned your enemy");
-            Item damageBomb =
+            UseableItem damageBomb =
                 new UseableItem(ItemName.DamageBomb, $"deals {player.Atk/2} damage at the enemy");
-            Item trapDeflect =
+            UseableItem trapDeflect =
                 new UseableItem(ItemName.TrapDeflect, "Reverse all damage to the enemy (this item will be active on the enemy turn");
-            Item trapUltimate =
+            UseableItem trapUltimate =
                 new UseableItem(ItemName.TrapUltimate, "Steal enemy's Ultimate (this item will be active on the enemy turn)");
-            Item abilityTheWorld =
+            UseableItem abilityTheWorld =
                 new UseableItem(ItemName.AbilityTheWorld, "Stunt enemy for 1-3 turn");
-            Item abilityOra =
+            UseableItem abilityOra =
                 new UseableItem(ItemName.AbilityOra, "multiply player attack by 4");
-            Item abilityUseLeg =
+            UseableItem abilityUseLeg =
                 new UseableItem(ItemName.AbilityUseLeg, "50/50 chance to skip the current stage");
             
             
@@ -98,7 +98,7 @@ namespace Orima02
                "(Player) : Princess, why are you here?\n",
                "Irene : I don't like the atmosphere in the palace. So I went out for a walk.\n",
                " Irene : Accidentally wandered into the forest So I had to stop walking Otherwise I would have been lost in the deep forest.\n",
-                "(Player) : Princess, you shouldn't be here.\n",
+               "(Player) : Princess, you shouldn't be here.\n",
                "(Player) : This forest was inhabited by goblins. They are also very dangerous.\n",
                "(Player) : You should hurry out of here.\n",
                "(Player) : Let me protect you until you return to the palace?\n",

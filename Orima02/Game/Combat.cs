@@ -29,7 +29,7 @@ namespace Orima02
 
                 try
                 {
-                    var userInput = Console.ReadKey().Key;
+                    var userInput = Console.ReadKey(true).Key;
                     switch (userInput)
                     {
                         case ConsoleKey.D1:
@@ -50,7 +50,7 @@ namespace Orima02
                         }
                         case ConsoleKey.D0:
                         {
-                            break;
+                            return null;
                         }
                     }
                 }
@@ -61,16 +61,19 @@ namespace Orima02
             }
         }
 
-        public void CheckItem(object item, Item[] allitem, Character player)
+        public void CheckItem(object item, UseableItem[] allitem, Character player)
         {
             if (item == allitem.GetValue(0))
             {
-                UseableItem fullRegen = new UseableItem(ItemName.FullRegen, "Bla Bla");
-                fullRegen.FullRegen(player);
+                UseableItem fullregen = new UseableItem(ItemName.FullRegen, "blaBla");
+                fullregen.FullRegen(player);
             } else if (item == allitem.GetValue(1))
             {
                 UseableItem doubledamage = new UseableItem(ItemName.DoubleDamage, "Bla Bla");
                 doubledamage.DoubleDamage(player);
+            }else if (item == allitem.GetValue(2))
+            {
+               
             }
         }
     }

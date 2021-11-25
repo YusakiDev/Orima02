@@ -37,11 +37,15 @@ namespace Orima02
 
 
 
-        public void AddHp(int hp)
+        public void ModifyHp(int hp)
         {
             if (Hp > MaxHp)
             {
                 Hp = MaxHp;
+            }
+            else if (0 < Hp && Hp < MaxHp)
+            {
+                Hp += hp;
             }
             else if (Hp < 0)
             {

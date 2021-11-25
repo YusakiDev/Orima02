@@ -41,10 +41,18 @@ namespace Orima02
         public string GetName()
         {
             //pre game setting input
-            Console.Clear();
-            Console.Write("Please Enter Your Name:");
-            string name = Console.ReadLine();
-            return name;
+            while (true)
+            {
+                Console.Clear();
+                Console.Write("Please Enter Your Name:");
+                string name = Console.ReadLine();
+                name = name.Trim();
+                if (string.IsNullOrEmpty(name))
+                {
+                    continue;
+                }
+                return name;
+            }
         }
         
         public int SelectClass()
@@ -267,7 +275,7 @@ _||_    .-;`\..../`;_.-^-._
         }
 
 
-        public void CombatPhase(Character player, Enemy enemy,Item[] inventory,Item[] fullinventory, Combat combat)
+        public void CombatPhase(Character player, Enemy enemy,Item[] inventory,UseableItem[] fullinventory, Combat combat)
         {
             Console.Clear();
             Console.WriteLine("Enter Combat Mode");
