@@ -36,6 +36,11 @@ namespace Orima02
             Info = info;
         }
 
+        protected Item()
+        {
+            throw new NotImplementedException();
+        }
+
 
         public void Stats()
         {
