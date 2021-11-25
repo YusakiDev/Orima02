@@ -33,45 +33,55 @@ namespace Orima02
             Inventory inventory = new Inventory(new [] {fullRegen});
 
 
-            //Scene Declaration
-            Scene scene1 = new Scene(1.1, 10, new[]
+             //Scene Declaration
+            Scene scene1_1 = new Scene(1.1, 10, new[]
             {
-                "Narrator: During a long journey \n",
-                "asaaaaaaaaaaaaaaaaaaaaaaaaa \n",
-                "Narrator: During a long journey \n",
-                "Narrator: During a long journey \n",
-                "Narrator: During a long journey \n",
-                "Narrator: During a long journey \n",
-                "Narrator: During a long journey \n",
-                "Narrator: During a long journey \n",
-                "Narrator: During a long journey \n"
+                "While you are traveling had passed through the forest in the same area as the Feri City Kingdom.\n", 
+                " which is a forest inhabited by goblins Or almost called their forest. =====While walking, you meet a young woman.\n",
+                "(Player) : Is that a woman? \n",
+                "(Player) : A woman in a forest with herds of goblins?\n",
+                "(Player) : Let's enter to greet her.\n"
             });
 
-            Scene scene1C1 = new Scene(1.2, 10, new[]
+            Scene scene1_1C1 = new Scene(1.1, 10, new[]
             {
-                "Scene1c1 \n",
-                "asaaaaaaaaaaaaaaaaaaaaaaaaa \n",
-                "Narrator: During a long journey \n",
-                "Narrator: During a long journey \n",
-                "Narrator: During a long journey \n",
-                "Narrator: During a long journey \n",
-                "Narrator: During a long journey \n",
-                "Narrator: During a long journey \n",
-                "Narrator: During a long journey \n"
+                "(Player) : Hey that woman over there.\n",
+                "??? : Who are you?\n",
+                "(Player) : My name is (Player)\n",
+                "(Player) : I'm just a (player class) passing this way.\n",
+                "(Player) : And you?\n",
+                "Irene : My name is Irene the Felicity, I'm the princess of the Felicity Kingdom.\n"
             });
 
-            Scene scene1C2 = new Scene(1.3, 10, new[]
+            Scene scene1_1C2 = new Scene(1.1, 10, new[]
             {
-                "Scene1c2 \n",
-                "asaaaaaaaaaaaaaaaaaaaaaaaaa \n",
-                "Narrator: During a long journey \n",
-                "Narrator: During a long journey \n",
-                "Narrator: During a long journey \n",
-                "Narrator: During a long journey \n",
-                "Narrator: During a long journey \n",
-                "Narrator: During a long journey \n",
-                "Narrator: During a long journey \n"
+                "(Player) : I'm arrogant, better not go in\n",
+                "Dev : You can't be that arrogant. If so, how will the game continue?\n",
+                "Dev : Go in and say hi to that woman now.\n"
             });
+            Scene scene1_2 = new Scene(1.2, 10, new[]
+            {
+                "Narrator : You met the princess of the Feri City Kingdom……but in the forest?\n",
+            });
+            Scene scene1_2C1 = new Scene(1.2, 10, new[]
+            {
+               "(Player) : Princess, why are you here?\n",
+               "Irene : I don't like the atmosphere in the palace. So I went out for a walk.\n",
+               " Irene : Accidentally wandered into the forest So I had to stop walking Otherwise I would have been lost in the deep forest.\n",
+                "(Player) : Princess, you shouldn't be here.\n",
+               "(Player) : This forest was inhabited by goblins. They are also very dangerous.\n",
+               "(Player) : You should hurry out of here.\n",
+               "(Player) : Let me protect you until you return to the palace?\n",
+               "Irene : It's okay, I can remember the way back.\n",
+               "Irene : Have a safe journey. (Player)\n"
+            });
+            Scene scene1_2C2 = new Scene(1.2, 10, new[]
+            {
+                "Narrator : You met the princess of the Feri City Kingdom……but in the forest?\n",
+            });
+            
+            
+  
 
 
             //game controller Declaration
@@ -103,15 +113,15 @@ namespace Orima02
             //Debug
             player.Stats();
             //Scene1
-            scene1.DisplayScene();
+            scene1_1.DisplayScene();
             //Scene1 Choice1
-            if (gameController.ChoiceSelector(scene1.SceneIndex) == 1)
+            if (gameController.ChoiceSelector(scene1_1.SceneIndex) == 1)
             {
-                scene1C1.DisplayScene();
+                scene1_1C1.DisplayScene();
             }
-            else if(gameController.ChoiceSelector(scene1.SceneIndex) == 2)
+            else if(gameController.ChoiceSelector(scene1_1.SceneIndex) == 2)
             {
-                scene1C2.DisplayScene();
+                scene1_1C2.DisplayScene();
             }
             // scene1 choice2
             // scene2.DisplayScene();
