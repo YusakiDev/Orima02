@@ -10,9 +10,23 @@ namespace Orima02
         {
             player.Passive();
             player.AddMp(1);
-            
             Console.WriteLine($"{player.Mp}/{player.MaxMp}");
         }
+
+        public void ItemPhase(Item[] inventory)
+        {
+            Console.Clear();
+            Console.WriteLine("Welcome to Item Phase");
+            Console.WriteLine("select your item");
+            foreach (Item item in inventory)
+            {
+                int i = 1;
+                Console.WriteLine($"{i}.{item.Name}");
+                i++;
+            }
+        }
+        
+        
         
     }
 }

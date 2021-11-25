@@ -15,6 +15,9 @@ namespace Orima02
             Enemy goblinGuard = new GoblinGuard("Goblin Guard", 1, 1, 1, 1, 1, true, false, true);
             Enemy goblinWarrior = new GoblinWarrior("Goblin Warrior", 1, 1, 1, 1, 1, true, true, true);
 
+            
+            //Combat Class Declaration
+            Combat combat = new Combat();
 
 
             //Character Declaration
@@ -116,7 +119,7 @@ namespace Orima02
             //Debug
             player.Stats();
 
-            gameController.CombatPhase(player, goblinGuard, new Combat());
+            gameController.CombatPhase(player, goblinGuard, inventory.Items, combat);
             
             //Scene1
             scene1_1.DisplayScene();
@@ -144,7 +147,7 @@ namespace Orima02
             
             
             //combat
-            gameController.CombatPhase(player, goblinGuard, new Combat());
+            //gameController.CombatPhase(player, goblinGuard, new Combat());
             
             inventory.OpenInventory();
             
