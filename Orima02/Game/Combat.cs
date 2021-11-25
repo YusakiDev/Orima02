@@ -13,7 +13,7 @@ namespace Orima02
             Console.WriteLine($"{player.Mp}/{player.MaxMp}");
         }
 
-        public void ItemPhase(Item[] inventory)
+        public void ItemPhase(Item[] inventory, Item[] fullinventory)
         {
             Console.Clear();
             Console.WriteLine("Welcome to Item Phase");
@@ -24,6 +24,12 @@ namespace Orima02
                 Console.WriteLine($"{i}.{item.Name}");
                 i++;
             }
+            //TODO
+            
+            
+            
+            
+            
         }
         
         

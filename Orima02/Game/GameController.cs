@@ -229,16 +229,14 @@ _||_    .-;`\..../`;_.-^-._
         }
 
 
-        public void CombatPhase(Character player, Enemy enemy,Item[] inventory, Combat combat)
+        public void CombatPhase(Character player, Enemy enemy,Item[] inventory,Item[] fullinventory, Combat combat)
         {
             Console.Clear();
             Console.WriteLine("Enter Combat Mode");
 
             combat.CharPassive(player);
-            
-            System.Threading.Thread.Sleep(10000);
-            
-            combat.ItemPhase(inventory);
+            System.Threading.Thread.Sleep(5000);
+            combat.ItemPhase(inventory, fullinventory);
 
         }
         

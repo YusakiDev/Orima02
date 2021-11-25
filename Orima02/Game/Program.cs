@@ -29,11 +29,14 @@ namespace Orima02
             EquipableItem mpset = new EquipableItem(ItemName.MpSet, 1, 3, 1, "Equip MP Set");
             EquipableItem hpset = new EquipableItem(ItemName.HpSet, 1, 3, 1, "Equip HP Set");
             EquipableItem balanceset = new EquipableItem(ItemName.BalanceSet, 2, 2, 2, "Equip Balance Set");
+            
             Item fullRegen =
                 new FullRegen(ItemName.FullRegen, $"Instantly regenerate your hp to {player.MaxHp}");
 
             //Inventory Declaration
             Inventory inventory = new Inventory(new [] {fullRegen});
+
+            Inventory fullinventory = new Inventory(new[] {fullRegen});
 
 
              //Scene Declaration
@@ -118,8 +121,8 @@ namespace Orima02
             }
             //Debug
             player.Stats();
-
-            gameController.CombatPhase(player, goblinGuard, inventory.Items, combat);
+            
+            gameController.CombatPhase(player, goblinGuard, inventory.Items,fullinventory.Items, combat);
             
             //Scene1
             scene1_1.DisplayScene();
@@ -141,7 +144,7 @@ namespace Orima02
 
 
             gameController.SelectSet(player, atkset, mpset, hpset, balanceset);
-            //more dialouge
+            //more dialogue
             
             
             
