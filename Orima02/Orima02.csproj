@@ -56,6 +56,7 @@
         <Compile Include="Game\IStats.cs" />
         <Compile Include="Game\Program.cs" />
         <Compile Include="Game\Scene.cs" />
+        <Compile Include="Item\EquipableItem.cs" />
         <Compile Include="Item\FullRegen.cs" />
         <Compile Include="Item\Item.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />

@@ -4,9 +4,10 @@ namespace Orima02
 {
     public enum ItemName
     {
-        MpPotion,
-        HpPotion,
-        AtkPotion,
+        MpSet,
+        HpSet,
+        AtkSet,
+        BalanceSet,
         FullRegen,
         DoubleDamage,
         FullMp,
@@ -26,14 +27,12 @@ namespace Orima02
     {
         public readonly ItemName Name;
         public readonly string Info;
-        public int MpCost { get; private set; }
-    
 
 
-        public Item(ItemName name, int mpCost, string info)
+
+        public Item(ItemName name, string info)
         {
             Name = name;
-            MpCost = mpCost;
             Info = info;
         }
 
@@ -42,7 +41,7 @@ namespace Orima02
         {
             Console.WriteLine("===Enemy Stats===\n" +
                               $"| Name        | {Name}\n" +
-                              $"| MpCost      | {MpCost, 10}\n" +
+                              $"| MpCost      | 0 \n" +
                               $"| Info        | {Info}\n");
         }
         

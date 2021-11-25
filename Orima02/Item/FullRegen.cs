@@ -3,15 +3,15 @@
     public class FullRegen: Item
     {
 
-        public FullRegen(ItemName name, int mpCost, string info) : base(name, mpCost, info)
+        public FullRegen(ItemName name, string info) : base(name, info)
         {
             
         }
         
 
-        public void FullHpRegen()
+        public static void FullHpRegen(Entity entity)
         {
-            Entity.HpSet(Entity.MaxHp);
+            entity.HpSet(entity.MaxHp);
         }
 
         

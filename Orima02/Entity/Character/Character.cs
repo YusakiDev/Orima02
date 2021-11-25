@@ -37,5 +37,17 @@ namespace Orima02
         {
             Stats();
         }
+
+        public virtual void What()
+        {
+            Console.WriteLine("sadasdasdadadadsas");
+            Console.WriteLine("sadasdasdadadadsas");
+            Console.WriteLine("sadasdasdadadadsas");
+            Console.WriteLine("sadasdasdadadadsas");
+        }
+        
+        
+        
+        
     }
 }

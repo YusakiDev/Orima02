@@ -4,12 +4,12 @@ namespace Orima02
 {
     public class Scene
     {
-        public int SceneIndex { get; private set; }
+        public double SceneIndex { get; private set; }
         public int TextDelay;
         public string[] Text;
 
 
-        public Scene(int sceneIndex, int textDelay, string[] text)
+        public Scene(double sceneIndex, int textDelay, string[] text)
         {
             SceneIndex= sceneIndex;
             TextDelay = textDelay;

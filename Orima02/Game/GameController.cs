@@ -47,7 +47,7 @@ namespace Orima02
         }
 
 
-        // ReSharper disable once UnusedMethodReturnValue.Global
+        
         public int SelectClass()
         {
             while (true)
@@ -150,11 +150,40 @@ _||_    .-;`\..../`;_.-^-._
                 
             }
         }
+
+        public int SelectSet(Character player)
+        {
+            Console.Clear();
+            Console.WriteLine("Choose Your Beginner Enhancement\n" +
+                              "1. Atk Set\n" +
+                              "2. Mp Set\n" +
+                              "3. Hp Set");
+            ConsoleKey userinput = Console.ReadKey().Key;
+            if (userinput == ConsoleKey.D1)
+            {
+                
+            }
+            else if (userinput == ConsoleKey.D2)
+            {
+                
+            }
+            else if (userinput == ConsoleKey.D3)
+            {
+                
+            }
+            
+            return 0;
+        }
         
         
         
         
-        public int ChoiceSelector(int sceneIndex)
+        
+        
+        
+        
+        
+        public int ChoiceSelector(double sceneIndex)
         {
             while (true)
             {
@@ -164,11 +193,10 @@ _||_    .-;`\..../`;_.-^-._
 
                 switch (sceneIndex)
                 {
-                    case 1:
+                    case 1.1:
                     {
                     Console.WriteLine("1. Greet");
                     Console.WriteLine("2. Nope not me");
-                    
                     
                         if (Console.ReadKey(true).Key == ConsoleKey.D1)
                         {
@@ -186,7 +214,7 @@ _||_    .-;`\..../`;_.-^-._
                             continue;
                         }
                     }
-                    case 2:
+                    case 1.2:
                     {
                         Console.WriteLine("scene2");
                         return 2;

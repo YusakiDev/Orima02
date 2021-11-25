@@ -6,8 +6,8 @@ namespace Orima02
     {
         // Entity Properties
         public string Name;
-        public static int Hp { get; private set; }
-        public static int MaxHp { get; private set; }
+        public int Hp { get; private set; }
+        public int MaxHp { get; private set; }
         public int Atk;
         public static bool IsAlive { get; private set; }
         public bool IsStun;
@@ -37,7 +37,7 @@ namespace Orima02
 
 
 
-        public static void HpSet(int hp)
+        public void HpSet(int hp)
         {
             if (Hp > MaxHp)
             {

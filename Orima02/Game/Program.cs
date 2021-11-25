@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 
 namespace Orima02
 {
@@ -21,15 +22,19 @@ namespace Orima02
 
 
             //Item Declaration
-            FullRegen fullRegen =
-                new FullRegen(ItemName.FullRegen, 1, $"Instantly regenerate your hp to {Entity.MaxHp}");
+            Item atkset = new EquipableItem(ItemName.AtkSet, 3, 1, 1, "Equip Atk Set");
+            Item mpset = new EquipableItem(ItemName.MpSet, 1, 3, 1, "Equip MP Set");
+            Item hpset = new EquipableItem(ItemName.HpSet, 1, 3, 1, "Equip HP Set");
+            Item balanceset = new EquipableItem(ItemName.BalanceSet, 2, 2, 2, "Equip Balance Set");
+            Item fullRegen =
+                new FullRegen(ItemName.FullRegen, $"Instantly regenerate your hp to {player.MaxHp}");
 
             //Inventory Declaration
-            Inventory inventory = new Inventory(new Item[] {fullRegen});
+            Inventory inventory = new Inventory(new [] {fullRegen});
 
 
             //Scene Declaration
-            Scene scene1 = new Scene(1, 10, new[]
+            Scene scene1 = new Scene(1.1, 10, new[]
             {
                 "Narrator: During a long journey \n",
                 "asaaaaaaaaaaaaaaaaaaaaaaaaa \n",
@@ -42,7 +47,7 @@ namespace Orima02
                 "Narrator: During a long journey \n"
             });
 
-            Scene scene1C1 = new Scene(1, 10, new[]
+            Scene scene1C1 = new Scene(1.2, 10, new[]
             {
                 "Scene1c1 \n",
                 "asaaaaaaaaaaaaaaaaaaaaaaaaa \n",
@@ -55,7 +60,7 @@ namespace Orima02
                 "Narrator: During a long journey \n"
             });
 
-            Scene scene1C2 = new Scene(1, 10, new[]
+            Scene scene1C2 = new Scene(1.3, 10, new[]
             {
                 "Scene1c2 \n",
                 "asaaaaaaaaaaaaaaaaaaaaaaaaa \n",
@@ -74,9 +79,7 @@ namespace Orima02
 
 
             //Method
-
             gameController.Menu();
-
             //Select Class
             switch (gameController.SelectClass())
             {
@@ -97,13 +100,11 @@ namespace Orima02
                     break;
                 }
             }
-
-
+            //Debug
             player.Stats();
-            
-            
-
+            //Scene1
             scene1.DisplayScene();
+            //Scene1 Choice1
             if (gameController.ChoiceSelector(scene1.SceneIndex) == 1)
             {
                 scene1C1.DisplayScene();
@@ -112,16 +113,16 @@ namespace Orima02
             {
                 scene1C2.DisplayScene();
             }
-            
+            // scene1 choice2
             // scene2.DisplayScene();
-            //
-            // if (gameController.ChoiceSelector(scene2.SceneIndex) == 1)
+            // scene2
+            // if (gameController.ChoiceSelector(scene2.SceneIndex) == 3)
             // {
-            //     scene2c1.DisplayScene();
+            //     scene2c3.DisplayScene();
             // }
-            // else if(gameController.ChoiceSelector(scene2.SceneIndex) == 2)
+            // else if(gameController.ChoiceSelector(scene2.SceneIndex) == 4)
             // {
-            //     scene2c2.DisplayScene();
+            //     scene2c4.DisplayScene();
             // }
             //
             // scene3.DisplayScene();
@@ -131,7 +132,13 @@ namespace Orima02
             
             
             
+            
+            
+            
             inventory.OpenInventory();
+            
+            
+            
             
             
         }
