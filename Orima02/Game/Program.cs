@@ -188,13 +188,7 @@ namespace Orima02
                 "Goblin : Hokpip!?\n",
                 "(Player) : Wait! The fighter is me!\n",
             });
-
             
-                
-
-
-
-
 
             //game controller Declaration
             GameController gameController = new GameController();
