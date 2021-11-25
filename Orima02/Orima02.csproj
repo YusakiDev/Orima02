@@ -57,9 +57,19 @@
         <Compile Include="Game\IStats.cs" />
         <Compile Include="Game\Program.cs" />
         <Compile Include="Game\Scene.cs" />
+        <Compile Include="Item\AbilityOra.cs" />
+        <Compile Include="Item\AbilityTheWorld.cs" />
+        <Compile Include="Item\AbilityUseLeg.cs" />
+        <Compile Include="Item\DamageBomb.cs" />
+        <Compile Include="Item\DoubleDamage.cs" />
         <Compile Include="Item\EquipableItem.cs" />
+        <Compile Include="Item\FullMp.cs" />
         <Compile Include="Item\FullRegen.cs" />
         <Compile Include="Item\Item.cs" />
+        <Compile Include="Item\PoisonBomb.cs" />
+        <Compile Include="Item\StunBomb.cs" />
+        <Compile Include="Item\TrapDeflect.cs" />
+        <Compile Include="Item\TrapUltimate.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
