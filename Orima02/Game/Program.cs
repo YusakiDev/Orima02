@@ -154,7 +154,7 @@ namespace Orima02
             });
             Scene scene1_2C2 = new Scene(1.2, 10, new[]
             {
-                $"{player.Name} : Salute Princess of the Kingdom of \n",
+                $"{player.Name} : Salute Princess of the Kingdom\n",
                 $"{player.Name} : Sorry to spoil your manners with the princess.\n",
                 "Irene : There is no need to pay great respects.\n",
                 "Irene : Keep your head up\n",

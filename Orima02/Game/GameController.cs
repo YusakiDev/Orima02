@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Security.Cryptography;
-using Microsoft.Win32;
 
 namespace Orima02
 {
@@ -277,7 +275,7 @@ _||_    .-;`\..../`;_.-^-._
         }
 
 
-        public void CombatPhase(Character player, Enemy enemy, ArrayList inventory, ArrayList fullinventory,
+        public void CombatPhase(Character player, Enemy enemy, ArrayList inventory, ArrayList fullInventory,
             Combat combat)
         {
             bool isCombat = true;
@@ -301,7 +299,7 @@ _||_    .-;`\..../`;_.-^-._
                 if (isCombat)
                 {
                     //Player Item Phase
-                    combat.CheckItem(combat.ItemPhase(inventory), fullinventory, player);
+                    combat.CheckItem(combat.ItemPhase(inventory), fullInventory, player);
                     isCombat = combat.CheckIsAlive(player, enemy);
                     combat.Debug(player, enemy);
                 }
