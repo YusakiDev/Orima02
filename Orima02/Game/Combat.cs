@@ -17,12 +17,12 @@ namespace Orima02
         {
             while (true)
             {
+                int i = 1;
                 Console.Clear();
                 Console.WriteLine("Welcome to Item Phase");
                 Console.WriteLine("select your item");
                 foreach (Item item in inventory)
                 {
-                    int i = 1;
                     Console.WriteLine($"{i}.{item.Name}");
                     i++;
                 }

@@ -264,13 +264,9 @@ _||_    .-;`\..../`;_.-^-._
                             continue;
                         }
                     }
-                        
-                    
                 }
                 break;
-                
             }
-
             return 0;
         }
 
@@ -283,6 +279,8 @@ _||_    .-;`\..../`;_.-^-._
             combat.CharPassive(player);
             System.Threading.Thread.Sleep(5000);
             combat.CheckItem(combat.ItemPhase(inventory),fullinventory, player);
+            
+            
 
         }
         

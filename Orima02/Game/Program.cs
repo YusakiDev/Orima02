@@ -143,10 +143,10 @@ namespace Orima02
             Scene scene2_1 = new Scene(2.1, 10, new[]
             {
                 "Narrator The goblins are besieging the princess.\n",
-                 "[Dialogue]\n",
-                 "Irene : Help me!!\n",
-                 "(Player) : There are too many of them. If I break in without a weapon, I'm sure I will lose.\n",
-                 "(Player) : (Equitable Item Set) must be prepared first.\n"
+                "[Dialogue]\n",
+                "Irene : Help me!!\n",
+                "(Player) : There are too many of them. If I break in without a weapon, I'm sure I will lose.\n",
+                "(Player) : (Equitable Item Set) must be prepared first.\n"
             });
             Scene scene2_2 = new Scene(2.2, 10, new[]
             {
