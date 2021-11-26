@@ -6,9 +6,9 @@ namespace Orima02
 {
     public class Inventory
     {
-        public Item[] Items;
+        public UseableItem[] Items;
 
-        public Inventory(Item[] items)
+        public Inventory(UseableItem[] items)
         {
             Items = items;
         }

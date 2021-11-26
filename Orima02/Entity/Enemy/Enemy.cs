@@ -30,8 +30,22 @@ namespace Orima02
                               "| Stats    |          {0}", string.Join(" ", stats.Where(s => !string.IsNullOrEmpty(s))));
 
         }
-        
-        
+
+
+
+        public abstract void Ultimate();
+
+        public void ModifyUlt(int ultpoint)
+        {
+            if (UltPoint <= 0 && UltPoint > 3)
+            {
+                UltPoint += ultpoint;
+            }
+            else
+            {
+                UltPoint = 0;
+            }
+        }
         
     }
 }

@@ -7,6 +7,8 @@ namespace Orima02
         //menu method
         public void Menu()
         {
+            while (true)
+            {
             Console.WriteLine("                              ==============================================\n" +
                               "                              |                                            |\n" +
                               "                              |    ________        .__                     |\n" +
@@ -19,8 +21,7 @@ namespace Orima02
                               "                              |          A Goblin Slayer Origin Story      |\n" +
                               "                              ==============================================");
             Console.WriteLine("\n\n\n\n\n");
-            while (true)
-            {
+            
                 Console.WriteLine("                                             Press Enter to Start...\n");
                 
                 Console.WriteLine("                                         x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x");
@@ -31,6 +32,7 @@ namespace Orima02
                 }
                 else
                 {
+                    Console.Clear();
                     continue;
                 }
             }
@@ -39,10 +41,18 @@ namespace Orima02
         public string GetName()
         {
             //pre game setting input
-            Console.Clear();
-            Console.Write("Please Enter Your Name:");
-            string name = Console.ReadLine();
-            return name;
+            while (true)
+            {
+                Console.Clear();
+                Console.Write("Please Enter Your Name:");
+                string name = Console.ReadLine();
+                name = name.Trim();
+                if (string.IsNullOrEmpty(name))
+                {
+                    continue;
+                }
+                return name;
+            }
         }
         
         public int SelectClass()
@@ -179,7 +189,7 @@ _||_    .-;`\..../`;_.-^-._
         public void EquipSet(Character player, EquipableItem item)
         {
             player.MaxHp = player.MaxHp + item.MaxHp;
-            player.Atk = player.Atk + item.Atk;
+            player.AddAtk(item.Atk);
             player.MaxMp = player.MaxMp + item.MaxMp;
         }
         
@@ -254,25 +264,92 @@ _||_    .-;`\..../`;_.-^-._
                             continue;
                         }
                     }
-                        
-                    
                 }
                 break;
-                
             }
-
             return 0;
         }
 
 
-        public void CombatPhase(Character player, Enemy enemy,Item[] inventory,Item[] fullinventory, Combat combat)
+        public void CombatPhase(Character player, Enemy enemy,UseableItem[] inventory,UseableItem[] fullinventory, Combat combat)
         {
-            Console.Clear();
-            Console.WriteLine("Enter Combat Mode");
+            bool isCombat = true;
+            while (isCombat)
+            {
+                Console.Clear();
+                Console.WriteLine("Enter Combat Mode");
 
-            combat.CharPassive(player);
-            System.Threading.Thread.Sleep(5000);
-            combat.ItemPhase(inventory, fullinventory);
+                if (isCombat)
+                {
+                    //Player Passive
+                    combat.CharPassive(player);
+                    isCombat = combat.CheckIsAlive(player, enemy);
+                }
+                else
+                {
+                    break;
+                }
+                if (isCombat)
+                {
+                    //Player Item Phase
+                    combat.CheckItem(combat.ItemPhase(inventory), fullinventory, player);
+                    isCombat = combat.CheckIsAlive(player, enemy);
+                }
+                else
+                {
+                    break;
+                }
+                if (isCombat)
+                {
+                    //Player Skill Select
+                    combat.SkillPhase(player);
+                    isCombat = combat.CheckIsAlive(player, enemy);
+                }
+                else
+                {
+                    break;
+                }
+                if (isCombat)
+                {
+                    //Player Auto Attack
+                    combat.CharAutoAttack(player, enemy);
+                    isCombat = combat.CheckIsAlive(player, enemy);
+                }
+                else
+                {
+                    break;
+                }
+                if (isCombat)
+                {
+                    //Enemy Passive Phase
+                    combat.EnemyPassive(enemy);
+                    isCombat = combat.CheckIsAlive(player, enemy);
+                }
+                else
+                {
+                    break;
+                }
+                if (isCombat)
+                {
+                    //Enemy Ultimate Check
+                    combat.EnemyUltimate(enemy);
+                    isCombat = combat.CheckIsAlive(player, enemy);
+                }
+                else
+                {
+                    break;
+                }
+                if (isCombat)
+                {
+                    //Enemy Auto Attack
+                    combat.EnemyAutoAttack(player, enemy);
+                    isCombat = combat.CheckIsAlive(player, enemy);
+                }
+                else
+                {
+                    break;
+                }
+            }
 
         }
         

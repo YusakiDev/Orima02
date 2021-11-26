@@ -1,4 +1,6 @@
-﻿namespace Orima02
+﻿using System;
+
+namespace Orima02
 {
     public class Swordsman: Character
     {
@@ -23,7 +25,12 @@
 
         public override void Passive()
         {
-            throw new System.NotImplementedException();
+            Console.WriteLine("Swordsman Passive");
+        }
+
+        public void ShowSkill()
+        {
+            throw new NotImplementedException();
         }
     }
 }
