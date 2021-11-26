@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.ComponentModel;
-using System.Net.Mime;
 
 namespace Orima02
 {
@@ -415,8 +413,6 @@ namespace Orima02
                 $"{player.Name} : Hey! Wait, why is it? What about the passing knight?\n",
                 $"{player.Name} : I just killed 10 goblins.\n",
             });
-
-
             
             
             //Debug
@@ -424,36 +420,39 @@ namespace Orima02
             //Scene1
             scene1_1.DisplayScene();
             //Scene1 Choice1
-            int userInput = gameController.ChoiceSelector(scene1_1.SceneIndex);
-            if (userInput == 1)
+            var userInput = gameController.ChoiceSelector(scene1_1.SceneIndex);
+            switch (userInput)
             {
-                scene1_1C1.DisplayScene();
-            }
-            else if (userInput == 2)
-            {
-                scene1_1C2.DisplayScene();
+                case 1:
+                    scene1_1C1.DisplayScene();
+                    break;
+                case 2:
+                    scene1_1C2.DisplayScene();
+                    break;
             }
             scene1_2.DisplayScene();
             
             userInput = gameController.ChoiceSelector(scene1_2.SceneIndex);
-            if (userInput == 1)
+            switch (userInput)
             {
-                scene1_2C1.DisplayScene();
-            }
-            else if (userInput == 2)
-            {
-                scene1_2C2.DisplayScene();
+                case 1:
+                    scene1_2C1.DisplayScene();
+                    break;
+                case 2:
+                    scene1_2C2.DisplayScene();
+                    break;
             }
             scene1_3.DisplayScene();
             
             userInput = gameController.ChoiceSelector(scene1_3.SceneIndex);
-            if (userInput == 1)
+            switch (userInput)
             {
-                scene1_3C1.DisplayScene();
-            }
-            else if (userInput == 2)
-            {
-                scene1_3C2.DisplayScene();
+                case 1:
+                    scene1_3C1.DisplayScene();
+                    break;
+                case 2:
+                    scene1_3C2.DisplayScene();
+                    break;
             }
             
             
@@ -468,33 +467,34 @@ namespace Orima02
             scene3_1.DisplayScene();
             //fight
             gameController.CombatPhase(player, goblinGuard, inventory.Items, fullInventory.Items, combat);
-            gameController.RandomStage1(inventory.Items, stage1.Items);
+            gameController.RandomStage1(inventory,inventory.Items, stage1.Items);
             //Scene4
             scene4_1.DisplayScene();
             userInput = gameController.ChoiceSelector(scene4_1.SceneIndex);
-            if (userInput == 1)
+            switch (userInput)
             {
-                scene4_1C1.DisplayScene();
-            }
-            else if (userInput == 2)
-            {
-                scene4_1C2.DisplayScene();
+                case 1:
+                    scene4_1C1.DisplayScene();
+                    break;
+                case 2:
+                    scene4_1C2.DisplayScene();
+                    break;
             }
             scene4_2.DisplayScene();
             //fight
             gameController.CombatPhase(player, goblinWarrior, inventory.Items, fullInventory.Items, combat);
-            gameController.RandomStage1(inventory.Items, stage2.Items);
+            gameController.RandomStage2(inventory,inventory.Items, stage2.Items);
             
             //Scene5
             scene5_1.DisplayScene();
             //fight
             gameController.CombatPhase(player, poisonGoblin, inventory.Items, fullInventory.Items, combat);
-            gameController.RandomStage1(inventory.Items, stage3.Items);
+            gameController.RandomStage3(inventory,inventory.Items, stage3.Items);
             //Scene6
             scene6_1.DisplayScene();
             //fight
             gameController.CombatPhase(player, muscularGoblin, inventory.Items, fullInventory.Items, combat);
-            gameController.RandomStage1(inventory.Items, stage4.Items);
+            gameController.RandomStage4(inventory,inventory.Items, stage4.Items);
             scene6_2.DisplayScene();
             
             //Scene7

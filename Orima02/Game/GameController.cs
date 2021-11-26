@@ -373,7 +373,7 @@ _||_    .-;`\..../`;_.-^-._
 
         }
 
-        public void RandomStage1(ArrayList inventory, ArrayList stage1)
+        public void RandomStage1(Inventory yourInventory, ArrayList inventory, ArrayList stage1)
         {
             var rnd = new Random();
             Console.Clear();
@@ -384,20 +384,27 @@ _||_    .-;`\..../`;_.-^-._
             {
                 case 1:
                 {
-                    Console.WriteLine($"You just got {stage1[0]}");
+                    Console.WriteLine("You just got new Item!");
                     inventory.Add(stage1[0]);
+                    Console.ReadKey();
+                    yourInventory.OpenInventory();
                     break;
                 }
                 case 2:
                 {
-                    Console.WriteLine($"You just got {stage1[1]}");
+                    //TODO
+                    Console.WriteLine("You just got new Item!");
                     inventory.Add(stage1[1]);
+                    Console.ReadKey();
+                    yourInventory.OpenInventory();
                     break;
                 }
                 case 3:
                 {
-                    Console.WriteLine($"You just got {stage1[2]}");
+                    Console.WriteLine("You just got new Item!");
                     inventory.Add(stage1[2]);
+                    Console.ReadKey();
+                    yourInventory.OpenInventory();
                     break;
                 }
 
@@ -406,7 +413,7 @@ _||_    .-;`\..../`;_.-^-._
             Console.ReadKey();
         }
 
-        public void RandomStage2(ArrayList inventory, ArrayList stage2)
+        public void RandomStage2(Inventory yourInventory, ArrayList inventory, ArrayList stage2)
         {
             var rnd = new Random();
             Console.Clear();
@@ -417,20 +424,26 @@ _||_    .-;`\..../`;_.-^-._
             {
                 case 1:
                 {
-                    Console.WriteLine($"You just got {stage2[0]}");
+                    Console.WriteLine("You just got new Item!");
                     inventory.Add(stage2[0]);
+                    Console.ReadKey();
+                    yourInventory.OpenInventory();
                     break;
                 }
                 case 2:
                 {
-                    Console.WriteLine($"You just got {stage2[1]}");
+                    Console.WriteLine("You just got new Item!");
                     inventory.Add(stage2[1]);
+                    Console.ReadKey();
+                    yourInventory.OpenInventory();
                     break;
                 }
                 case 3:
                 {
-                    Console.WriteLine($"You just got {stage2[2]}");
+                    Console.WriteLine("You just got new Item!");
                     inventory.Add(stage2[2]);
+                    Console.ReadKey();
+                    yourInventory.OpenInventory();
                     break;
                 }
 
@@ -439,7 +452,7 @@ _||_    .-;`\..../`;_.-^-._
             Console.ReadKey();
         }
         
-        public void RandomStage3(ArrayList inventory, ArrayList stage3)
+        public void RandomStage3(Inventory yourInventory, ArrayList inventory, ArrayList stage3)
         {
             var rnd = new Random();
             Console.Clear();
@@ -450,29 +463,33 @@ _||_    .-;`\..../`;_.-^-._
             {
                 case 1:
                 {
-                    Console.WriteLine($"You just got {stage3[0]}");
+                    Console.WriteLine("You just got new Item!");
                     inventory.Add(stage3[0]);
+                    Console.ReadKey();
+                    yourInventory.OpenInventory();
                     break;
                 }
                 case 2:
                 {
-                    Console.WriteLine($"You just got {stage3[1]}");
+                    Console.WriteLine("You just got new Item!");
                     inventory.Add(stage3[1]);
+                    Console.ReadKey();
+                    yourInventory.OpenInventory();
                     break;
                 }
                 case 3:
                 {
-                    Console.WriteLine($"You just got {stage3[2]}");
+                    Console.WriteLine("You just got new Item!");
                     inventory.Add(stage3[2]);
+                    Console.ReadKey();
+                    yourInventory.OpenInventory();
                     break;
                 }
 
             }
-
-            Console.ReadKey();
         }
         
-        public void RandomStage4(ArrayList inventory, ArrayList stage4)
+        public void RandomStage4(Inventory yourInventory, ArrayList inventory, ArrayList stage4)
         {
             var rnd = new Random();
             Console.Clear();
@@ -483,26 +500,30 @@ _||_    .-;`\..../`;_.-^-._
             {
                 case 1:
                 {
-                    Console.WriteLine($"You just got {stage4[0]}");
+                    Console.WriteLine("You just got new Item!");
                     inventory.Add(stage4[0]);
+                    Console.ReadKey();
+                    yourInventory.OpenInventory();
                     break;
                 }
                 case 2:
                 {
-                    Console.WriteLine($"You just got {stage4[1]}");
+                    Console.WriteLine("You just got new Item!");
                     inventory.Add(stage4[1]);
+                    Console.ReadKey();
+                    yourInventory.OpenInventory();
                     break;
                 }
                 case 3:
                 {
-                    Console.WriteLine($"You just got {stage4[2]}");
+                    Console.WriteLine("You just got new Item!");
                     inventory.Add(stage4[2]);
+                    Console.ReadKey();
+                    yourInventory.OpenInventory();
                     break;
                 }
 
             }
-
-            Console.ReadKey();
         }
     }
 }
