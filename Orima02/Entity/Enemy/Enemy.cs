@@ -9,7 +9,7 @@ namespace Orima02
         public int MaxUltPoint;
         
         
-        protected Enemy(string name, int hp, int maxHp, int atk, int ultpoint, int maxUltPoint, bool isAlive, bool isStun, bool isPoison) : base(name, hp, maxHp, atk, isAlive, isStun, isPoison)
+        protected Enemy(string name, int hp, int maxHp, int atk, int ultpoint, int maxUltPoint, bool isAlive, bool isStun, bool isPoison, int baseAtk) : base(name, hp, maxHp, atk, isAlive, isStun, isPoison, baseAtk)
         {
             UltPoint = ultpoint;
             MaxUltPoint = maxUltPoint;

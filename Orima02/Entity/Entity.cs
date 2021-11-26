@@ -9,13 +9,15 @@ namespace Orima02
         public int Hp { get; private set; }
         public int MaxHp;
         public int Atk { get; private set; }
+        public int BaseAtk { get; set; }
+        
         public bool IsAlive { get; private set; }
         public bool IsStun;
         public bool IsPoison;
 
         
         //Entity Constructors
-        protected Entity(string name, int hp, int maxHp, int atk, bool isAlive, bool isStun, bool isPoison)
+        protected Entity(string name, int hp, int maxHp, int atk, bool isAlive, bool isStun, bool isPoison, int baseAtk)
         {
             Name = name;
             Hp = hp;
@@ -24,12 +26,15 @@ namespace Orima02
             IsAlive = isAlive;
             IsStun = isStun;
             IsPoison = isPoison;
+            BaseAtk = baseAtk;
         }
 
         protected Entity()
         {
             
         }
+
+        
 
 
         //force abstract use
@@ -39,11 +44,9 @@ namespace Orima02
 
         public void ModifyHp(int hp)
         {
-            if (0 < Hp && Hp < MaxHp)
-            {
-                Hp = Hp + hp;
-            }
-            if (Hp > MaxHp)
+            
+            Hp = Hp + hp;
+                if (Hp > MaxHp)
             {
                 Hp = MaxHp;
             }
@@ -54,9 +57,9 @@ namespace Orima02
             }
         }
         
-        public void AddAtk(int atk)
+        public void ModifyAtk(int atk)
         {
-            if (atk >= 0 && Atk <= 0)
+            if (atk >= 0)
             {
                 Atk = Atk + atk;
             }
@@ -64,6 +67,11 @@ namespace Orima02
             {
                 Atk = 0;
             }
+        }
+        
+        public void ResetAtk()
+        {
+            Atk = BaseAtk;
         }
         
         

@@ -8,7 +8,7 @@ namespace Orima02
         public int Mp { get; private set; }
         public int MaxMp;
 
-        protected Character(string name, int hp, int maxHp, int mp, int maxMp, int atk, bool isAlive, bool isStun, bool isPoison) : base(name, hp, maxHp, atk, isAlive, isStun, isPoison)
+        protected Character(string name, int hp, int maxHp, int mp, int maxMp, int atk, bool isAlive, bool isStun, bool isPoison, int baseAtk) : base(name, hp, maxHp, atk, isAlive, isStun, isPoison, baseAtk)
         {
             Mp = mp;
             MaxMp = maxMp;
@@ -24,12 +24,10 @@ namespace Orima02
         public abstract void Passive();
         
 
-        public void AddMp(int mp)
+        public void ModifyMp(int mp)
         {
             Mp = Mp + mp;
-            
-            
-            
+
             if (Mp > MaxMp)
             {
                 Mp = MaxMp;

@@ -8,11 +8,11 @@ namespace Orima02
         public static void Main(string[] args)
         {
             //Enemy Declaration
-            GoblinGuard goblinGuard = new GoblinGuard("Goblin Guard", 10, 10, 5, 1, 3, true, false, true);
-            GoblinWarrior goblinWarrior = new GoblinWarrior("Goblin Warrior", 10, 10, 5, 1, 3, true, true, true);
-            PoisonGoblin poisonGoblin = new PoisonGoblin("Goblin Warrior", 10, 10, 5, 1, 3, true, true, true);
-            MuscularGoblin muscularGoblin = new MuscularGoblin("Goblin Warrior", 10, 10, 5, 1, 3, true, true, true);
-            KingGoblin kingGoblin= new KingGoblin("Goblin Warrior", 10, 10, 5, 1, 3, true, true, true);
+            GoblinGuard goblinGuard = new GoblinGuard("Goblin Guard", 100, 100, 3, 1, 3, true, false, true,5);
+            GoblinWarrior goblinWarrior = new GoblinWarrior("Goblin Warrior", 10, 10, 5, 1, 3, true, true, true,10);
+            PoisonGoblin poisonGoblin = new PoisonGoblin("Goblin Warrior", 10, 10, 5, 1, 3, true, true, true,10);
+            MuscularGoblin muscularGoblin = new MuscularGoblin("Goblin Warrior", 10, 10, 5, 1, 3, true, true, true,10);
+            KingGoblin kingGoblin= new KingGoblin("Goblin Warrior", 10, 10, 5, 1, 3, true, true, true,10);
 
             
             //Combat Class Declaration
@@ -88,17 +88,17 @@ namespace Orima02
             {
                 case 1:
                 {
-                    player = new Magician(gameController.GetName(), 1, 12, 12, 12, 3, true, true, true);
+                    player = new Magician(gameController.GetName(), 12, 12, 12, 12, 3, true, true, true, 3);
                     break;
                 }
                 case 2:
                 {
-                    player = new Swordsman(gameController.GetName(), 12, 12, 9, 9, 5, true, true, true);
+                    player = new Swordsman(gameController.GetName(), 12, 12, 9, 9, 5, true, true, true,5);
                     break;
                 }
                 case 3:
                 {
-                    player = new Volunteer(gameController.GetName(), 15, 15, 9, 9, 3, true, true, true);
+                    player = new Volunteer(gameController.GetName(), 15, 15, 9, 9, 3, true, true, true,3);
                     break;
                 }
             }
@@ -416,55 +416,55 @@ namespace Orima02
             
             
             //Debug
-            player.Stats();
+            //player.Stats();
             //Scene1
-            scene1_1.DisplayScene();
+            //scene1_1.DisplayScene();
             //Scene1 Choice1
             var userInput = gameController.ChoiceSelector(scene1_1.SceneIndex);
-            switch (userInput)
-            {
-                case 1:
-                    scene1_1C1.DisplayScene();
-                    break;
-                case 2:
-                    scene1_1C2.DisplayScene();
-                    break;
-            }
-            scene1_2.DisplayScene();
-            
-            userInput = gameController.ChoiceSelector(scene1_2.SceneIndex);
-            switch (userInput)
-            {
-                case 1:
-                    scene1_2C1.DisplayScene();
-                    break;
-                case 2:
-                    scene1_2C2.DisplayScene();
-                    break;
-            }
-            scene1_3.DisplayScene();
-            
-            userInput = gameController.ChoiceSelector(scene1_3.SceneIndex);
-            switch (userInput)
-            {
-                case 1:
-                    scene1_3C1.DisplayScene();
-                    break;
-                case 2:
-                    scene1_3C2.DisplayScene();
-                    break;
-            }
+            // switch (userInput)
+            // {
+            //     case 1:
+            //         scene1_1C1.DisplayScene();
+            //         break;
+            //     case 2:
+            //         scene1_1C2.DisplayScene();
+            //         break;
+            // }
+            // scene1_2.DisplayScene();
+            //
+            // userInput = gameController.ChoiceSelector(scene1_2.SceneIndex);
+            // switch (userInput)
+            // {
+            //     case 1:
+            //         scene1_2C1.DisplayScene();
+            //         break;
+            //     case 2:
+            //         scene1_2C2.DisplayScene();
+            //         break;
+            // }
+            // scene1_3.DisplayScene();
+            //
+            // userInput = gameController.ChoiceSelector(scene1_3.SceneIndex);
+            // switch (userInput)
+            // {
+            //     case 1:
+            //         scene1_3C1.DisplayScene();
+            //         break;
+            //     case 2:
+            //         scene1_3C2.DisplayScene();
+            //         break;
+            // }
             
             
             //Scene2
-            scene2_1.DisplayScene();
+            //scene2_1.DisplayScene();
             //picking item
             gameController.SelectSet(player, atkSet, mpSet, hpSet, balanceSet);
-            scene2_2.DisplayScene();
+            //scene2_2.DisplayScene();
             
             
             //Scene3
-            scene3_1.DisplayScene();
+            //scene3_1.DisplayScene();
             //fight
             gameController.CombatPhase(player, goblinGuard, inventory.Items, fullInventory.Items, combat);
             gameController.RandomStage1(inventory,inventory.Items, stage1.Items);

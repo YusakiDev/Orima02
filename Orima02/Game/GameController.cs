@@ -193,7 +193,8 @@ _||_    .-;`\..../`;_.-^-._
         public void EquipSet(Character player, EquipableItem item)
         {
             player.MaxHp = player.MaxHp + item.MaxHp;
-            player.AddAtk(item.Atk);
+            player.ModifyAtk(item.Atk);
+            player.BaseAtk = player.BaseAtk + item.Atk;
             player.MaxMp = player.MaxMp + item.MaxMp;
         }
 
@@ -279,16 +280,24 @@ _||_    .-;`\..../`;_.-^-._
         public void CombatPhase(Character player, Enemy enemy, ArrayList inventory, ArrayList fullInventory,
             Combat combat)
         {
+            var i = 0;
             while (true)
             {
+                player.ModifyHp(player.MaxHp);
+                player.ModifyMp(player.MaxMp);
+                player.ResetAtk();
                 while (true)
                 {
+                    i++;
                     Console.Clear();
-                    Console.WriteLine("Enter Combat Mode");
+                    Console.WriteLine($"Round: {i}");
+                    Thread.Sleep(3000);
 
                     if (player.IsAlive && enemy.IsAlive)
                     {
                         //Player Passive
+                        Console.Clear();
+                        player.Stats();
                         combat.CharPassive(player);
                         combat.Debug(player, enemy);
                     }
@@ -300,7 +309,9 @@ _||_    .-;`\..../`;_.-^-._
                     if (player.IsAlive && enemy.IsAlive)
                     {
                         //Player Item Phase
-                        combat.CheckItem(combat.ItemPhase(inventory), fullInventory, player);
+                        Console.Clear();
+                        player.Stats();
+                        combat.CheckItem(combat.ItemPhase(inventory), fullInventory, inventory, player);
                         combat.Debug(player, enemy);
                     }
                     else
@@ -311,6 +322,8 @@ _||_    .-;`\..../`;_.-^-._
                     if (player.IsAlive && enemy.IsAlive)
                     {
                         //Player Skill Select
+                        Console.Clear();
+                        player.Stats();
                         combat.SkillPhase(player);
                         combat.Debug(player, enemy);
                     }
@@ -322,6 +335,8 @@ _||_    .-;`\..../`;_.-^-._
                     if (player.IsAlive && enemy.IsAlive)
                     {
                         //Player Auto Attack
+                        Console.Clear();
+                        player.Stats();
                         combat.CharAutoAttack(player, enemy);
                         combat.Debug(player, enemy);
                     }
@@ -333,6 +348,8 @@ _||_    .-;`\..../`;_.-^-._
                     if (player.IsAlive && enemy.IsAlive)
                     {
                         //Enemy Passive Phase
+                        Console.Clear();
+                        player.Stats();
                         combat.EnemyPassive(enemy);
                         combat.Debug(player, enemy);
                     }
@@ -344,6 +361,8 @@ _||_    .-;`\..../`;_.-^-._
                     if (player.IsAlive && enemy.IsAlive)
                     {
                         //Enemy Ultimate Check
+                        Console.Clear();
+                        player.Stats();
                         combat.EnemyUltimate(enemy);
                         combat.Debug(player, enemy);
                     }
@@ -355,6 +374,8 @@ _||_    .-;`\..../`;_.-^-._
                     if (player.IsAlive && enemy.IsAlive)
                     {
                         //Enemy Auto Attack
+                        Console.Clear();
+                        player.Stats();
                         combat.EnemyAutoAttack(player, enemy);
                         combat.Debug(player, enemy);
                     }
@@ -372,7 +393,7 @@ _||_    .-;`\..../`;_.-^-._
                     Console.WriteLine("Retry?\n" +
                                       "1. Yes\n" +
                                       "2. No");
-                    var userInput = Console.ReadKey().Key;
+                    var userInput = Console.ReadKey(true).Key;
                     if (userInput == ConsoleKey.D1)
                     {
                         continue;

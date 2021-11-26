@@ -4,9 +4,7 @@ namespace Orima02
 {
     public class Swordsman: Character
     {
-        public Swordsman(string name, int hp, int maxHp, int mp, int maxMp, int atk, bool isAlive, bool isStun, bool isPoison) : base(name, hp, maxHp, mp, maxMp, atk, isAlive, isStun, isPoison)
-        {
-        }
+        
 
         public override void Attack()
         {
@@ -31,6 +29,10 @@ namespace Orima02
         public void ShowSkill()
         {
             throw new NotImplementedException();
+        }
+
+        public Swordsman(string name, int hp, int maxHp, int mp, int maxMp, int atk, bool isAlive, bool isStun, bool isPoison, int baseAtk) : base(name, hp, maxHp, mp, maxMp, atk, isAlive, isStun, isPoison, baseAtk)
+        {
         }
     }
 }

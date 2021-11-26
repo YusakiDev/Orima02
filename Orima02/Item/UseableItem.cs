@@ -19,13 +19,13 @@ namespace Orima02
         public void DoubleDamage(Character player)
         {
             Console.WriteLine("Double Damage");
-            player.AddAtk(player.Atk);
+            player.ModifyAtk(player.Atk);
         }
 
         public void FullMp(Character player)
         {
             Console.WriteLine("Full MP");
-            player.AddMp(player.Mp);
+            player.ModifyMp(player.Mp);
         }
         public void StunBomb(Enemy enemy)
         {

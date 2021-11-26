@@ -4,11 +4,7 @@ namespace Orima02
 {
     public class Magician: Character
     {
-        public Magician(string name, int hp, int maxHp, int mp, int maxMp, int atk, bool isAlive, bool isStun, bool isPoison) : base(name, hp, maxHp, mp, maxMp, atk, isAlive, isStun, isPoison)
-        {
-            
-        }
-        
+
 
         public override void Attack()
         {
@@ -19,7 +15,7 @@ namespace Orima02
         
         public override void Passive()
         {
-            AddMp(1);
+            ModifyMp(1);
         }
 
         public void ShowSkill()
@@ -39,6 +35,10 @@ namespace Orima02
         public override void Skill2()
         {
             throw new NotImplementedException();
+        }
+
+        public Magician(string name, int hp, int maxHp, int mp, int maxMp, int atk, bool isAlive, bool isStun, bool isPoison, int baseAtk) : base(name, hp, maxHp, mp, maxMp, atk, isAlive, isStun, isPoison, baseAtk)
+        {
         }
     }
 }

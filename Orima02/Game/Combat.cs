@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Security;
 
 namespace Orima02
 {
@@ -10,7 +11,7 @@ namespace Orima02
         public void CharPassive(Character player)
         {
             player.Passive();
-            player.AddMp(1);
+            player.ModifyMp(1);
             Console.WriteLine($"{player.Mp}/{player.MaxMp}");
         }
 
@@ -19,7 +20,6 @@ namespace Orima02
             while (true)
             {
                 int i = 1;
-                Console.Clear();
                 Console.WriteLine("Welcome to Item Phase");
                 Console.WriteLine("select your item");
                 foreach (UseableItem item in inventory)
@@ -62,17 +62,19 @@ namespace Orima02
             }
         }
 
-        public void CheckItem(object item, ArrayList allItem, Character player)
+        public void CheckItem(object item, ArrayList allItem, ArrayList inventory, Character player)
         {
             //TODO
             if (item == allItem[0])
             {
                 UseableItem fullRegen = new UseableItem(ItemName.FullRegen, "blaBla");
                 fullRegen.FullRegen(player);
+                inventory.Remove(item);
             } else if (item == allItem[1])
             {
                 UseableItem doubleDamage = new UseableItem(ItemName.DoubleDamage, "Bla Bla");
                 doubleDamage.DoubleDamage(player);
+                inventory.Remove(item);
             }else if (item == allItem[2])
             {
                 
