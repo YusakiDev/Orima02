@@ -45,7 +45,7 @@ namespace Orima02
 
         public void Stats()
         {
-            string[] stats = new string[] {CheckIfPoison(), CheckIfStunned()};
+            string[] stats = {CheckIfPoison(), CheckIfStunned()};
 
 
             Console.WriteLine($"==={Name} Stats===\n" +

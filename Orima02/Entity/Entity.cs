@@ -5,7 +5,7 @@ namespace Orima02
     public abstract class Entity
     {
         // Entity Properties
-        public string Name;
+        public string Name { get; }
         public int Hp { get; private set; }
         public int MaxHp;
         public int Atk { get; private set; }

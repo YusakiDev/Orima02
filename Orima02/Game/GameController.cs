@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.Win32;
 
 namespace Orima02
 {
@@ -158,30 +159,30 @@ _||_    .-;`\..../`;_.-^-._
             }
         }
 
-        public void SelectSet(Character player, EquipableItem atkset,EquipableItem mpset, EquipableItem hpset, EquipableItem balancedset)
+        public void SelectSet(Character player, EquipableItem atkSet,EquipableItem mpSet, EquipableItem hpSet, EquipableItem balancedSet)
         {
             Console.Clear();
             Console.WriteLine("Choose Your Beginner Enhancement\n" +
                               "1. Atk Set\n" +
                               "2. Mp Set\n" +
                               "3. Hp Set\n" +
-                              "3. Balanced set");
-            ConsoleKey userinput = Console.ReadKey().Key;
-            if (userinput == ConsoleKey.D1)
+                              "4. Balanced set");
+            ConsoleKey userInput = Console.ReadKey().Key;
+            if (userInput == ConsoleKey.D1)
             {
-                EquipSet(player, atkset);
+                EquipSet(player, atkSet);
             }
-            else if (userinput == ConsoleKey.D2)
+            else if (userInput == ConsoleKey.D2)
             {
-                EquipSet(player, mpset);
+                EquipSet(player, mpSet);
             }
-            else if (userinput == ConsoleKey.D3)
+            else if (userInput == ConsoleKey.D3)
             {
-                EquipSet(player, hpset);
+                EquipSet(player, hpSet);
             }
-            else if (userinput == ConsoleKey.D4)
+            else if (userInput == ConsoleKey.D4)
             {
-                EquipSet(player,balancedset);
+                EquipSet(player,balancedSet);
             }
             
         }
@@ -205,64 +206,63 @@ _||_    .-;`\..../`;_.-^-._
                 {
                     case 1.1:
                     {
-                    Console.WriteLine("1. Greet");
-                    Console.WriteLine("2. Nope not me");
-                    
-                        if (Console.ReadKey(true).Key == ConsoleKey.D1)
+                        Console.WriteLine("1. Greet");
+                        Console.WriteLine("2. Nope not me");
+                        var userInput = Console.ReadKey(true).Key;
+                        
+                        if (userInput == ConsoleKey.D1)
                         {
                             Console.Clear();
                             return 1;
-                        } 
-                        if (Console.ReadKey(true).Key == ConsoleKey.D2)
+                        }
+                        else if (userInput == ConsoleKey.D2)
                         {
                             Console.Clear();
                             return 2;
                         }
-                        else
-                        {
-                            Console.Clear();
-                            continue;
-                        }
+                        
+                        Console.Clear();
+                        continue;
                     }
                     case 1.2:
                     {
                         Console.WriteLine("1.Why did you come here?");
                         Console.WriteLine("2.pay homage to the princess?");
-                        if (Console.ReadKey(true).Key == ConsoleKey.D1)
+                        var userInput = Console.ReadKey(true).Key;
+                        if (userInput == ConsoleKey.D1)
                         {
                             Console.Clear();
                             return 1;
-                        } 
-                        if (Console.ReadKey(true).Key == ConsoleKey.D2)
+                        }
+
+                        if (userInput == ConsoleKey.D2)
                         {
                             Console.Clear();
                             return 2;
                         }
-                        else
-                        {
-                            Console.Clear();
-                            continue;
-                        }
+
+                        Console.Clear();
+                        continue;
                     }
                     case 1.3:
                     {
                         Console.WriteLine("1.let go help");
                         Console.WriteLine("2.it's not my business ==");
-                        if (Console.ReadKey(true).Key == ConsoleKey.D1)
+                        var userInput = Console.ReadKey(true).Key;
+                        if (userInput == ConsoleKey.D1)
                         {
                             Console.Clear();
                             return 1;
-                        } 
-                        if (Console.ReadKey(true).Key == ConsoleKey.D2)
+                        }
+
+                        if (userInput == ConsoleKey.D2)
                         {
                             Console.Clear();
                             return 2;
                         }
-                        else
-                        {
-                            Console.Clear();
-                            continue;
-                        }
+
+                        Console.Clear();
+                        continue;
                     }
                 }
                 break;
