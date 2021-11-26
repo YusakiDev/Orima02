@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Security.Cryptography;
 using Microsoft.Win32;
 
 namespace Orima02
@@ -11,20 +13,20 @@ namespace Orima02
             while (true)
             {
                 Console.WriteLine("                              ==============================================\n" +
-                              "                              |                                            |\n" +
-                              "                              |    ________        .__                     |\n" +
-                              "                              |    \\_____  \\_______|__| _____ _____        |\n" +
-                              "                              |     /   |   \\_  __ \\  |/     \\\\__  \\       |\n" +
-                              "                              |    /    |    \\  | \\/  |  Y Y  \\/ __ \\_     |\n" +
-                              "                              |    \\_______  /__|  |__|__|_|  (____  /     |\n" +
-                              "                              |            \\/               \\/     \\/      |\n" +
-                              "                              |                                            |\n" +
-                              "                              |          A Goblin Slayer Origin Story      |\n" +
-                              "                              ==============================================");
+                                  "                              |                                            |\n" +
+                                  "                              |    ________        .__                     |\n" +
+                                  "                              |    \\_____  \\_______|__| _____ _____        |\n" +
+                                  "                              |     /   |   \\_  __ \\  |/     \\\\__  \\       |\n" +
+                                  "                              |    /    |    \\  | \\/  |  Y Y  \\/ __ \\_     |\n" +
+                                  "                              |    \\_______  /__|  |__|__|_|  (____  /     |\n" +
+                                  "                              |            \\/               \\/     \\/      |\n" +
+                                  "                              |                                            |\n" +
+                                  "                              |          A Goblin Slayer Origin Story      |\n" +
+                                  "                              ==============================================");
                 Console.WriteLine("\n\n\n\n\n");
-                
+
                 Console.WriteLine("                                             Press Enter to Start...\n");
-                
+
                 Console.WriteLine("                                         x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x");
                 if (Console.ReadKey(true).Key == ConsoleKey.Enter)
                 {
@@ -38,7 +40,7 @@ namespace Orima02
                 }
             }
         }
-        
+
         public string GetName()
         {
             //pre game setting input
@@ -52,16 +54,17 @@ namespace Orima02
                 {
                     continue;
                 }
+
                 return name;
             }
         }
-        
+
         public int SelectClass()
         {
             while (true)
             {
-                
-            
+
+
                 Console.Clear();
                 Console.WriteLine("Choose Your Class");
                 Console.WriteLine("1. Magician\n" +
@@ -96,7 +99,7 @@ namespace Orima02
 ");
                     return 1;
                 }
-                else if(userInput == ConsoleKey.D2)
+                else if (userInput == ConsoleKey.D2)
                 {
                     Console.WriteLine(@"
 
@@ -155,11 +158,12 @@ _||_    .-;`\..../`;_.-^-._
                 {
                     continue;
                 }
-                
+
             }
         }
 
-        public void SelectSet(Character player, EquipableItem atkSet,EquipableItem mpSet, EquipableItem hpSet, EquipableItem balancedSet)
+        public void SelectSet(Character player, EquipableItem atkSet, EquipableItem mpSet, EquipableItem hpSet,
+            EquipableItem balancedSet)
         {
             Console.Clear();
             Console.WriteLine("Choose Your Beginner Enhancement\n" +
@@ -182,24 +186,24 @@ _||_    .-;`\..../`;_.-^-._
             }
             else if (userInput == ConsoleKey.D4)
             {
-                EquipSet(player,balancedSet);
+                EquipSet(player, balancedSet);
             }
-            
+
         }
-        
+
         public void EquipSet(Character player, EquipableItem item)
         {
             player.MaxHp = player.MaxHp + item.MaxHp;
             player.AddAtk(item.Atk);
             player.MaxMp = player.MaxMp + item.MaxMp;
         }
-        
+
         public int ChoiceSelector(double sceneIndex)
         {
             while (true)
             {
-                Console.WriteLine("===================\n" + 
-                                  "|     Choice!     |\n" + 
+                Console.WriteLine("===================\n" +
+                                  "|     Choice!     |\n" +
                                   "===================");
 
                 switch (sceneIndex)
@@ -209,7 +213,7 @@ _||_    .-;`\..../`;_.-^-._
                         Console.WriteLine("1. Greet");
                         Console.WriteLine("2. Nope not me");
                         var userInput = Console.ReadKey(true).Key;
-                        
+
                         if (userInput == ConsoleKey.D1)
                         {
                             Console.Clear();
@@ -220,7 +224,7 @@ _||_    .-;`\..../`;_.-^-._
                             Console.Clear();
                             return 2;
                         }
-                        
+
                         Console.Clear();
                         continue;
                     }
@@ -265,13 +269,16 @@ _||_    .-;`\..../`;_.-^-._
                         continue;
                     }
                 }
+
                 break;
             }
+
             return 0;
         }
 
 
-        public void CombatPhase(Character player, Enemy enemy,UseableItem[] inventory,UseableItem[] fullinventory, Combat combat)
+        public void CombatPhase(Character player, Enemy enemy, ArrayList inventory, ArrayList fullinventory,
+            Combat combat)
         {
             bool isCombat = true;
             while (isCombat)
@@ -284,73 +291,79 @@ _||_    .-;`\..../`;_.-^-._
                     //Player Passive
                     combat.CharPassive(player);
                     isCombat = combat.CheckIsAlive(player, enemy);
-                    combat.Debug(player,enemy);
+                    combat.Debug(player, enemy);
                 }
                 else
                 {
                     break;
                 }
+
                 if (isCombat)
                 {
                     //Player Item Phase
                     combat.CheckItem(combat.ItemPhase(inventory), fullinventory, player);
                     isCombat = combat.CheckIsAlive(player, enemy);
-                    combat.Debug(player,enemy);
+                    combat.Debug(player, enemy);
                 }
                 else
                 {
                     break;
                 }
+
                 if (isCombat)
                 {
                     //Player Skill Select
                     combat.SkillPhase(player);
                     isCombat = combat.CheckIsAlive(player, enemy);
-                    combat.Debug(player,enemy);
+                    combat.Debug(player, enemy);
                 }
                 else
                 {
                     break;
                 }
+
                 if (isCombat)
                 {
                     //Player Auto Attack
                     combat.CharAutoAttack(player, enemy);
                     isCombat = combat.CheckIsAlive(player, enemy);
-                    combat.Debug(player,enemy);
+                    combat.Debug(player, enemy);
                 }
                 else
                 {
                     break;
                 }
+
                 if (isCombat)
                 {
                     //Enemy Passive Phase
                     combat.EnemyPassive(enemy);
                     isCombat = combat.CheckIsAlive(player, enemy);
-                    combat.Debug(player,enemy);
+                    combat.Debug(player, enemy);
                 }
                 else
                 {
                     break;
                 }
+
                 if (isCombat)
                 {
                     //Enemy Ultimate Check
                     combat.EnemyUltimate(enemy);
                     isCombat = combat.CheckIsAlive(player, enemy);
-                    combat.Debug(player,enemy);
+                    combat.Debug(player, enemy);
                 }
                 else
                 {
                     break;
                 }
+
                 if (isCombat)
                 {
                     //Enemy Auto Attack
                     combat.EnemyAutoAttack(player, enemy);
                     isCombat = combat.CheckIsAlive(player, enemy);
-                    combat.Debug(player,enemy);
+                    combat.Debug(player, enemy);
                 }
                 else
                 {
@@ -359,12 +372,137 @@ _||_    .-;`\..../`;_.-^-._
             }
 
         }
+
+        public void RandomStage1(ArrayList inventory, ArrayList stage1)
+        {
+            var rnd = new Random();
+            Console.Clear();
+            Console.WriteLine("Welcome to Random Item Stage");
+            Console.ReadKey();
+            var random = rnd.Next(1, 3);
+            switch (random)
+            {
+                case 1:
+                {
+                    Console.WriteLine($"You just got {stage1[0]}");
+                    inventory.Add(stage1[0]);
+                    break;
+                }
+                case 2:
+                {
+                    Console.WriteLine($"You just got {stage1[1]}");
+                    inventory.Add(stage1[1]);
+                    break;
+                }
+                case 3:
+                {
+                    Console.WriteLine($"You just got {stage1[2]}");
+                    inventory.Add(stage1[2]);
+                    break;
+                }
+
+            }
+
+            Console.ReadKey();
+        }
+
+        public void RandomStage2(ArrayList inventory, ArrayList stage2)
+        {
+            var rnd = new Random();
+            Console.Clear();
+            Console.WriteLine("Welcome to Random Item Stage");
+            Console.ReadKey();
+            var random = rnd.Next(1, 3);
+            switch (random)
+            {
+                case 1:
+                {
+                    Console.WriteLine($"You just got {stage2[0]}");
+                    inventory.Add(stage2[0]);
+                    break;
+                }
+                case 2:
+                {
+                    Console.WriteLine($"You just got {stage2[1]}");
+                    inventory.Add(stage2[1]);
+                    break;
+                }
+                case 3:
+                {
+                    Console.WriteLine($"You just got {stage2[2]}");
+                    inventory.Add(stage2[2]);
+                    break;
+                }
+
+            }
+
+            Console.ReadKey();
+        }
         
+        public void RandomStage3(ArrayList inventory, ArrayList stage3)
+        {
+            var rnd = new Random();
+            Console.Clear();
+            Console.WriteLine("Welcome to Random Item Stage");
+            Console.ReadKey();
+            var random = rnd.Next(1, 3);
+            switch (random)
+            {
+                case 1:
+                {
+                    Console.WriteLine($"You just got {stage3[0]}");
+                    inventory.Add(stage3[0]);
+                    break;
+                }
+                case 2:
+                {
+                    Console.WriteLine($"You just got {stage3[1]}");
+                    inventory.Add(stage3[1]);
+                    break;
+                }
+                case 3:
+                {
+                    Console.WriteLine($"You just got {stage3[2]}");
+                    inventory.Add(stage3[2]);
+                    break;
+                }
+
+            }
+
+            Console.ReadKey();
+        }
         
-        
-        
-        
-        
-        
+        public void RandomStage4(ArrayList inventory, ArrayList stage4)
+        {
+            var rnd = new Random();
+            Console.Clear();
+            Console.WriteLine("Welcome to Random Item Stage");
+            Console.ReadKey();
+            var random = rnd.Next(1, 3);
+            switch (random)
+            {
+                case 1:
+                {
+                    Console.WriteLine($"You just got {stage4[0]}");
+                    inventory.Add(stage4[0]);
+                    break;
+                }
+                case 2:
+                {
+                    Console.WriteLine($"You just got {stage4[1]}");
+                    inventory.Add(stage4[1]);
+                    break;
+                }
+                case 3:
+                {
+                    Console.WriteLine($"You just got {stage4[2]}");
+                    inventory.Add(stage4[2]);
+                    break;
+                }
+
+            }
+
+            Console.ReadKey();
+        }
     }
 }

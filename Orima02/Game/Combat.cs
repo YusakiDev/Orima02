@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 
 namespace Orima02
 {
@@ -13,7 +14,7 @@ namespace Orima02
             Console.WriteLine($"{player.Mp}/{player.MaxMp}");
         }
 
-        public object ItemPhase(UseableItem[] inventory)
+        public object ItemPhase(ArrayList inventory)
         {
             while (true)
             {
@@ -34,19 +35,19 @@ namespace Orima02
                     {
                         case ConsoleKey.D1:
                         {
-                            return inventory.GetValue(0);
+                            return inventory[0];
                         }
                         case ConsoleKey.D2:
                         {
-                            return inventory.GetValue(1);
+                            return inventory[1];
                         }
                         case ConsoleKey.D3:
                         {
-                            return inventory.GetValue(2);
+                            return inventory[2];
                         }
                         case ConsoleKey.D4:
                         {
-                            return inventory.GetValue(3);
+                            return inventory[3];
                         }
                         case ConsoleKey.D0:
                         {
@@ -61,21 +62,18 @@ namespace Orima02
             }
         }
 
-        public void CheckItem(object item, UseableItem[] allitem, Character player)
+        public void CheckItem(object item, ArrayList allItem, Character player)
         {
             //TODO
-            if (item == allitem.GetValue(0))
+            if (item == allItem[0])
             {
-                object item1 = allitem.GetValue(0);
-                
-                
-                UseableItem fullregen = new UseableItem(ItemName.FullRegen, "blaBla");
-                fullregen.FullRegen(player);
-            } else if (item == allitem.GetValue(1))
+                UseableItem fullRegen = new UseableItem(ItemName.FullRegen, "blaBla");
+                fullRegen.FullRegen(player);
+            } else if (item == allItem[1])
             {
-                UseableItem doubledamage = new UseableItem(ItemName.DoubleDamage, "Bla Bla");
-                doubledamage.DoubleDamage(player);
-            }else if (item == allitem.GetValue(2))
+                UseableItem doubleDamage = new UseableItem(ItemName.DoubleDamage, "Bla Bla");
+                doubleDamage.DoubleDamage(player);
+            }else if (item == allItem[2])
             {
                 
             }
@@ -90,17 +88,17 @@ namespace Orima02
             {
                 //TODO
                 Console.WriteLine("Skill Phase");
-                var userinput = Console.ReadKey(true).Key;
+                var userInput = Console.ReadKey(true).Key;
                 
-                if (userinput == ConsoleKey.D1)
+                if (userInput == ConsoleKey.D1)
                 {
                     player.Skill1();
                 }
-                else if (userinput == ConsoleKey.D2)
+                else if (userInput == ConsoleKey.D2)
                 {
                     player.Skill2();
                 }
-                else if (userinput == ConsoleKey.D0)
+                else if (userInput == ConsoleKey.D0)
                 {
                     break;
                 }

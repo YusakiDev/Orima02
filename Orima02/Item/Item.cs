@@ -16,6 +16,7 @@ namespace Orima02
         DamageBomb,
         TrapDeflect,
         TrapUltimate,
+        TrapWeakness,
         AbilityTheWorld,
         AbilityOra,
         AbilityUseLeg,

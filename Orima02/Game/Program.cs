@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.ComponentModel;
 using System.Net.Mime;
 
@@ -11,6 +12,9 @@ namespace Orima02
             //Enemy Declaration
             GoblinGuard goblinGuard = new GoblinGuard("Goblin Guard", 10, 10, 5, 1, 3, true, false, true);
             GoblinWarrior goblinWarrior = new GoblinWarrior("Goblin Warrior", 10, 10, 5, 1, 3, true, true, true);
+            PoisonGoblin poisonGoblin = new PoisonGoblin("Goblin Warrior", 10, 10, 5, 1, 3, true, true, true);
+            MuscularGoblin muscularGoblin = new MuscularGoblin("Goblin Warrior", 10, 10, 5, 1, 3, true, true, true);
+            KingGoblin kingGoblin= new KingGoblin("Goblin Warrior", 10, 10, 5, 1, 3, true, true, true);
 
             
             //Combat Class Declaration
@@ -22,10 +26,10 @@ namespace Orima02
 
 
             //Item Declaration
-            EquipableItem atkset = new EquipableItem(ItemName.AtkSet, 3, 1, 1, "Equip Atk Set");
-            EquipableItem mpset = new EquipableItem(ItemName.MpSet, 1, 3, 1, "Equip MP Set");
-            EquipableItem hpset = new EquipableItem(ItemName.HpSet, 1, 3, 1, "Equip HP Set");
-            EquipableItem balanceset = new EquipableItem(ItemName.BalanceSet, 2, 2, 2, "Equip Balance Set");
+            EquipableItem atkSet = new EquipableItem(ItemName.AtkSet, 3, 1, 1, "Equip Atk Set");
+            EquipableItem mpSet = new EquipableItem(ItemName.MpSet, 1, 3, 1, "Equip MP Set");
+            EquipableItem hpSet = new EquipableItem(ItemName.HpSet, 1, 3, 1, "Equip HP Set");
+            EquipableItem balanceSet = new EquipableItem(ItemName.BalanceSet, 2, 2, 2, "Equip Balance Set");
             UseableItem fullRegen =
                 new UseableItem(ItemName.FullRegen, $"Instantly regenerate your hp to {player.MaxHp}");
             UseableItem doubleDamage =
@@ -42,6 +46,8 @@ namespace Orima02
                 new UseableItem(ItemName.TrapDeflect, "Reverse all damage to the enemy (this item will be active on the enemy turn");
             UseableItem trapUltimate =
                 new UseableItem(ItemName.TrapUltimate, "Steal enemy's Ultimate (this item will be active on the enemy turn)");
+            UseableItem trapWeakness = 
+                new UseableItem(ItemName.TrapWeakness, "Set enemy damage to half");
             UseableItem abilityTheWorld =
                 new UseableItem(ItemName.AbilityTheWorld, "Stunt enemy for 1-3 turn");
             UseableItem abilityOra =
@@ -54,11 +60,23 @@ namespace Orima02
             
 
             //Inventory Declaration
-            Inventory inventory = new Inventory(new [] {fullRegen,doubleDamage});
+            Inventory inventory = new Inventory(new ArrayList() {fullRegen, doubleDamage});
+            Inventory stage1 = new Inventory(new ArrayList() {fullRegen, doubleDamage, fullMp});
+            Inventory stage2 = new Inventory(new ArrayList() {stunBomb, poisonBomb, damageBomb});
+            Inventory stage3 = new Inventory(new ArrayList() {trapDeflect, trapUltimate, trapWeakness});
+            Inventory stage4 = new Inventory(new ArrayList() {abilityTheWorld, abilityOra, abilityUseLeg});
+            Inventory fullInventory = new Inventory(new ArrayList()
+            {fullRegen, doubleDamage, fullMp, stunBomb,
+                poisonBomb,
+                damageBomb,
+                trapDeflect,
+                trapUltimate,
+                abilityTheWorld,
+                abilityOra,
+                abilityUseLeg
+            });
 
-            Inventory fullinventory = new Inventory(new [] {fullRegen,doubleDamage,fullMp,stunBomb,poisonBomb,damageBomb,trapDeflect,trapUltimate,abilityTheWorld,abilityOra,abilityUseLeg});
-
-
+            
             
             
             //game controller Declaration
@@ -442,14 +460,15 @@ namespace Orima02
             //Scene2
             scene2_1.DisplayScene();
             //picking item
-            gameController.SelectSet(player, atkset, mpset, hpset, balanceset);
+            gameController.SelectSet(player, atkSet, mpSet, hpSet, balanceSet);
             scene2_2.DisplayScene();
             
             
             //Scene3
             scene3_1.DisplayScene();
             //fight
-            gameController.CombatPhase(player, goblinGuard, inventory.Items, fullinventory.Items, combat);
+            gameController.CombatPhase(player, goblinGuard, inventory.Items, fullInventory.Items, combat);
+            gameController.RandomStage1(inventory.Items, stage1.Items);
             //Scene4
             scene4_1.DisplayScene();
             userInput = gameController.ChoiceSelector(scene4_1.SceneIndex);
@@ -463,20 +482,25 @@ namespace Orima02
             }
             scene4_2.DisplayScene();
             //fight
-            
+            gameController.CombatPhase(player, goblinWarrior, inventory.Items, fullInventory.Items, combat);
+            gameController.RandomStage1(inventory.Items, stage2.Items);
             
             //Scene5
             scene5_1.DisplayScene();
             //fight
-            
+            gameController.CombatPhase(player, poisonGoblin, inventory.Items, fullInventory.Items, combat);
+            gameController.RandomStage1(inventory.Items, stage3.Items);
             //Scene6
             scene6_1.DisplayScene();
             //fight
+            gameController.CombatPhase(player, muscularGoblin, inventory.Items, fullInventory.Items, combat);
+            gameController.RandomStage1(inventory.Items, stage4.Items);
             scene6_2.DisplayScene();
             
             //Scene7
             scene7_1.DisplayScene();
             //fight
+            gameController.CombatPhase(player, goblinGuard, inventory.Items, fullInventory.Items, combat);
             scene7_2.DisplayScene();
             
 
