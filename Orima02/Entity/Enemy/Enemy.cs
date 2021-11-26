@@ -19,7 +19,7 @@ namespace Orima02
         public void Stats()
         {
             
-            string[] stats = new string[] {CheckIfPoison(), CheckIfStunned()};
+            string[] stats = {CheckIfPoison(), CheckIfStunned()};
             
 
 
@@ -35,13 +35,15 @@ namespace Orima02
 
         public abstract void Ultimate();
 
-        public void ModifyUlt(int ultpoint)
+        public void ModifyUlt(int ultPoint)
         {
-            if (UltPoint <= 0 && UltPoint > 3)
+            UltPoint = UltPoint + ultPoint;
+
+            if (UltPoint > 3)
             {
-                UltPoint += ultpoint;
+                UltPoint = 3;
             }
-            else
+            else if (UltPoint < 0)
             {
                 UltPoint = 0;
             }

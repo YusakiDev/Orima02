@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
+using System.Diagnostics.Contracts;
 using System.Security;
+using System.Threading;
 
 namespace Orima02
 {
@@ -20,11 +22,19 @@ namespace Orima02
             while (true)
             {
                 int i = 1;
-                Console.WriteLine("Welcome to Item Phase");
-                Console.WriteLine("select your item");
+                Console.BackgroundColor = ConsoleColor.Gray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.WriteLine("Item Phase");
+                Console.ResetColor();
+                Console.WriteLine("(Please Select Your Item)\n" +
+                                  "Or Press Enter to Pass...");
                 foreach (UseableItem item in inventory)
                 {
+                    Console.BackgroundColor = ConsoleColor.White;
+                    Console.ForegroundColor = ConsoleColor.Black;
                     Console.WriteLine($"{i}.{item.Name}");
+                    Console.ResetColor();
+                    item.Stats();
                     i++;
                 }
 
@@ -49,15 +59,20 @@ namespace Orima02
                         {
                             return inventory[3];
                         }
-                        case ConsoleKey.D0:
+                        case ConsoleKey.Enter:
                         {
                             return null;
                         }
+                        default:
+                        {
+                            continue;
+                        }
+                            
                     }
                 }
                 catch (IndexOutOfRangeException)
                 {
-                    continue;
+                    
                 }
             }
         }
@@ -69,6 +84,11 @@ namespace Orima02
             {
                 UseableItem fullRegen = new UseableItem(ItemName.FullRegen, "blaBla");
                 fullRegen.FullRegen(player);
+                Console.Clear();
+                player.Stats();
+                Console.WriteLine("You Choose FullRegen\n" +
+                                  $"You now have {player.Hp}");
+                Thread.Sleep(3000);
                 inventory.Remove(item);
             } else if (item == allItem[1])
             {
@@ -89,7 +109,13 @@ namespace Orima02
             while (true)
             {
                 //TODO
+                Console.BackgroundColor = ConsoleColor.Gray;
+                Console.ForegroundColor = ConsoleColor.Black;
                 Console.WriteLine("Skill Phase");
+                Console.ResetColor();
+                Console.WriteLine("(Please Select Your Skill)\n" +
+                                  "Or Press Enter to Pass...");
+
                 var userInput = Console.ReadKey(true).Key;
                 
                 if (userInput == ConsoleKey.D1)
@@ -100,7 +126,7 @@ namespace Orima02
                 {
                     player.Skill2();
                 }
-                else if (userInput == ConsoleKey.D0)
+                else if (userInput == ConsoleKey.Enter)
                 {
                     break;
                 }
@@ -114,77 +140,60 @@ namespace Orima02
 
         public void CharAutoAttack(Character player, Enemy enemy)
         {
-            Console.Clear();
-            Console.WriteLine("Auto Attack Phase");
+            Console.BackgroundColor = ConsoleColor.Gray;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.WriteLine($"{player.Name} AutoAttack Phase");
+            Console.ResetColor();
             enemy.ModifyHp(-player.Atk);
+            Console.WriteLine($"{player.Name} Deal {player.Atk} Damage to {enemy.Name}");
+            Console.WriteLine($"{enemy.Name} now have {enemy.Hp} Hp left");
+            Thread.Sleep(5000);
         }
 
         public void EnemyPassive(Enemy enemy)
         {
-            Console.WriteLine("Enemy Passive");
+            Console.BackgroundColor = ConsoleColor.Gray;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.WriteLine($"{enemy.Name} Passive Phase");
+            Console.ResetColor();
             enemy.ModifyUlt(1);
-            System.Threading.Thread.Sleep(3000);
+            Console.WriteLine($"Enemy got {enemy.UltPoint}/{enemy.MaxUltPoint} (+1) Ultpoint");
+            Thread.Sleep(5000);
         }
 
         public void EnemyUltimate(Enemy enemy)
         {
-            
+            Console.BackgroundColor = ConsoleColor.Gray;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.WriteLine($"{enemy.Name} Ultimate Phase");
+            Console.ResetColor();
             if (enemy.UltPoint == 3)
             {
+                Console.WriteLine($"{enemy.Name} Casts Ultimate!");
                 enemy.UltPoint = 0;
                 enemy.Ultimate();
             }
-            System.Threading.Thread.Sleep(3000);
+            else
+            {
+                Console.WriteLine("Not Enough UltPoint\n" +
+                                  "Passing...");
+            }
+            Thread.Sleep(3000);
         }
 
 
         public void EnemyAutoAttack(Character player, Enemy enemy)
         {
-            Console.Clear();
-            Console.WriteLine("Enemy Auto Attack Phase");
+            Console.BackgroundColor = ConsoleColor.Gray;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.WriteLine($"{enemy.Name} AutoAttack Phase");
+            Console.ResetColor();
             player.ModifyHp(-enemy.Atk);
-            Console.WriteLine($"Player has {player.Hp}Hp left\n" +
-                              $"Enemy Deal {enemy.Atk}");
-            System.Threading.Thread.Sleep(3000);
-            
-        }
-
-        public bool CharCheckIsAlive(Character player)
-        {
-            return player.IsAlive;
-        }
-
-        public bool CharCheckIsStun(Character player)
-        {
-            return player.IsStun;
-        }
-
-        public bool CharCheckPoison(Character player)
-        {
-            return player.IsPoison;
+            Console.WriteLine($"{enemy.Name} Deal {enemy.Atk} Damage to {player.Name}");
+            Console.WriteLine($"{player.Name} now have {player.Hp} Hp left");
+            Thread.Sleep(3000);
         }
         
-        public bool EnemyCheckIsAlive(Enemy enemy)
-        {
-            return enemy.IsAlive;
-        }
-
-        public bool EnemyCheckIsStun(Enemy enemy)
-        {
-            return enemy.IsStun;
-        }
-
-        public bool EnemyCheckPoison(Enemy enemy)
-        {
-            return enemy.IsPoison;
-        }
-        
-        
-        
-        
-        
-        
-
         public void Debug(Character player, Enemy enemy)
         {
             Console.WriteLine($"Player HP: {player.Hp}");

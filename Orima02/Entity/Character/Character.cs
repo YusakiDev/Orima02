@@ -51,6 +51,7 @@ namespace Orima02
                               $"| Atk      | {Atk, 10}\n" +
                               $"| Mp       | {Mp, 10}/{MaxMp}\n" +
                               "| Stats    |          {0}", string.Join(" ", stats.Where(s => !string.IsNullOrEmpty(s))));
+            Console.WriteLine();
         }
         
         
