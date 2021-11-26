@@ -15,11 +15,21 @@ namespace Orima02
             Console.WriteLine("Magician Attack!");
         }
 
+        
+        
         public override void Passive()
         {
             AddMp(1);
         }
 
+        public void ShowSkill()
+        {
+            Console.WriteLine("Passive: Get 2 Mana Every Passive Phase\n" +
+                              "1. Fire Attack (3 MP)\n" +
+                              "   Description: Deal 3 Damage to the Enemy Instantly\n" +
+                              "2. Heal (4 MP)\n" +
+                              "   Description: Heal Yourself for 6 HP");
+        }
 
         public override void Skill1()
         {

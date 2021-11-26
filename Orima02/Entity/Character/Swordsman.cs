@@ -27,5 +27,10 @@ namespace Orima02
         {
             Console.WriteLine("Swordsman Passive");
         }
+
+        public void ShowSkill()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

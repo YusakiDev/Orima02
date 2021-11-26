@@ -13,7 +13,7 @@ namespace Orima02
             Console.WriteLine($"{player.Mp}/{player.MaxMp}");
         }
 
-        public object ItemPhase(Item[] inventory)
+        public object ItemPhase(UseableItem[] inventory)
         {
             while (true)
             {
@@ -21,7 +21,7 @@ namespace Orima02
                 Console.Clear();
                 Console.WriteLine("Welcome to Item Phase");
                 Console.WriteLine("select your item");
-                foreach (Item item in inventory)
+                foreach (UseableItem item in inventory)
                 {
                     Console.WriteLine($"{i}.{item.Name}");
                     i++;
@@ -65,6 +65,9 @@ namespace Orima02
         {
             if (item == allitem.GetValue(0))
             {
+                object item1 = allitem.GetValue(0);
+                
+                
                 UseableItem fullregen = new UseableItem(ItemName.FullRegen, "blaBla");
                 fullregen.FullRegen(player);
             } else if (item == allitem.GetValue(1))
@@ -73,7 +76,37 @@ namespace Orima02
                 doubledamage.DoubleDamage(player);
             }else if (item == allitem.GetValue(2))
             {
-               
+                
+            }
+
+        }
+
+
+
+        public void SkillPhase(Character player)
+        {
+            while (true)
+            {
+                Console.WriteLine("Skill Phase");
+                var userinput = Console.ReadKey(true).Key;
+                
+                if (userinput == ConsoleKey.D1)
+                {
+                    player.Skill1();
+                }
+                else if (userinput == ConsoleKey.D2)
+                {
+                    player.Skill2();
+                }
+                else if (userinput == ConsoleKey.D0)
+                {
+                    break;
+                }
+                else
+                {
+                    Console.Clear();
+                    continue;
+                }
             }
         }
     }

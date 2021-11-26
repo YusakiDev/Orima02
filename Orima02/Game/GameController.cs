@@ -271,7 +271,7 @@ _||_    .-;`\..../`;_.-^-._
         }
 
 
-        public void CombatPhase(Character player, Enemy enemy,Item[] inventory,UseableItem[] fullinventory, Combat combat)
+        public void CombatPhase(Character player, Enemy enemy,UseableItem[] inventory,UseableItem[] fullinventory, Combat combat)
         {
             Console.Clear();
             Console.WriteLine("Enter Combat Mode");
@@ -279,7 +279,7 @@ _||_    .-;`\..../`;_.-^-._
             combat.CharPassive(player);
             System.Threading.Thread.Sleep(5000);
             combat.CheckItem(combat.ItemPhase(inventory),fullinventory, player);
-            
+            combat.SkillPhase(player);
             
 
         }

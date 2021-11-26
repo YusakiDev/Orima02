@@ -27,5 +27,10 @@
         {
             throw new System.NotImplementedException();
         }
+
+        public void ShowSkill()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
