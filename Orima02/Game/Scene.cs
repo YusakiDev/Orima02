@@ -26,7 +26,7 @@ namespace Orima02
                 Console.WriteLine("****************");
                 for (int i = 0; i < Text[line].Length; i++)
                 {
-                    Console.Write(Text[line][i]);
+                    Console.Write($"{Text[line][i]}");
                     System.Threading.Thread.Sleep(TextDelay);
                 }
                 Console.WriteLine("[Enter]");

@@ -10,7 +10,7 @@ namespace Orima02
         {
             while (true)
             {
-            Console.WriteLine("                              ==============================================\n" +
+                Console.WriteLine("                              ==============================================\n" +
                               "                              |                                            |\n" +
                               "                              |    ________        .__                     |\n" +
                               "                              |    \\_____  \\_______|__| _____ _____        |\n" +
@@ -21,8 +21,8 @@ namespace Orima02
                               "                              |                                            |\n" +
                               "                              |          A Goblin Slayer Origin Story      |\n" +
                               "                              ==============================================");
-            Console.WriteLine("\n\n\n\n\n");
-            
+                Console.WriteLine("\n\n\n\n\n");
+                
                 Console.WriteLine("                                             Press Enter to Start...\n");
                 
                 Console.WriteLine("                                         x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x");

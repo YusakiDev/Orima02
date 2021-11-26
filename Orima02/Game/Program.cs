@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Net.Mime;
 
 namespace Orima02
 {
@@ -262,9 +263,6 @@ namespace Orima02
                 $"{player.Name} : Shhhh Annie\n",
                 "Grandma : You see, old man? Forgetful and still want to tell others the way\n",
                 "{Go back to choose a new way} \n"
-
-
-                //fight
             });
             Scene scene4_2 = new Scene(4.1, 10, new[]
             {
@@ -369,7 +367,7 @@ namespace Orima02
                 "Peony : Princess, be careful to stumble across the grass!!\n",
                 "Daisy : It's like this outside of the forest!!\n",
                 "Lily : There are lots of flowers there!!\n",
-                $"{player.Name} : Nobody really cares about me! 😢\n",
+                $"{player.Name} : Nobody really cares about me!\n",
                 "{go to the palace}\n",
                 "Irene : Father!\n",
                 "King Valdus : Where have you been, daughter? Everyone in the palace was chaotic looking for you.\n",
