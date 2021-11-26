@@ -77,7 +77,7 @@ namespace Orima02
                 $"{player.Name} : Hey that woman over there.\n",
                 "??? : Who are you?\n",
                 $"{player.Name} : My name is {player.Name}\n",
-                $"{player.Name} : I'm just a {player.Class} passing this way.\n",
+                $"{player.Name} : I'm just a man passing this way.\n",
                 $"{player.Name} : And you?\n",
                 "Irene : My name is Irene the Felicity, I'm the princess of the Felicity Kingdom.\n"
             });
@@ -141,7 +141,6 @@ namespace Orima02
             Scene scene2_1 = new Scene(2.1, 10, new[]
             {
                 "Narrator The goblins are besieging the princess.\n",
-                "[Dialogue]\n",
                 "Irene : Help me!!\n",
                 $"{player.Name} : There are too many of them. If I break in without a weapon, I'm sure I will lose.\n",
                 $"{player.Name} : (Equitable Item Set) must be prepared first.\n"
@@ -166,9 +165,9 @@ namespace Orima02
                 "Fairy : Don't you think there are other living beings in the forest!\n",
                 "Fairy : And my name is not Fairy, Anemone is my name. Or you can call it Annie.\n",
                 $"{player.Name} : Alright Annie, I'm leaving.\n",
-                "Fairy (Annie) : Wait!!\n",
-                "Fairy (Annie) : You haven't introduced yourself yet. Just had to talk a few sentences, where are you going to hurry?\n",
-                $"{player.Name} : I am {player.Name} is a {player.Class} Just passing through an event that must be involved in the inevitable.\n",
+                "(Annie) : Wait!!\n",
+                "(Annie) : You haven't introduced yourself yet. Just had to talk a few sentences, where are you going to hurry?\n",
+                $"{player.Name} : I am {player.Name} I Just passing through an event that must be involved in the inevitable.\n",
                 "Narrator  You have told Annie about the previous incident.\n",
                 "Annie : ok i get it.\n",
                 "Annie : Goblin again? Do they think they own the forest?\n",
@@ -198,22 +197,20 @@ namespace Orima02
                 "Annie : Sorry!! I won't be loud anymore.\n",
                 "Annie : Let's go find the Goblin Castle!\n",
                 "{see grandma and grandpa}\n",
-                "[Dialogue]\n",
                 "Annie : There are people over there.\n",
                 $"{player.Name} : Grandfather and grandmother? Are there human beings here?\n",
                 "Annie : Don't forget that this forest It's not just the goblins. Those two might be some creatures living in this forest.\n",
                 "Annie : We'd better go in and ask for directions.\n",
                 "{Go and talk to Grandpa and Grandma.}\n",
-                "[Dialogue]\n",
                 "Annie : Hello, we are looking for the Goblin Castle. Do you guys know where it is?\n",
-                "คุณยาย : We know, it's deep in the woods. You guys have to go left and walk a little deeper into the forest.\n",
-                "คุณตา : Don't listen to old grandma. That's not the way to Goblin Castle. It's the way to the Tiger Cave.\n",
-                "คุณตา : The correct way to the Goblin Castle is On the right?\n",
-                "คุณยาย : Don't be foolish Forgetful and still want to come and tell you the way again. The castle must go to the left separately.\n",
+                "granny : We know, it's deep in the woods. You guys have to go left and walk a little deeper into the forest.\n",
+                "grandpa : Don't listen to old grandma. That's not the way to Goblin Castle. It's the way to the Tiger Cave.\n",
+                "grandpa : The correct way to the Goblin Castle is On the right?\n",
+                "granny : Don't be foolish Forgetful and still want to come and tell you the way again. The castle must go to the left separately.\n",
                 $"{player.Name} : Who can I believe?\n",
                 "Annie : Excuse me. So, where exactly do we have to go?\n",
-                "คุณยาย : On the left\n",
-                "คุณตา : On the right\n",
+                "granny : On the left\n",
+                "grandpa : On the right\n",
             });
             Scene scene4_1C1 = new Scene(4.1, 10, new[]
             {
@@ -238,6 +235,14 @@ namespace Orima02
 
                 //fight
             });
+            Scene scene4_2 = new Scene(4.1, 10, new[]
+            {
+                "Annie : hmm wait is that a goblin?\n",
+                "Annie : that goblin is blocking our way\n",
+                $"{player.Name} : yea let kill them!\n"
+            });
+            
+            
             Scene scene5_1 = new Scene(5.1, 10, new[]
             {
                 "Annie : That's the goblin castle.\n",
@@ -272,7 +277,6 @@ namespace Orima02
                 $"{player.Name} : A loud noise came from upstairs.\n",
                 $"{player.Name} : We have to hurry\n",
                 "[Last Floor : King's Room]\n",
-                "[Dialogue]\n",
                 "Irene : Let me out now!!\n",
                 $"{player.Name} : Princess!!\n",
                 $"Irene : {player.Name} with a fairy?\n",
@@ -289,7 +293,6 @@ namespace Orima02
                 "Irene : during the capture As if I could see that other fairies were trapped. If I'm not mistaken, it's probably on the second floor.\n",
                 $"Annie : Really! They must be my friends. Let's go help them. {player.Name}\n",
                 "{Help the other fairies come out}\n",
-                "[Dialogue]\n",
                 "Lily : Look at that, Annie, we're here!!\n",
                 "Daisy : She came with two humans too.\n",
                 "Peony : It seems like the other person is the princess of the Feri City Kingdom.\n",
@@ -300,7 +303,7 @@ namespace Orima02
                 "Annie : Hey!! Lily Daisy Peony, I'm here to help.\n",
                 $"{player.Name} : Three more fairies?\n",
                 "Irene : It's the name of every flower.\n",
-                $"Annie : Lliy Daisy Peony  This person is a {player.Name} is a {player.Class} who has come across an incident that must be involved inevitably.\n",
+                $"Annie : Lliy Daisy Peony  This person is a {player.Name} is a man who has come across an incident that must be involved inevitably.\n",
                 "Irene : What does inevitable involvement mean?\n",
                 $"{player.Name} : Forget it...\n",
                 "Annie : This person is Princess Irene de Felicity\n",
@@ -321,7 +324,6 @@ namespace Orima02
                 $"{player.Name} : Be careful There were still some goblins outside.\n",
                 "Irene : I remember that on the way out of the forest to the palace, there were Goblin Warriors.\n",
                 "Irene : Be careful everyone\n",
-                "[Dialogue]\n",
                 "Lily : they are there\n",
                 "Daisy : I don't want to be taken back there again.\n",
                 "Peony : Be careful princess\n",
@@ -338,7 +340,6 @@ namespace Orima02
                 "Lily : There are lots of flowers there!!\n",
                 $"{player.Name} : Nobody really cares about me! 😢\n",
                 "{go to the palace}\n",
-                "[Dialogue]\n",
                 "Irene : Father!\n",
                 "King Valdus : Where have you been, daughter? Everyone in the palace was chaotic looking for you.\n",
                 "Irene : I thought I would never come back to see you again.\n",
@@ -397,9 +398,10 @@ namespace Orima02
 
             //Debug
             player.Stats();
+            
+            
             //Scene1
             scene1_1.DisplayScene();
-            //Scene1 Choice1
             if (gameController.ChoiceSelector(scene1_1.SceneIndex) == 1)
             {
                 scene1_1C1.DisplayScene();
@@ -408,7 +410,7 @@ namespace Orima02
             {
                 scene1_1C2.DisplayScene();
             }
-
+            scene1_2.DisplayScene();
             if (gameController.ChoiceSelector(scene1_2.SceneIndex) == 1)
             {
                 scene1_2C1.DisplayScene();
@@ -417,7 +419,7 @@ namespace Orima02
             {
                 scene1_2C2.DisplayScene();
             }
-
+            scene1_3.DisplayScene();
             if (gameController.ChoiceSelector(scene1_3.SceneIndex) == 1)
             {
                 scene1_3C1.DisplayScene();
@@ -426,21 +428,47 @@ namespace Orima02
             {
                 scene1_3C2.DisplayScene();
             }
+            
+            
+            //Scene2
+            scene2_1.DisplayScene();
+            //picking item
+            scene2_2.DisplayScene();
+            
+            
+            //Scene3
+            scene3_1.DisplayScene();
+            //fight
+            
+            //Scene4
+            scene4_1.DisplayScene();
+            if (gameController.ChoiceSelector(scene4_1.SceneIndex) == 1)
+            {
+                scene4_1C1.DisplayScene();
+            }
+            else if (gameController.ChoiceSelector(scene4_1.SceneIndex) == 2)
+            {
+                scene4_1C2.DisplayScene();
+            }
+            scene4_2.DisplayScene();
+            //fight
+            
+            
+            //Scene5
+            scene5_1.DisplayScene();
+            //fight
+            
+            //Scene6
+            scene6_1.DisplayScene();
+            //fight
+            scene6_2.DisplayScene();
+            
+            //Scene7
+            scene7_1.DisplayScene();
+            //fight
+            scene7_2.DisplayScene();
 
-
-            // scene1 choice2
-            // scene2.DisplayScene();
-            // scene2
-            // if (gameController.ChoiceSelector(scene2.SceneIndex) == 3)
-            // {
-            //     scene2c3.DisplayScene();
-            // }
-            // else if(gameController.ChoiceSelector(scene2.SceneIndex) == 4)
-            // {
-            //     scene2c4.DisplayScene();
-            // }
-            //
-            // scene3.DisplayScene();
+            
 
 
             gameController.SelectSet(player, atkset, mpset, hpset, balanceset);
