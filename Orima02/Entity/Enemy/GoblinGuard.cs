@@ -10,5 +10,10 @@
         {
             throw new System.NotImplementedException();
         }
+
+        public override void Ultimate()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

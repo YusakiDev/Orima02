@@ -9,7 +9,7 @@ namespace Orima02
         public int Hp { get; private set; }
         public int MaxHp;
         public int Atk { get; private set; }
-        public static bool IsAlive { get; private set; }
+        public bool IsAlive { get; private set; }
         public bool IsStun;
         public bool IsPoison;
 

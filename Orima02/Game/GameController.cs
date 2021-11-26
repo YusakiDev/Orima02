@@ -273,14 +273,83 @@ _||_    .-;`\..../`;_.-^-._
 
         public void CombatPhase(Character player, Enemy enemy,UseableItem[] inventory,UseableItem[] fullinventory, Combat combat)
         {
-            Console.Clear();
-            Console.WriteLine("Enter Combat Mode");
+            bool isCombat = true;
+            while (isCombat)
+            {
+                Console.Clear();
+                Console.WriteLine("Enter Combat Mode");
 
-            combat.CharPassive(player);
-            System.Threading.Thread.Sleep(5000);
-            combat.CheckItem(combat.ItemPhase(inventory),fullinventory, player);
-            combat.SkillPhase(player);
-            
+                if (isCombat)
+                {
+                    //Player Passive
+                    combat.CharPassive(player);
+                    isCombat = combat.CheckIsAlive(player, enemy);
+                }
+                else
+                {
+                    break;
+                }
+                if (isCombat)
+                {
+                    //Player Item Phase
+                    combat.CheckItem(combat.ItemPhase(inventory), fullinventory, player);
+                    isCombat = combat.CheckIsAlive(player, enemy);
+                }
+                else
+                {
+                    break;
+                }
+                if (isCombat)
+                {
+                    //Player Skill Select
+                    combat.SkillPhase(player);
+                    isCombat = combat.CheckIsAlive(player, enemy);
+                }
+                else
+                {
+                    break;
+                }
+                if (isCombat)
+                {
+                    //Player Auto Attack
+                    combat.CharAutoAttack(player, enemy);
+                    isCombat = combat.CheckIsAlive(player, enemy);
+                }
+                else
+                {
+                    break;
+                }
+                if (isCombat)
+                {
+                    //Enemy Passive Phase
+                    combat.EnemyPassive(enemy);
+                    isCombat = combat.CheckIsAlive(player, enemy);
+                }
+                else
+                {
+                    break;
+                }
+                if (isCombat)
+                {
+                    //Enemy Ultimate Check
+                    combat.EnemyUltimate(enemy);
+                    isCombat = combat.CheckIsAlive(player, enemy);
+                }
+                else
+                {
+                    break;
+                }
+                if (isCombat)
+                {
+                    //Enemy Auto Attack
+                    combat.EnemyAutoAttack(player, enemy);
+                    isCombat = combat.CheckIsAlive(player, enemy);
+                }
+                else
+                {
+                    break;
+                }
+            }
 
         }
         

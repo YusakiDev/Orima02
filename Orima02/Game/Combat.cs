@@ -63,6 +63,7 @@ namespace Orima02
 
         public void CheckItem(object item, UseableItem[] allitem, Character player)
         {
+            //TODO
             if (item == allitem.GetValue(0))
             {
                 object item1 = allitem.GetValue(0);
@@ -87,6 +88,7 @@ namespace Orima02
         {
             while (true)
             {
+                //TODO
                 Console.WriteLine("Skill Phase");
                 var userinput = Console.ReadKey(true).Key;
                 
@@ -109,5 +111,56 @@ namespace Orima02
                 }
             }
         }
+
+        public void CharAutoAttack(Character player, Enemy enemy)
+        {
+            Console.Clear();
+            Console.WriteLine("Auto Attack Phase");
+            enemy.ModifyHp(-player.Atk);
+        }
+
+        public void EnemyPassive(Enemy enemy)
+        {
+            Console.WriteLine("Enemy Passive");
+            enemy.ModifyUlt(1);
+            System.Threading.Thread.Sleep(3000);
+        }
+
+        public void EnemyUltimate(Enemy enemy)
+        {
+            
+            if (enemy.UltPoint == 3)
+            {
+                enemy.UltPoint = 0;
+                enemy.Ultimate();
+            }
+            System.Threading.Thread.Sleep(3000);
+        }
+
+
+        public void EnemyAutoAttack(Character player, Enemy enemy)
+        {
+            Console.Clear();
+            Console.WriteLine("Enemy Auto Attack Phase");
+            player.ModifyHp(-enemy.Atk);
+            System.Threading.Thread.Sleep(3000);
+            
+        }
+
+        public bool CheckIsAlive(Character player, Enemy enemy)
+        {
+            if (!player.IsAlive)
+            {
+                return false;
+            }
+
+            if (!enemy.IsAlive)
+            {
+                return false;
+            }
+
+            return true;
+        }
+        
     }
 }
