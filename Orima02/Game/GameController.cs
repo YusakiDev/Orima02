@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Threading;
 
 namespace Orima02
 {
@@ -278,93 +279,117 @@ _||_    .-;`\..../`;_.-^-._
         public void CombatPhase(Character player, Enemy enemy, ArrayList inventory, ArrayList fullInventory,
             Combat combat)
         {
-            bool isCombat = true;
-            while (isCombat)
+            while (true)
             {
-                Console.Clear();
-                Console.WriteLine("Enter Combat Mode");
+                while (true)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Enter Combat Mode");
 
-                if (isCombat)
-                {
-                    //Player Passive
-                    combat.CharPassive(player);
-                    isCombat = combat.CheckIsAlive(player, enemy);
-                    combat.Debug(player, enemy);
+                    if (player.IsAlive && enemy.IsAlive)
+                    {
+                        //Player Passive
+                        combat.CharPassive(player);
+                        combat.Debug(player, enemy);
+                    }
+                    else
+                    {
+                        break;
+                    }
+
+                    if (player.IsAlive && enemy.IsAlive)
+                    {
+                        //Player Item Phase
+                        combat.CheckItem(combat.ItemPhase(inventory), fullInventory, player);
+                        combat.Debug(player, enemy);
+                    }
+                    else
+                    {
+                        break;
+                    }
+
+                    if (player.IsAlive && enemy.IsAlive)
+                    {
+                        //Player Skill Select
+                        combat.SkillPhase(player);
+                        combat.Debug(player, enemy);
+                    }
+                    else
+                    {
+                        break;
+                    }
+
+                    if (player.IsAlive && enemy.IsAlive)
+                    {
+                        //Player Auto Attack
+                        combat.CharAutoAttack(player, enemy);
+                        combat.Debug(player, enemy);
+                    }
+                    else
+                    {
+                        break;
+                    }
+
+                    if (player.IsAlive && enemy.IsAlive)
+                    {
+                        //Enemy Passive Phase
+                        combat.EnemyPassive(enemy);
+                        combat.Debug(player, enemy);
+                    }
+                    else
+                    {
+                        break;
+                    }
+
+                    if (player.IsAlive && enemy.IsAlive)
+                    {
+                        //Enemy Ultimate Check
+                        combat.EnemyUltimate(enemy);
+                        combat.Debug(player, enemy);
+                    }
+                    else
+                    {
+                        break;
+                    }
+
+                    if (player.IsAlive && enemy.IsAlive)
+                    {
+                        //Enemy Auto Attack
+                        combat.EnemyAutoAttack(player, enemy);
+                        combat.Debug(player, enemy);
+                    }
+                    else
+                    {
+                        break;
+                    }
                 }
-                else
+                
+                if (!player.IsAlive)
                 {
-                    break;
+                    Console.Clear();
+                    Console.WriteLine("You have been Defeated\n");
+                    Thread.Sleep(3000);
+                    Console.WriteLine("Retry?\n" +
+                                      "1. Yes\n" +
+                                      "2. No");
+                    var userInput = Console.ReadKey().Key;
+                    if (userInput == ConsoleKey.D1)
+                    {
+                        continue;
+                    }
+                    if (userInput == ConsoleKey.D2)
+                    {
+                        Environment.FailFast("Quit Program");
+                    } 
+
                 }
 
-                if (isCombat)
+                if (!enemy.IsAlive)
                 {
-                    //Player Item Phase
-                    combat.CheckItem(combat.ItemPhase(inventory), fullInventory, player);
-                    isCombat = combat.CheckIsAlive(player, enemy);
-                    combat.Debug(player, enemy);
-                }
-                else
-                {
-                    break;
-                }
-
-                if (isCombat)
-                {
-                    //Player Skill Select
-                    combat.SkillPhase(player);
-                    isCombat = combat.CheckIsAlive(player, enemy);
-                    combat.Debug(player, enemy);
-                }
-                else
-                {
-                    break;
-                }
-
-                if (isCombat)
-                {
-                    //Player Auto Attack
-                    combat.CharAutoAttack(player, enemy);
-                    isCombat = combat.CheckIsAlive(player, enemy);
-                    combat.Debug(player, enemy);
-                }
-                else
-                {
-                    break;
-                }
-
-                if (isCombat)
-                {
-                    //Enemy Passive Phase
-                    combat.EnemyPassive(enemy);
-                    isCombat = combat.CheckIsAlive(player, enemy);
-                    combat.Debug(player, enemy);
-                }
-                else
-                {
-                    break;
-                }
-
-                if (isCombat)
-                {
-                    //Enemy Ultimate Check
-                    combat.EnemyUltimate(enemy);
-                    isCombat = combat.CheckIsAlive(player, enemy);
-                    combat.Debug(player, enemy);
-                }
-                else
-                {
-                    break;
-                }
-
-                if (isCombat)
-                {
-                    //Enemy Auto Attack
-                    combat.EnemyAutoAttack(player, enemy);
-                    isCombat = combat.CheckIsAlive(player, enemy);
-                    combat.Debug(player, enemy);
-                }
-                else
-                {
+                    Console.Clear();
+                    Console.WriteLine("You Defeated the Enemy\n" +
+                                      "Press any button to continue...");
+                    Console.ReadKey();
                     break;
                 }
             }

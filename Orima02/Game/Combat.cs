@@ -147,20 +147,41 @@ namespace Orima02
             
         }
 
-        public bool CheckIsAlive(Character player, Enemy enemy)
+        public bool CharCheckIsAlive(Character player)
         {
-            if (!player.IsAlive)
-            {
-                return false;
-            }
-
-            if (!enemy.IsAlive)
-            {
-                return false;
-            }
-
-            return true;
+            return player.IsAlive;
         }
+
+        public bool CharCheckIsStun(Character player)
+        {
+            return player.IsStun;
+        }
+
+        public bool CharCheckPoison(Character player)
+        {
+            return player.IsPoison;
+        }
+        
+        public bool EnemyCheckIsAlive(Enemy enemy)
+        {
+            return enemy.IsAlive;
+        }
+
+        public bool EnemyCheckIsStun(Enemy enemy)
+        {
+            return enemy.IsStun;
+        }
+
+        public bool EnemyCheckPoison(Enemy enemy)
+        {
+            return enemy.IsPoison;
+        }
+        
+        
+        
+        
+        
+        
 
         public void Debug(Character player, Enemy enemy)
         {

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace Orima02
 {
@@ -27,7 +28,7 @@ namespace Orima02
                 for (int i = 0; i < Text[line].Length; i++)
                 {
                     Console.Write($"{Text[line][i]}");
-                    System.Threading.Thread.Sleep(TextDelay);
+                    Thread.Sleep(TextDelay);
                 }
                 Console.WriteLine("[Enter]");
                 if (Console.ReadKey().Key == ConsoleKey.Enter)
