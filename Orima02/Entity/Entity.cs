@@ -5,7 +5,7 @@ namespace Orima02
     public abstract class Entity
     {
         // Entity Properties
-        public string Name;
+        public string Name { get; }
         public int Hp { get; private set; }
         public int MaxHp;
         public int Atk { get; private set; }
@@ -39,15 +39,15 @@ namespace Orima02
 
         public void ModifyHp(int hp)
         {
+            if (0 < Hp && Hp < MaxHp)
+            {
+                Hp = Hp + hp;
+            }
             if (Hp > MaxHp)
             {
                 Hp = MaxHp;
             }
-            else if (0 < Hp && Hp < MaxHp)
-            {
-                Hp += hp;
-            }
-            else if (Hp < 0)
+            if (Hp < 0)
             {
                 Hp = 0;
                 IsAlive = false;

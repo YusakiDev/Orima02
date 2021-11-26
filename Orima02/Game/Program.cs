@@ -8,8 +8,8 @@ namespace Orima02
         public static void Main(string[] args)
         {
             //Enemy Declaration
-            GoblinGuard goblinGuard = new GoblinGuard("Goblin Guard", 1, 1, 1, 1, 1, true, false, true);
-            GoblinWarrior goblinWarrior = new GoblinWarrior("Goblin Warrior", 1, 1, 1, 1, 1, true, true, true);
+            GoblinGuard goblinGuard = new GoblinGuard("Goblin Guard", 10, 10, 5, 1, 3, true, false, true);
+            GoblinWarrior goblinWarrior = new GoblinWarrior("Goblin Warrior", 10, 10, 5, 1, 3, true, true, true);
 
             
             //Combat Class Declaration
@@ -58,6 +58,41 @@ namespace Orima02
             Inventory fullinventory = new Inventory(new [] {fullRegen,doubleDamage,fullMp,stunBomb,poisonBomb,damageBomb,trapDeflect,trapUltimate,abilityTheWorld,abilityOra,abilityUseLeg});
 
 
+            
+            
+            //game controller Declaration
+            GameController gameController = new GameController();
+
+
+            //Method
+            gameController.Menu();
+            //Select Class
+            switch (gameController.SelectClass())
+            {
+                case 1:
+                {
+                    player = new Magician(gameController.GetName(), 1, 12, 12, 12, 3, true, true, true);
+                    break;
+                }
+                case 2:
+                {
+                    player = new Swordsman(gameController.GetName(), 12, 12, 9, 9, 5, true, true, true);
+                    break;
+                }
+                case 3:
+                {
+                    player = new Volunteer(gameController.GetName(), 15, 15, 9, 9, 3, true, true, true);
+                    break;
+                }
+            }
+            
+            
+            
+            
+            
+            
+            
+            
              //Scene Declaration
             Scene scene1_1 = new Scene(1.1, 10, new[]
             {
@@ -366,35 +401,6 @@ namespace Orima02
             });
 
 
-            //game controller Declaration
-            GameController gameController = new GameController();
-
-
-            //Method
-            gameController.Menu();
-            //Select Class
-            switch (gameController.SelectClass())
-            {
-                case 1:
-                {
-                    player = new Magician(gameController.GetName(), 2, 2, 2, 2, 2, true, true, true);
-                    break;
-                }
-                case 2:
-                {
-                    player = new Swordsman(gameController.GetName(), 2, 2, 2, 2, 2, true, true, true);
-                    break;
-                }
-                case 3:
-                {
-                    player = new Volunteer(gameController.GetName(), 2, 2, 2, 2, 2, true, true, true);
-                    break;
-                }
-            }
-            
-            
-            
-            gameController.CombatPhase(player, goblinGuard, inventory.Items, fullinventory.Items, combat);
             
             
             //Debug
@@ -402,29 +408,34 @@ namespace Orima02
             //Scene1
             scene1_1.DisplayScene();
             //Scene1 Choice1
-            if (gameController.ChoiceSelector(scene1_1.SceneIndex) == 1)
+            int userInput = gameController.ChoiceSelector(scene1_1.SceneIndex);
+            if (userInput == 1)
             {
                 scene1_1C1.DisplayScene();
             }
-            else if (gameController.ChoiceSelector(scene1_1.SceneIndex) == 2)
+            else if (userInput == 2)
             {
                 scene1_1C2.DisplayScene();
             }
             scene1_2.DisplayScene();
-            if (gameController.ChoiceSelector(scene1_2.SceneIndex) == 1)
+            
+            userInput = gameController.ChoiceSelector(scene1_2.SceneIndex);
+            if (userInput == 1)
             {
                 scene1_2C1.DisplayScene();
             }
-            else if (gameController.ChoiceSelector(scene1_2.SceneIndex) == 2)
+            else if (userInput == 2)
             {
                 scene1_2C2.DisplayScene();
             }
             scene1_3.DisplayScene();
-            if (gameController.ChoiceSelector(scene1_3.SceneIndex) == 1)
+            
+            userInput = gameController.ChoiceSelector(scene1_3.SceneIndex);
+            if (userInput == 1)
             {
                 scene1_3C1.DisplayScene();
             }
-            else if (gameController.ChoiceSelector(scene1_3.SceneIndex) == 2)
+            else if (userInput == 2)
             {
                 scene1_3C2.DisplayScene();
             }
@@ -433,20 +444,22 @@ namespace Orima02
             //Scene2
             scene2_1.DisplayScene();
             //picking item
+            gameController.SelectSet(player, atkset, mpset, hpset, balanceset);
             scene2_2.DisplayScene();
             
             
             //Scene3
             scene3_1.DisplayScene();
             //fight
-            
+            gameController.CombatPhase(player, goblinGuard, inventory.Items, fullinventory.Items, combat);
             //Scene4
             scene4_1.DisplayScene();
-            if (gameController.ChoiceSelector(scene4_1.SceneIndex) == 1)
+            userInput = gameController.ChoiceSelector(scene4_1.SceneIndex);
+            if (userInput == 1)
             {
                 scene4_1C1.DisplayScene();
             }
-            else if (gameController.ChoiceSelector(scene4_1.SceneIndex) == 2)
+            else if (userInput == 2)
             {
                 scene4_1C2.DisplayScene();
             }
@@ -467,11 +480,7 @@ namespace Orima02
             scene7_1.DisplayScene();
             //fight
             scene7_2.DisplayScene();
-
             
-
-
-            gameController.SelectSet(player, atkset, mpset, hpset, balanceset);
 
             inventory.OpenInventory();
         }
