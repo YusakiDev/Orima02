@@ -8,8 +8,8 @@ namespace Orima02
         public static void Main(string[] args)
         {
             //Enemy Declaration
-            GoblinGuard goblinGuard = new GoblinGuard("Goblin Guard", 1, 1, 1, 1, 1, true, false, true);
-            GoblinWarrior goblinWarrior = new GoblinWarrior("Goblin Warrior", 1, 1, 1, 1, 1, true, true, true);
+            GoblinGuard goblinGuard = new GoblinGuard("Goblin Guard", 10, 10, 5, 1, 3, true, false, true);
+            GoblinWarrior goblinWarrior = new GoblinWarrior("Goblin Warrior", 10, 10, 5, 1, 3, true, true, true);
 
             
             //Combat Class Declaration
@@ -377,17 +377,17 @@ namespace Orima02
             {
                 case 1:
                 {
-                    player = new Magician(gameController.GetName(), 2, 2, 2, 2, 2, true, true, true);
+                    player = new Magician(gameController.GetName(), 1, 12, 12, 12, 3, true, true, true);
                     break;
                 }
                 case 2:
                 {
-                    player = new Swordsman(gameController.GetName(), 2, 2, 2, 2, 2, true, true, true);
+                    player = new Swordsman(gameController.GetName(), 12, 12, 9, 9, 5, true, true, true);
                     break;
                 }
                 case 3:
                 {
-                    player = new Volunteer(gameController.GetName(), 2, 2, 2, 2, 2, true, true, true);
+                    player = new Volunteer(gameController.GetName(), 15, 15, 9, 9, 3, true, true, true);
                     break;
                 }
             }

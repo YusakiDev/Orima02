@@ -143,6 +143,8 @@ namespace Orima02
             Console.Clear();
             Console.WriteLine("Enemy Auto Attack Phase");
             player.ModifyHp(-enemy.Atk);
+            Console.WriteLine($"Player has {player.Hp}Hp left\n" +
+                              $"Enemy Deal {enemy.Atk}");
             System.Threading.Thread.Sleep(3000);
             
         }
@@ -161,6 +163,11 @@ namespace Orima02
 
             return true;
         }
-        
+
+        public void Debug(Character player, Enemy enemy)
+        {
+            Console.WriteLine($"Player HP: {player.Hp}");
+            Console.WriteLine($"Enemy HP: {enemy.Hp}");
+        }
     }
 }

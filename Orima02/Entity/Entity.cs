@@ -39,15 +39,15 @@ namespace Orima02
 
         public void ModifyHp(int hp)
         {
+            if (0 < Hp && Hp < MaxHp)
+            {
+                Hp = Hp + hp;
+            }
             if (Hp > MaxHp)
             {
                 Hp = MaxHp;
             }
-            else if (0 < Hp && Hp < MaxHp)
-            {
-                Hp += hp;
-            }
-            else if (Hp < 0)
+            if (Hp < 0)
             {
                 Hp = 0;
                 IsAlive = false;

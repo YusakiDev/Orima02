@@ -284,6 +284,7 @@ _||_    .-;`\..../`;_.-^-._
                     //Player Passive
                     combat.CharPassive(player);
                     isCombat = combat.CheckIsAlive(player, enemy);
+                    combat.Debug(player,enemy);
                 }
                 else
                 {
@@ -294,6 +295,7 @@ _||_    .-;`\..../`;_.-^-._
                     //Player Item Phase
                     combat.CheckItem(combat.ItemPhase(inventory), fullinventory, player);
                     isCombat = combat.CheckIsAlive(player, enemy);
+                    combat.Debug(player,enemy);
                 }
                 else
                 {
@@ -304,6 +306,7 @@ _||_    .-;`\..../`;_.-^-._
                     //Player Skill Select
                     combat.SkillPhase(player);
                     isCombat = combat.CheckIsAlive(player, enemy);
+                    combat.Debug(player,enemy);
                 }
                 else
                 {
@@ -314,6 +317,7 @@ _||_    .-;`\..../`;_.-^-._
                     //Player Auto Attack
                     combat.CharAutoAttack(player, enemy);
                     isCombat = combat.CheckIsAlive(player, enemy);
+                    combat.Debug(player,enemy);
                 }
                 else
                 {
@@ -324,6 +328,7 @@ _||_    .-;`\..../`;_.-^-._
                     //Enemy Passive Phase
                     combat.EnemyPassive(enemy);
                     isCombat = combat.CheckIsAlive(player, enemy);
+                    combat.Debug(player,enemy);
                 }
                 else
                 {
@@ -334,6 +339,7 @@ _||_    .-;`\..../`;_.-^-._
                     //Enemy Ultimate Check
                     combat.EnemyUltimate(enemy);
                     isCombat = combat.CheckIsAlive(player, enemy);
+                    combat.Debug(player,enemy);
                 }
                 else
                 {
@@ -344,6 +350,7 @@ _||_    .-;`\..../`;_.-^-._
                     //Enemy Auto Attack
                     combat.EnemyAutoAttack(player, enemy);
                     isCombat = combat.CheckIsAlive(player, enemy);
+                    combat.Debug(player,enemy);
                 }
                 else
                 {
