@@ -22,9 +22,11 @@ namespace Orima02
             int line = 0;
             while (line < Text.Length)
             {
-                Console.WriteLine("****************");
-                Console.WriteLine("*   Dialogue   *");
-                Console.WriteLine("****************");
+                Console.ForegroundColor = ConsoleColor.DarkBlue;
+                Console.WriteLine("████████████████");
+                Console.WriteLine("|   Dialogue   |");
+                Console.WriteLine("████████████████");
+                Console.ForegroundColor = ConsoleColor.Black;
                 for (int i = 0; i < Text[line].Length; i++)
                 {
                     Console.Write($"{Text[line][i]}");

@@ -11,6 +11,7 @@ namespace Orima02
         {
             while (true)
             {
+                Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("                              ==============================================\n" +
                                   "                              |                                            |\n" +
                                   "                              |    ________        .__                     |\n" +
@@ -22,11 +23,12 @@ namespace Orima02
                                   "                              |                                            |\n" +
                                   "                              |          A Goblin Slayer Origin Story      |\n" +
                                   "                              ==============================================");
+                Console.ForegroundColor = ConsoleColor.Black;
                 Console.WriteLine("\n\n\n\n\n");
 
-                Console.WriteLine("                                             Press Enter to Start...\n");
+                Console.WriteLine("                                         Press Enter to Start...\n");
 
-                Console.WriteLine("                                         x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x");
+                Console.WriteLine("                                    x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x");
                 if (Console.ReadKey(true).Key == ConsoleKey.Enter)
                 {
                     Console.Clear();
@@ -46,6 +48,7 @@ namespace Orima02
             while (true)
             {
                 Console.Clear();
+                Console.WriteLine("███████████████████████████████████████████");
                 Console.Write("Please Enter Your Name:");
                 string name = Console.ReadLine();
                 name = name.Trim();
@@ -65,10 +68,15 @@ namespace Orima02
 
 
                 Console.Clear();
-                Console.WriteLine("Choose Your Class");
-                Console.WriteLine("1. Magician\n" +
-                                  "2. Swordsman\n" +
-                                  "3. Volunteer");
+                Console.ForegroundColor = ConsoleColor.DarkBlue;
+                Console.WriteLine("███████████████████████");
+                Console.WriteLine("|  Choose Your Class  | ");
+                Console.WriteLine("███████████████████████");
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.WriteLine("|→  1. Magician       |\n" +
+                                  "|→  2. Swordsman      |\n" +
+                                  "|→  3. Volunteer      |");
+                Console.WriteLine("███████████████████████");
                 ConsoleKey userInput = Console.ReadKey().Key;
                 Console.Clear();
 
@@ -165,11 +173,16 @@ _||_    .-;`\..../`;_.-^-._
             EquipableItem balancedSet)
         {
             Console.Clear();
-            Console.WriteLine("Choose Your Beginner Enhancement\n" +
-                              "1. Atk Set\n" +
-                              "2. Mp Set\n" +
-                              "3. Hp Set\n" +
-                              "4. Balanced set");
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.WriteLine("█████████████████████████████████████████");
+            Console.WriteLine("|   Choose Your Beginner Enhancement    |\n" +
+                              "█████████████████████████████████████████");
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.WriteLine("|→ 1. Atk Set                           |\n" +
+                              "|→ 2. Mp Set                            |\n" +
+                              "|→ 3. Hp Set                            |\n" +
+                              "|→ 4. Balanced set                      |");
+            Console.WriteLine("█████████████████████████████████████████");
             ConsoleKey userInput = Console.ReadKey().Key;
             if (userInput == ConsoleKey.D1)
             {
@@ -202,16 +215,19 @@ _||_    .-;`\..../`;_.-^-._
         {
             while (true)
             {
-                Console.WriteLine("===================\n" +
+                Console.ForegroundColor = ConsoleColor.DarkBlue;
+                
+                Console.WriteLine("\n███████████████████\n" +
                                   "|     Choice!     |\n" +
-                                  "===================");
+                                  "███████████████████");
+                Console.ForegroundColor = ConsoleColor.Black;
 
                 switch (sceneIndex)
                 {
                     case 1.1:
                     {
-                        Console.WriteLine("1. Greet");
-                        Console.WriteLine("2. Nope not me");
+                        Console.WriteLine("→ 1. Greet");
+                        Console.WriteLine("→ 2. Nope not me");
                         var userInput = Console.ReadKey(true).Key;
 
                         if (userInput == ConsoleKey.D1)
@@ -230,8 +246,8 @@ _||_    .-;`\..../`;_.-^-._
                     }
                     case 1.2:
                     {
-                        Console.WriteLine("1.Why did you come here?");
-                        Console.WriteLine("2.pay homage to the princess?");
+                        Console.WriteLine("→ 1.Why did you come here?");
+                        Console.WriteLine("→ 2.pay homage to the princess?");
                         var userInput = Console.ReadKey(true).Key;
                         if (userInput == ConsoleKey.D1)
                         {
@@ -250,8 +266,8 @@ _||_    .-;`\..../`;_.-^-._
                     }
                     case 1.3:
                     {
-                        Console.WriteLine("1.let go help");
-                        Console.WriteLine("2.it's not my business ==");
+                        Console.WriteLine("→ 1.let go help");
+                        Console.WriteLine("→ 2.it's not my business ==");
                         var userInput = Console.ReadKey(true).Key;
                         if (userInput == ConsoleKey.D1)
                         {

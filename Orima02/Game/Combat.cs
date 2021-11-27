@@ -181,8 +181,11 @@ namespace Orima02
             Console.WriteLine($"{player.Name} AutoAttack Phase");
             Console.ResetColor();
             enemy.ModifyHp(-player.Atk);
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"{player.Name} Deal {player.Atk} Damage to {enemy.Name}");
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"{enemy.Name} now have {enemy.Hp} Hp left");
+            Console.ForegroundColor = ConsoleColor.Black;
             Thread.Sleep(5000);
         }
 
@@ -193,7 +196,9 @@ namespace Orima02
             Console.WriteLine($"{enemy.Name} Passive Phase");
             Console.ResetColor();
             enemy.ModifyUlt(1);
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
             Console.WriteLine($"Enemy got {enemy.UltPoint}/{enemy.MaxUltPoint} (+1) Ultpoint");
+            Console.ForegroundColor = ConsoleColor.Black;
             Thread.Sleep(5000);
         }
 
@@ -205,7 +210,9 @@ namespace Orima02
             Console.ResetColor();
             if (enemy.UltPoint == 3)
             {
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
                 Console.WriteLine($"{enemy.Name} Casts Ultimate!");
+                Console.ForegroundColor = ConsoleColor.Black;
                 enemy.UltPoint = 0;
                 enemy.Ultimate();
             }
@@ -225,8 +232,11 @@ namespace Orima02
             Console.WriteLine($"{enemy.Name} AutoAttack Phase");
             Console.ResetColor();
             player.ModifyHp(-enemy.Atk);
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"{enemy.Name} Deal {enemy.Atk} Damage to {player.Name}");
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"{player.Name} now have {player.Hp} Hp left");
+            Console.ForegroundColor = ConsoleColor.Black;
             Thread.Sleep(3000);
         }
         
