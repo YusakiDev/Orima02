@@ -155,7 +155,6 @@ namespace Orima02
             if (skill == allSkill[0])
             {
                 Skill passive = new Skill();
-                passive.Cheat()
                 Console.Clear();
                 player.Stats();
                 Console.WriteLine("You Choose FullRegen\n" +

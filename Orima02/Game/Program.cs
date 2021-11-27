@@ -300,7 +300,7 @@ namespace Orima02
             {
                 "[1/3] Annie : hmm wait is that a goblin?\n",
                 "[2/3] Annie : that goblin is blocking our way\n",
-                $"[3/3] "{player.Name} : yea let kill them!\n"
+                $"[3/3] {player.Name} : yea let kill them!\n"
             });
             
             

@@ -9,9 +9,9 @@ namespace Orima02
         public int MaxUltPoint;
         
         
-        protected Enemy(string name, int hp, int maxHp, int atk, int ultpoint, int maxUltPoint, bool isAlive, bool isStun, bool isPoison, int baseAtk) : base(name, hp, maxHp, atk, isAlive, isStun, isPoison, baseAtk)
+        protected Enemy(string name, int hp, int maxHp, int atk, int ultPoint, int maxUltPoint, bool isAlive, bool isStun, bool isPoison, int baseAtk) : base(name, hp, maxHp, atk, isAlive, isStun, isPoison, baseAtk)
         {
-            UltPoint = ultpoint;
+            UltPoint = ultPoint;
             MaxUltPoint = maxUltPoint;
         }
 
@@ -26,7 +26,7 @@ namespace Orima02
             Console.WriteLine("===Enemy Stats===\n" +
                               $"| Hp       | {Hp, 10}/{MaxHp}\n" +
                               $"| Atk      | {Atk, 10}\n" +
-                              $"| Ultpoint | {UltPoint, 10}/{MaxUltPoint}\n" +
+                              $"| UltPoint | {UltPoint, 10}/{MaxUltPoint}\n" +
                               "| Stats    |          {0}", string.Join(" ", stats.Where(s => !string.IsNullOrEmpty(s))));
 
         }
