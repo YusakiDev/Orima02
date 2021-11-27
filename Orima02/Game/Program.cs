@@ -14,7 +14,22 @@ namespace Orima02
             MuscularGoblin muscularGoblin = new MuscularGoblin("Goblin Warrior", 10, 10, 5, 1, 3, true, true, true,10);
             KingGoblin kingGoblin= new KingGoblin("Goblin Warrior", 10, 10, 5, 1, 3, true, true, true,10);
 
+            //Skill Declaration
+            Skill cheat = new Skill(SkillName.Cheat,SkillType.Passive,"skillinfo", 0);
+            Skill damageChance = new Skill(SkillName.DamageChance,SkillType.Active, " skillinfo", 3);
+            Skill useSpecialItem = new Skill(SkillName.UseSpecialItem,SkillType.Active, " skillinfo", 3);
+            Skill regeneration = new Skill(SkillName.Regeneration,SkillType.Passive, " skillinfo", 0);
+            Skill heavyAttack = new Skill(SkillName.HeavyAttack,SkillType.Active, "Skill", 3);
+            Skill dodge = new Skill(SkillName.Dodge,SkillType.Active, "info", 3);
+            Skill mpRegen = new Skill(SkillName.MpRegen,SkillType.Passive, "info", 0);
+            Skill fireAttack = new Skill(SkillName.FireAttack,SkillType.Active, "Fire Attack", 3);
+            Skill heal = new Skill(SkillName.Heal,SkillType.Active, "Heal", 3);
             
+            //Skill Inventory Declaration
+            var allSkill = new ArrayList()
+                {cheat, damageChance, useSpecialItem, regeneration, heavyAttack, dodge, mpRegen, fireAttack, heal};
+
+
             //Combat Class Declaration
             Combat combat = new Combat();
 
@@ -34,17 +49,17 @@ namespace Orima02
             {
                 case 1:
                 {
-                    player = new Character(gameController.GetName(),CharClass.Magician, 12, 12, 12, 12, 3, true, true, true, 3);
+                    player = new Character(gameController.GetName(),CharClass.Magician, 12, 12, 12, 12, 3, true, true, true, 3, new ArrayList(){mpRegen,fireAttack,heal});
                     break;
                 }
                 case 2:
                 {   
-                    player = new Character(gameController.GetName(),CharClass.Swordsman, 12, 12, 9, 9, 5, true, true, true,5);
+                    player = new Character(gameController.GetName(),CharClass.Swordsman, 12, 12, 9, 9, 5, true, true, true,5,new ArrayList(){regeneration,heavyAttack,dodge});
                     break;
                 }
                 case 3:
                 {
-                    player = new Character(gameController.GetName(),CharClass.Volunteer, 15, 15, 9, 9, 3, true, true, true,3);
+                    player = new Character(gameController.GetName(),CharClass.Volunteer, 15, 15, 9, 9, 3, true, true, true,3,new ArrayList(){cheat,damageChance,useSpecialItem});
                     break;
                 }
                 
@@ -467,7 +482,7 @@ namespace Orima02
             //Scene3
             //scene3_1.DisplayScene();
             //fight
-            gameController.CombatPhase(player, goblinGuard, inventory.Items, fullInventory.Items, combat);
+            gameController.CombatPhase(player, goblinGuard, inventory.Items, allSkill, fullInventory.Items, combat);
             gameController.RandomStage1(inventory,inventory.Items, stage1.Items);
             //Scene4
             scene4_1.DisplayScene();
@@ -483,25 +498,25 @@ namespace Orima02
             }
             scene4_2.DisplayScene();
             //fight
-            gameController.CombatPhase(player, goblinWarrior, inventory.Items, fullInventory.Items, combat);
+            gameController.CombatPhase(player, goblinWarrior, inventory.Items, player.Skills,fullInventory.Items, combat);
             gameController.RandomStage2(inventory,inventory.Items, stage2.Items);
             
             //Scene5
             scene5_1.DisplayScene();
             //fight
-            gameController.CombatPhase(player, poisonGoblin, inventory.Items, fullInventory.Items, combat);
+            gameController.CombatPhase(player, poisonGoblin, inventory.Items, player.Skills,fullInventory.Items, combat);
             gameController.RandomStage3(inventory,inventory.Items, stage3.Items);
             //Scene6
             scene6_1.DisplayScene();
             //fight
-            gameController.CombatPhase(player, muscularGoblin, inventory.Items, fullInventory.Items, combat);
+            gameController.CombatPhase(player, muscularGoblin, inventory.Items, player.Skills,fullInventory.Items, combat);
             gameController.RandomStage4(inventory,inventory.Items, stage4.Items);
             scene6_2.DisplayScene();
             
             //Scene7
             scene7_1.DisplayScene();
             //fight
-            gameController.CombatPhase(player, goblinGuard, inventory.Items, fullInventory.Items, combat);
+            gameController.CombatPhase(player, goblinGuard, inventory.Items, player.Skills,fullInventory.Items, combat);
             scene7_2.DisplayScene();
             
 

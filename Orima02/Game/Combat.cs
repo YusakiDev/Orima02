@@ -10,13 +10,14 @@ namespace Orima02
     {
         
 
-        public void CharPassive(Character player)
+        public void CharPassive(Character player, ArrayList allSkill)
         {
             //TODO
-            //player.Passive();
+            CheckSkill(player.Skills[0], allSkill, player);
             player.ModifyMp(1);
             Console.WriteLine($"{player.Mp}/{player.MaxMp}");
         }
+        
 
         public object ItemPhase(ArrayList inventory)
         {
@@ -105,41 +106,73 @@ namespace Orima02
 
 
 
-        public void SkillPhase(Character player)
+        public object SkillPhase(Character player)
         {
             while (true)
             {
                 //TODO
+                int i = 0;
                 Console.BackgroundColor = ConsoleColor.Gray;
                 Console.ForegroundColor = ConsoleColor.Black;
                 Console.WriteLine("Skill Phase");
                 Console.ResetColor();
                 Console.WriteLine("(Please Select Your Skill)\n" +
                                   "Or Press Enter to Pass...");
-                
+                foreach (Skill skill in player.Skills)
+                {
+                    Console.BackgroundColor = ConsoleColor.White;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.WriteLine($"{i}.{skill.Name}");
+                    Console.ResetColor();
+                    skill.Stats();
+                    i++;
+                }
                 
 
                 var userInput = Console.ReadKey(true).Key;
                 
                 if (userInput == ConsoleKey.D1)
                 {
-                    
+                    return player.Skills[1];
                 }
-                else if (userInput == ConsoleKey.D2)
+
+                if (userInput == ConsoleKey.D2)
                 {
-                    
+                    return player.Skills[2];
                 }
-                else if (userInput == ConsoleKey.Enter)
+
+                if (userInput == ConsoleKey.Enter)
                 {
-                    break;
+                    return null;
                 }
-                else
-                {
-                    Console.Clear();
-                    continue;
-                }
+                Console.Clear();
             }
         }
+        
+        public void CheckSkill(object skill, ArrayList allSkill, Character player)
+        {
+            //TODO
+            if (skill == allSkill[0])
+            {
+                Skill passive = new Skill();
+                passive.Cheat()
+                Console.Clear();
+                player.Stats();
+                Console.WriteLine("You Choose FullRegen\n" +
+                                  $"You now have {player.Hp}");
+                Thread.Sleep(3000);
+            } else if (skill == allSkill[1])
+            {
+                UseableItem doubleDamage = new UseableItem(ItemName.DoubleDamage, "Bla Bla");
+                doubleDamage.DoubleDamage(player);
+            }else if (skill == allSkill[2])
+            {
+                
+            }
+
+        }
+        
+        
 
         public void CharAutoAttack(Character player, Enemy enemy)
         {

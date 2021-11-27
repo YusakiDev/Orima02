@@ -277,7 +277,7 @@ _||_    .-;`\..../`;_.-^-._
         }
 
 
-        public void CombatPhase(Character player, Enemy enemy, ArrayList inventory, ArrayList fullInventory,
+        public void CombatPhase(Character player, Enemy enemy, ArrayList inventory,ArrayList allSkill, ArrayList fullInventory,
             Combat combat)
         {
             var i = 0;
@@ -298,7 +298,7 @@ _||_    .-;`\..../`;_.-^-._
                         //Player Passive
                         Console.Clear();
                         player.Stats();
-                        combat.CharPassive(player);
+                        combat.CharPassive(player, player.Skills);
                         combat.Debug(player, enemy);
                     }
                     else
@@ -324,7 +324,7 @@ _||_    .-;`\..../`;_.-^-._
                         //Player Skill Select
                         Console.Clear();
                         player.Stats();
-                        combat.SkillPhase(player);
+                        combat.CheckSkill(combat.SkillPhase(player), allSkill, player);
                         combat.Debug(player, enemy);
                     }
                     else
