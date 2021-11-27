@@ -12,9 +12,6 @@ namespace Orima02
     }
     
     
-    
-    
-    
     public class Character: Entity, IStats
     {
         public readonly CharClass CharClass;

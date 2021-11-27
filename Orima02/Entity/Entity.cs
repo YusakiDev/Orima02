@@ -69,6 +69,7 @@ namespace Orima02
             }
         }
         
+        
         public void ResetAtk()
         {
             Atk = BaseAtk;

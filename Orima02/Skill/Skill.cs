@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections;
+using System.Media;
+using System.Threading;
 
 namespace Orima02
 {
@@ -58,11 +61,53 @@ namespace Orima02
         }
 
 
-        public int Cheat(int oldChance)
+        public void Cheat(Character player)
         {
-            int newChance = oldChance + 5;
-            return newChance;
+            Console.WriteLine($"{player.Name} Just Cheated! He doubled his ATK!");
+            player.ModifyAtk(player.Atk);
         }
+
+        public void CheatChance(Character player)
+        {
+            player.ModifyMp(-3);
+            Random rnd = new Random();
+
+            int chance = rnd.Next(0,1);
+            if (chance == 1)
+            {
+                //Go through
+                Console.WriteLine("You cheat to double your atk again!");
+                player.ModifyAtk(player.Atk);
+                Console.WriteLine($"You now have {player.Atk} Atk");
+            }
+            else
+            {
+                //Cheat Bomb
+                Console.WriteLine("Dev caught you cheating! Punishing...");
+                Thread.Sleep(3000);
+                player.ModifyHp(-(player.Atk*2));
+                Console.WriteLine($"You Deal {player.Atk} to yourself!");
+            }
+        }
+
+        public void ItemCheat(Character player,ArrayList inventory, ArrayList fullInventory, Combat combat)
+        {
+            player.ModifyMp(-3);
+            Console.WriteLine("Hacking... Item Phase");
+            Thread.Sleep(3000);
+            Console.WriteLine("You now have second Item Phase! Tada!");
+            combat.CheckItem(combat.ItemPhase(inventory), fullInventory, inventory, player );
+        }
+
+        public void Regeneration(Character player)
+        {
+            Console.WriteLine("Passive: You just regenerate 1 Hp");
+            player.ModifyHp(1);
+        }
+
+
+
+
 
     }
 }

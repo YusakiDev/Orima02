@@ -288,6 +288,7 @@ _||_    .-;`\..../`;_.-^-._
                 player.ResetAtk();
                 while (true)
                 {
+                    player.ResetAtk();
                     i++;
                     Console.Clear();
                     Console.WriteLine($"Round: {i}");

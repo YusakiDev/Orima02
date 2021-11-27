@@ -26,7 +26,7 @@ namespace Orima02
             Skill heal = new Skill(SkillName.Heal,SkillType.Active, "Heal", 3);
             
             //Skill Inventory Declaration
-            var allSkill = new ArrayList()
+            var allSkill = new ArrayList 
                 {cheat, damageChance, useSpecialItem, regeneration, heavyAttack, dodge, mpRegen, fireAttack, heal};
 
 
@@ -59,7 +59,7 @@ namespace Orima02
                 }
                 case 3:
                 {
-                    player = new Character(gameController.GetName(),CharClass.Volunteer, 15, 15, 9, 9, 3, true, true, true,3,new ArrayList(){cheat,damageChance,useSpecialItem});
+                    player = new Character(gameController.GetName(),CharClass.Volunteer, 15, 15, 9, 9, 2, true, true, true,3,new ArrayList(){cheat,damageChance,useSpecialItem});
                     break;
                 }
                 
