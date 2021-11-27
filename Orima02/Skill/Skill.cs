@@ -135,6 +135,7 @@ namespace Orima02
             Thread.Sleep(3000);
             enemy.IsPoison = true;
             enemy.ModifyHp(-2);
+            enemy.ModifyPoisonToken(3);
             Console.WriteLine($"{player.Name} deals 2 dmg to {enemy.Name} and poisoned it");
         }
 

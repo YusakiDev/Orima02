@@ -17,6 +17,7 @@ namespace Orima02
             Console.WriteLine($"{player.Name} Passive Phase");
             Console.ResetColor();
             Console.WriteLine("GamePassive: You regenerated 1 Mp");
+            PlayerCheckPoison(player);
             player.ModifyMp(1);
             Thread.Sleep(3000);
             CheckSkill(player.Skills[0], allSkill, player, enemy, combat, inventory, fullInventory);
@@ -330,14 +331,21 @@ namespace Orima02
 
         public void CharAutoAttack(Character player, Enemy enemy)
         {
-            Console.BackgroundColor = ConsoleColor.Gray;
-            Console.ForegroundColor = ConsoleColor.Black;
-            Console.WriteLine($"{player.Name} AutoAttack Phase");
-            Console.ResetColor();
-            enemy.ModifyHp(-player.Atk);
-            Console.WriteLine($"{player.Name} Deal {player.Atk} Damage to {enemy.Name}");
-            Console.WriteLine($"{enemy.Name} now have {enemy.Hp} Hp left");
-            Thread.Sleep(5000);
+            if (player.IsStun)
+            {
+                PlayerCheckStun(player);
+            }
+            else
+            {
+                Console.BackgroundColor = ConsoleColor.Gray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.WriteLine($"{player.Name} AutoAttack Phase");
+                Console.ResetColor();
+                enemy.ModifyHp(-player.Atk);
+                Console.WriteLine($"{player.Name} Deal {player.Atk} Damage to {enemy.Name}");
+                Console.WriteLine($"{enemy.Name} now have {enemy.Hp} Hp left");
+                Thread.Sleep(5000);
+            }
         }
 
         public void EnemyPassive(Enemy enemy)
@@ -347,7 +355,8 @@ namespace Orima02
             Console.WriteLine($"{enemy.Name} Passive Phase");
             Console.ResetColor();
             enemy.ModifyUlt(1);
-            Console.WriteLine($"Enemy got {enemy.UltPoint}/{enemy.MaxUltPoint} (+1) Ultpoint");
+            Console.WriteLine($"Enemy got {enemy.UltPoint}/{enemy.MaxUltPoint} (+1) UltPoint");
+            EnemyCheckPoison(enemy);
             Thread.Sleep(5000);
         }
 
@@ -374,14 +383,21 @@ namespace Orima02
 
         public void EnemyAutoAttack(Character player, Enemy enemy)
         {
-            Console.BackgroundColor = ConsoleColor.Gray;
-            Console.ForegroundColor = ConsoleColor.Black;
-            Console.WriteLine($"{enemy.Name} AutoAttack Phase");
-            Console.ResetColor();
-            player.ModifyHp(-enemy.Atk);
-            Console.WriteLine($"{enemy.Name} Deal {enemy.Atk} Damage to {player.Name}");
-            Console.WriteLine($"{player.Name} now have {player.Hp} Hp left");
-            Thread.Sleep(3000);
+            if (enemy.IsStun)
+            {
+                EnemyCheckStun(enemy);
+            }
+            else
+            {
+                Console.BackgroundColor = ConsoleColor.Gray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.WriteLine($"{enemy.Name} AutoAttack Phase");
+                Console.ResetColor();
+                player.ModifyHp(-enemy.Atk);
+                Console.WriteLine($"{enemy.Name} Deal {enemy.Atk} Damage to {player.Name}");
+                Console.WriteLine($"{player.Name} now have {player.Hp} Hp left");
+                Thread.Sleep(3000);
+            }
         }
         
         public void Debug(Character player, Enemy enemy)
@@ -389,5 +405,73 @@ namespace Orima02
             Console.WriteLine($"Player HP: {player.Hp}");
             Console.WriteLine($"Enemy HP: {enemy.Hp}");
         }
+        
+        
+        
+        
+        
+        
+        //Check Method
+
+
+        public void PlayerCheckPoison(Character player)
+        {
+            if (player.PoisonToken > 0)
+            {
+                player.ModifyHp(-1);
+                Console.WriteLine($"Poison: {player.Name} took 1 Damage from Poison");
+                player.ModifyPoisonToken(-1);
+            }
+            if (player.PoisonToken == 0)
+            {
+                player.IsPoison = false;
+            }
+        }
+        public void EnemyCheckPoison(Enemy enemy)
+        {
+            if (enemy.PoisonToken > 0)
+            {
+                enemy.ModifyHp(-1);
+                Console.WriteLine($"Poison: {enemy.Name} took 1 Damage from Poison");
+                enemy.ModifyPoisonToken(-1);
+            }
+            if (enemy.PoisonToken == 0)
+            {
+                enemy.IsPoison = false;
+            }
+        }
+        
+        public void PlayerCheckStun(Character player)
+        {
+            if (player.StunToken > 0)
+            {
+                Console.WriteLine($"{player.Name} is Stunned! Skipping Phase....");
+                player.ModifyStunToken(-1);
+            }
+
+            if (player.StunToken == 0)
+            {
+                player.IsStun = false;
+            }
+        }
+        
+        public void EnemyCheckStun(Enemy enemy)
+        {
+            if (enemy.StunToken > 0)
+            {
+                Console.WriteLine($"{enemy.Name} is Stunned! Skipping Phase....");
+                enemy.ModifyStunToken(-1);
+            }
+            if (enemy.StunToken == 0)
+            {
+                enemy.IsStun = false;
+            }
+        }
+        
+        
+        
+        
+        
+        
     }
 }

@@ -14,10 +14,12 @@ namespace Orima02
         public bool IsAlive { get; private set; }
         public bool IsStun;
         public bool IsPoison;
+        public int PoisonToken { get; private set; }
+        public int StunToken { get; private set; }
 
         
         //Entity Constructors
-        protected Entity(string name, int hp, int maxHp, int atk, bool isAlive, bool isStun, bool isPoison, int baseAtk)
+        protected Entity(string name, int hp, int maxHp, int atk, bool isAlive, bool isStun, bool isPoison, int baseAtk, int poisonToken, int stunToken)
         {
             Name = name;
             Hp = hp;
@@ -27,6 +29,8 @@ namespace Orima02
             IsStun = isStun;
             IsPoison = isPoison;
             BaseAtk = baseAtk;
+            PoisonToken = poisonToken;
+            StunToken = stunToken;
         }
 
         protected Entity()
@@ -42,6 +46,23 @@ namespace Orima02
 
 
 
+
+        public void ModifyStunToken(int token)
+        {
+            StunToken = StunToken + token;
+            if (StunToken < 0)
+            {
+                StunToken = 0;
+            }
+        }
+        public void ModifyPoisonToken(int token)
+        {
+            PoisonToken = PoisonToken + token;
+            if (PoisonToken < 0)
+            {
+                PoisonToken = 0;
+            }
+        }
         public void ModifyHp(int hp)
         {
             

@@ -289,9 +289,13 @@ _||_    .-;`\..../`;_.-^-._
                 while (true)
                 {
                     player.ResetAtk();
+                    enemy.ResetAtk();
                     i++;
                     Console.Clear();
+                    Console.BackgroundColor = ConsoleColor.White;
+                    Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine($"Round: {i}");
+                    Console.ResetColor();
                     Thread.Sleep(3000);
 
                     if (player.IsAlive && enemy.IsAlive)

@@ -8,11 +8,11 @@ namespace Orima02
         public static void Main(string[] args)
         {
             //Enemy Declaration
-            GoblinGuard goblinGuard = new GoblinGuard("Goblin Guard", 100, 100, 3, 1, 3, true, false, true,5);
-            GoblinWarrior goblinWarrior = new GoblinWarrior("Goblin Warrior", 10, 10, 5, 1, 3, true, true, true,10);
-            PoisonGoblin poisonGoblin = new PoisonGoblin("Goblin Warrior", 10, 10, 5, 1, 3, true, true, true,10);
-            MuscularGoblin muscularGoblin = new MuscularGoblin("Goblin Warrior", 10, 10, 5, 1, 3, true, true, true,10);
-            KingGoblin kingGoblin= new KingGoblin("Goblin Warrior", 10, 10, 5, 1, 3, true, true, true,10);
+            GoblinGuard goblinGuard = new GoblinGuard("Goblin Guard", 100, 100, 3, 0, 3, true, false, true,5,0,0);
+            GoblinWarrior goblinWarrior = new GoblinWarrior("Goblin Warrior", 10, 10, 5, 0, 3, true, true, true,10,0,0);
+            PoisonGoblin poisonGoblin = new PoisonGoblin("Poison Goblin", 10, 10, 5, 0, 3, true, true, true,10,0,0);
+            MuscularGoblin muscularGoblin = new MuscularGoblin("Muscular Goblin", 10, 10, 5, 0, 3, true, true, true,10,0,0);
+            KingGoblin kingGoblin= new KingGoblin("King Goblin", 10, 10, 5, 0, 3, true, true, true,10,0,0);
 
             //Skill Declaration
             Skill cheat = new Skill(SkillName.Cheat,SkillType.Passive,"skillinfo", 0);
@@ -52,17 +52,17 @@ namespace Orima02
             {
                 case 1:
                 {
-                    player = new Character(gameController.GetName(),CharClass.Magician, 12, 12, 12, 12, 3, true, true, true, 3, new ArrayList(){mpRegen,fireAttack,heal});
+                    player = new Character(gameController.GetName(),CharClass.Magician, 12, 12, 12, 12, 3, true, false, false, 3,0,0 ,new ArrayList(){mpRegen,fireAttack,heal});
                     break;
                 }
                 case 2:
                 {   
-                    player = new Character(gameController.GetName(),CharClass.Swordsman, 12, 12, 9, 9, 5, true, true, true,5,new ArrayList(){regeneration,heavyAttack,dodge});
+                    player = new Character(gameController.GetName(),CharClass.Swordsman, 12, 12, 9, 9, 5, true, false, false,5,0,0,new ArrayList(){regeneration,heavyAttack,dodge});
                     break;
                 }
                 case 3:
                 {
-                    player = new Character(gameController.GetName(),CharClass.Volunteer, 15, 15, 9, 9, 2, true, true, true,3,new ArrayList(){cheat,damageChance,useSpecialItem});
+                    player = new Character(gameController.GetName(),CharClass.Volunteer, 15, 15, 9, 9, 2, true, false, false,3,0,0,new ArrayList(){cheat,damageChance,useSpecialItem});
                     break;
                 }
                 
