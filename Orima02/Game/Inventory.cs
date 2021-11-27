@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 
@@ -6,9 +7,9 @@ namespace Orima02
 {
     public class Inventory
     {
-        public UseableItem[] Items;
+        public ArrayList Items;
 
-        public Inventory(UseableItem[] items)
+        public Inventory(ArrayList items)
         {
             Items = items;
         }

@@ -16,6 +16,7 @@ namespace Orima02
         DamageBomb,
         TrapDeflect,
         TrapUltimate,
+        TrapWeakness,
         AbilityTheWorld,
         AbilityOra,
         AbilityUseLeg,
@@ -40,7 +41,7 @@ namespace Orima02
 
         public void Stats()
         {
-            Console.WriteLine("===Enemy Stats===\n" +
+            Console.WriteLine($"==={Name} Stats===\n" +
                               $"| Name        | {Name}\n" +
                               $"| MpCost      | 0 \n" +
                               $"| Info        | {Info}\n");

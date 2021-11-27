@@ -1,5 +1,5 @@
 ﻿using System;
-using System.ComponentModel;
+using System.Collections;
 
 namespace Orima02
 {
@@ -8,8 +8,11 @@ namespace Orima02
         public static void Main(string[] args)
         {
             //Enemy Declaration
-            GoblinGuard goblinGuard = new GoblinGuard("Goblin Guard", 10, 10, 5, 1, 3, true, false, true);
-            GoblinWarrior goblinWarrior = new GoblinWarrior("Goblin Warrior", 10, 10, 5, 1, 3, true, true, true);
+            GoblinGuard goblinGuard = new GoblinGuard("Goblin Guard", 100, 100, 3, 1, 3, true, false, true,5);
+            GoblinWarrior goblinWarrior = new GoblinWarrior("Goblin Warrior", 10, 10, 5, 1, 3, true, true, true,10);
+            PoisonGoblin poisonGoblin = new PoisonGoblin("Goblin Warrior", 10, 10, 5, 1, 3, true, true, true,10);
+            MuscularGoblin muscularGoblin = new MuscularGoblin("Goblin Warrior", 10, 10, 5, 1, 3, true, true, true,10);
+            KingGoblin kingGoblin= new KingGoblin("Goblin Warrior", 10, 10, 5, 1, 3, true, true, true,10);
 
             
             //Combat Class Declaration
@@ -17,30 +20,64 @@ namespace Orima02
 
 
             //Character Declaration
-            Character player = new EmptyCharacter();
+            Character player = new Character();
 
 
+            //game controller Declaration
+            GameController gameController = new GameController();
+
+
+            //Method
+            gameController.Menu();
+            //Select Class
+            switch (gameController.SelectClass())
+            {
+                case 1:
+                {
+                    player = new Character(gameController.GetName(),CharClass.Magician, 12, 12, 12, 12, 3, true, true, true, 3);
+                    break;
+                }
+                case 2:
+                {   
+                    player = new Character(gameController.GetName(),CharClass.Swordsman, 12, 12, 9, 9, 5, true, true, true,5);
+                    break;
+                }
+                case 3:
+                {
+                    player = new Character(gameController.GetName(),CharClass.Volunteer, 15, 15, 9, 9, 3, true, true, true,3);
+                    break;
+                }
+                
+            }
+            
+            
+            
+            
+            
+            
             //Item Declaration
-            EquipableItem atkset = new EquipableItem(ItemName.AtkSet, 3, 1, 1, "Equip Atk Set");
-            EquipableItem mpset = new EquipableItem(ItemName.MpSet, 1, 3, 1, "Equip MP Set");
-            EquipableItem hpset = new EquipableItem(ItemName.HpSet, 1, 3, 1, "Equip HP Set");
-            EquipableItem balanceset = new EquipableItem(ItemName.BalanceSet, 2, 2, 2, "Equip Balance Set");
+            EquipableItem atkSet = new EquipableItem(ItemName.AtkSet, 3, 1, 1, "Equip Atk Set");
+            EquipableItem mpSet = new EquipableItem(ItemName.MpSet, 1, 3, 1, "Equip MP Set");
+            EquipableItem hpSet = new EquipableItem(ItemName.HpSet, 1, 3, 1, "Equip HP Set");
+            EquipableItem balanceSet = new EquipableItem(ItemName.BalanceSet, 2, 2, 2, "Equip Balance Set");
             UseableItem fullRegen =
-                new UseableItem(ItemName.FullRegen, $"Instantly regenerate your hp to {player.MaxHp}");
+                new UseableItem(ItemName.FullRegen, "Instantly regenerate to full Hp");
             UseableItem doubleDamage =
-                new UseableItem(ItemName.DoubleDamage, $"Double your atk to {player.Atk*2}");
+                new UseableItem(ItemName.DoubleDamage, "Double your Atk");
             UseableItem fullMp =
-                new UseableItem(ItemName.FullMp, $"Instantly regenerate your mp to {player.MaxMp}");
+                new UseableItem(ItemName.FullMp, "Instantly regenerate to full Mp");
             UseableItem stunBomb =
                 new UseableItem(ItemName.StunBomb, "Stun your enemy for 1 turn");
             UseableItem poisonBomb =
                 new UseableItem(ItemName.PoisonBomb, "poisoned your enemy");
             UseableItem damageBomb =
-                new UseableItem(ItemName.DamageBomb, $"deals {player.Atk/2} damage at the enemy");
+                new UseableItem(ItemName.DamageBomb, "deals 5 damage at the enemy");
             UseableItem trapDeflect =
                 new UseableItem(ItemName.TrapDeflect, "Reverse all damage to the enemy (this item will be active on the enemy turn");
             UseableItem trapUltimate =
                 new UseableItem(ItemName.TrapUltimate, "Steal enemy's Ultimate (this item will be active on the enemy turn)");
+            UseableItem trapWeakness = 
+                new UseableItem(ItemName.TrapWeakness, "Set enemy damage to half");
             UseableItem abilityTheWorld =
                 new UseableItem(ItemName.AbilityTheWorld, "Stunt enemy for 1-3 turn");
             UseableItem abilityOra =
@@ -53,40 +90,21 @@ namespace Orima02
             
 
             //Inventory Declaration
-            Inventory inventory = new Inventory(new [] {fullRegen,doubleDamage});
-
-            Inventory fullinventory = new Inventory(new [] {fullRegen,doubleDamage,fullMp,stunBomb,poisonBomb,damageBomb,trapDeflect,trapUltimate,abilityTheWorld,abilityOra,abilityUseLeg});
-
-
-            
-            
-            //game controller Declaration
-            GameController gameController = new GameController();
-
-
-            //Method
-            gameController.Menu();
-            //Select Class
-            switch (gameController.SelectClass())
-            {
-                case 1:
-                {
-                    player = new Magician(gameController.GetName(), 1, 12, 12, 12, 3, true, true, true);
-                    break;
-                }
-                case 2:
-                {
-                    player = new Swordsman(gameController.GetName(), 12, 12, 9, 9, 5, true, true, true);
-                    break;
-                }
-                case 3:
-                {
-                    player = new Volunteer(gameController.GetName(), 15, 15, 9, 9, 3, true, true, true);
-                    break;
-                }
-            }
-            
-            
+            Inventory inventory = new Inventory(new ArrayList() {fullRegen, doubleDamage});
+            Inventory stage1 = new Inventory(new ArrayList() {fullRegen, doubleDamage, fullMp});
+            Inventory stage2 = new Inventory(new ArrayList() {stunBomb, poisonBomb, damageBomb});
+            Inventory stage3 = new Inventory(new ArrayList() {trapDeflect, trapUltimate, trapWeakness});
+            Inventory stage4 = new Inventory(new ArrayList() {abilityTheWorld, abilityOra, abilityUseLeg});
+            Inventory fullInventory = new Inventory(new ArrayList()
+            {fullRegen, doubleDamage, fullMp, stunBomb,
+                poisonBomb,
+                damageBomb,
+                trapDeflect,
+                trapUltimate,
+                abilityTheWorld,
+                abilityOra,
+                abilityUseLeg
+            });
             
             
             
@@ -94,7 +112,7 @@ namespace Orima02
             
             
              //Scene Declaration
-            Scene scene1_1 = new Scene(1.1, 10, new[]
+             Scene scene1_1 = new Scene(1.1, 10, new[]
             {
                 "While you are traveling had passed through the forest in the same area as the Feri City Kingdom.\n",
                 " which is a forest inhabited by goblins Or almost called their forest. While walking, you meet a young woman.\n",
@@ -137,7 +155,7 @@ namespace Orima02
             });
             Scene scene1_2C2 = new Scene(1.2, 10, new[]
             {
-                $"{player.Name} : Salute Princess of the Kingdom of \n",
+                $"{player.Name} : Salute Princess of the Kingdom\n",
                 $"{player.Name} : Sorry to spoil your manners with the princess.\n",
                 "Irene : There is no need to pay great respects.\n",
                 "Irene : Keep your head up\n",
@@ -262,9 +280,6 @@ namespace Orima02
                 $"{player.Name} : Shhhh Annie\n",
                 "Grandma : You see, old man? Forgetful and still want to tell others the way\n",
                 "{Go back to choose a new way} \n"
-
-
-                //fight
             });
             Scene scene4_2 = new Scene(4.1, 10, new[]
             {
@@ -369,7 +384,7 @@ namespace Orima02
                 "Peony : Princess, be careful to stumble across the grass!!\n",
                 "Daisy : It's like this outside of the forest!!\n",
                 "Lily : There are lots of flowers there!!\n",
-                $"{player.Name} : Nobody really cares about me! 😢\n",
+                $"{player.Name} : Nobody really cares about me!\n",
                 "{go to the palace}\n",
                 "Irene : Father!\n",
                 "King Valdus : Where have you been, daughter? Everyone in the palace was chaotic looking for you.\n",
@@ -399,86 +414,94 @@ namespace Orima02
                 $"{player.Name} : Hey! Wait, why is it? What about the passing knight?\n",
                 $"{player.Name} : I just killed 10 goblins.\n",
             });
-
-
             
             
             //Debug
-            player.Stats();
+            //player.Stats();
             //Scene1
-            scene1_1.DisplayScene();
+            //scene1_1.DisplayScene();
             //Scene1 Choice1
-            int userInput = gameController.ChoiceSelector(scene1_1.SceneIndex);
-            if (userInput == 1)
-            {
-                scene1_1C1.DisplayScene();
-            }
-            else if (userInput == 2)
-            {
-                scene1_1C2.DisplayScene();
-            }
-            scene1_2.DisplayScene();
-            
-            userInput = gameController.ChoiceSelector(scene1_2.SceneIndex);
-            if (userInput == 1)
-            {
-                scene1_2C1.DisplayScene();
-            }
-            else if (userInput == 2)
-            {
-                scene1_2C2.DisplayScene();
-            }
-            scene1_3.DisplayScene();
-            
-            userInput = gameController.ChoiceSelector(scene1_3.SceneIndex);
-            if (userInput == 1)
-            {
-                scene1_3C1.DisplayScene();
-            }
-            else if (userInput == 2)
-            {
-                scene1_3C2.DisplayScene();
-            }
+            var userInput = gameController.ChoiceSelector(scene1_1.SceneIndex);
+            // switch (userInput)
+            // {
+            //     case 1:
+            //         scene1_1C1.DisplayScene();
+            //         break;
+            //     case 2:
+            //         scene1_1C2.DisplayScene();
+            //         break;
+            // }
+            // scene1_2.DisplayScene();
+            //
+            // userInput = gameController.ChoiceSelector(scene1_2.SceneIndex);
+            // switch (userInput)
+            // {
+            //     case 1:
+            //         scene1_2C1.DisplayScene();
+            //         break;
+            //     case 2:
+            //         scene1_2C2.DisplayScene();
+            //         break;
+            // }
+            // scene1_3.DisplayScene();
+            //
+            // userInput = gameController.ChoiceSelector(scene1_3.SceneIndex);
+            // switch (userInput)
+            // {
+            //     case 1:
+            //         scene1_3C1.DisplayScene();
+            //         break;
+            //     case 2:
+            //         scene1_3C2.DisplayScene();
+            //         break;
+            // }
             
             
             //Scene2
-            scene2_1.DisplayScene();
+            //scene2_1.DisplayScene();
             //picking item
-            gameController.SelectSet(player, atkset, mpset, hpset, balanceset);
-            scene2_2.DisplayScene();
+            gameController.SelectSet(player, atkSet, mpSet, hpSet, balanceSet);
+            //scene2_2.DisplayScene();
             
             
             //Scene3
-            scene3_1.DisplayScene();
+            //scene3_1.DisplayScene();
             //fight
-            gameController.CombatPhase(player, goblinGuard, inventory.Items, fullinventory.Items, combat);
+            gameController.CombatPhase(player, goblinGuard, inventory.Items, fullInventory.Items, combat);
+            gameController.RandomStage1(inventory,inventory.Items, stage1.Items);
             //Scene4
             scene4_1.DisplayScene();
             userInput = gameController.ChoiceSelector(scene4_1.SceneIndex);
-            if (userInput == 1)
+            switch (userInput)
             {
-                scene4_1C1.DisplayScene();
-            }
-            else if (userInput == 2)
-            {
-                scene4_1C2.DisplayScene();
+                case 1:
+                    scene4_1C1.DisplayScene();
+                    break;
+                case 2:
+                    scene4_1C2.DisplayScene();
+                    break;
             }
             scene4_2.DisplayScene();
             //fight
-            
+            gameController.CombatPhase(player, goblinWarrior, inventory.Items, fullInventory.Items, combat);
+            gameController.RandomStage2(inventory,inventory.Items, stage2.Items);
             
             //Scene5
             scene5_1.DisplayScene();
             //fight
-            
+            gameController.CombatPhase(player, poisonGoblin, inventory.Items, fullInventory.Items, combat);
+            gameController.RandomStage3(inventory,inventory.Items, stage3.Items);
             //Scene6
             scene6_1.DisplayScene();
             //fight
+            gameController.CombatPhase(player, muscularGoblin, inventory.Items, fullInventory.Items, combat);
+            gameController.RandomStage4(inventory,inventory.Items, stage4.Items);
             scene6_2.DisplayScene();
             
             //Scene7
             scene7_1.DisplayScene();
             //fight
+            gameController.CombatPhase(player, goblinGuard, inventory.Items, fullInventory.Items, combat);
             scene7_2.DisplayScene();
             
 

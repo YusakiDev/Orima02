@@ -2,9 +2,7 @@
 {
     public class MuscularGoblin: Enemy
     {
-        public MuscularGoblin(string name, int hp, int maxHp, int atk, int ultpoint, int maxUltPoint, bool isAlive, bool isStun, bool isPoison) : base(name, hp, maxHp, atk, ultpoint, maxUltPoint, isAlive, isStun, isPoison)
-        {
-        }
+       
 
         public override void Attack()
         {
@@ -14,6 +12,10 @@
         public override void Ultimate()
         {
             throw new System.NotImplementedException();
+        }
+
+        public MuscularGoblin(string name, int hp, int maxHp, int atk, int ultpoint, int maxUltPoint, bool isAlive, bool isStun, bool isPoison, int baseAtk) : base(name, hp, maxHp, atk, ultpoint, maxUltPoint, isAlive, isStun, isPoison, baseAtk)
+        {
         }
     }
 }

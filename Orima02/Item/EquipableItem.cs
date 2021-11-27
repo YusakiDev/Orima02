@@ -2,9 +2,10 @@
 {
     public class EquipableItem: Item
     {
-        public int Atk;
-        public int MaxMp;
-        public int MaxHp;
+        public readonly int Atk;
+        public readonly int MaxMp;
+        public readonly int MaxHp;
+        
         
         
         public EquipableItem(ItemName name,int atk, int mp, int hp, string info) : base(name, info)
