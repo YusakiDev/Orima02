@@ -21,49 +21,66 @@ namespace Orima02
 
         public void FullRegen(Character player)
         {
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine($"{player.Name} use Item Fullregen...");
             player.ModifyHp(player.MaxHp);
             Thread.Sleep(3000);
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"{player.Name}'s Hp is full");
+            Console.ForegroundColor = ConsoleColor.Black;
         }
         
         public void DoubleDamage(Character player)
         {
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine($"{player.Name} use Item DoubleDamage...");
             player.ModifyAtk(player.Atk);
             Thread.Sleep(3000);
             Console.WriteLine($"{player.Name}'s Atk is Doubled");
+            Console.ForegroundColor = ConsoleColor.Black;
         }
 
         public void FullMp(Character player)
         {
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine($"{player.Name} use Item FullMp...");
             player.ModifyMp(player.Mp);
             Thread.Sleep(3000);
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine($"{player.Name}'s Mp is full");
+            Console.ForegroundColor = ConsoleColor.Black;
         }
         public void StunBomb(Character player,Enemy enemy)
         {
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine($"{player.Name} use Item StunBomb...");
             enemy.ModifyHp(-2);
             enemy.IsStun = true;
             Thread.Sleep(3000);
+            Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine($"{enemy.Name} took 2 Damage and it is now stunned");
+            Console.ForegroundColor = ConsoleColor.Black;
         }
         public void PoisonBomb(Character player,Enemy enemy)
         {
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine($"{player.Name} use Item PoisonBomb...");
             enemy.ModifyHp(-2);
             enemy.IsPoison = true;
             Thread.Sleep(3000);
+            Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine($"{enemy.Name} took 2 Damage and it is now poisoned");
+            Console.ForegroundColor = ConsoleColor.Black;
         }
         public void DamageBomb(Character player, Enemy enemy)
         {
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine($"{player.Name} use Item Damage Bomb...");
             enemy.ModifyHp(-10);
             Thread.Sleep(3000);
+            Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine($"{enemy.Name} took 10 Damage");
+            Console.ForegroundColor = ConsoleColor.Black;
         }
 
         public void TrapDeflectDamage(Enemy enemy)
