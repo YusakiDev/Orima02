@@ -20,10 +20,9 @@ namespace Orima02
 
 
             //Character Declaration
-            Character player = new EmptyCharacter();
-            
-            
-            
+            Character player = new Character();
+
+
             //game controller Declaration
             GameController gameController = new GameController();
 
@@ -35,20 +34,26 @@ namespace Orima02
             {
                 case 1:
                 {
-                    player = new Magician(gameController.GetName(), 12, 12, 12, 12, 3, true, true, true, 3);
+                    player = new Character(gameController.GetName(),CharClass.Magician, 12, 12, 12, 12, 3, true, true, true, 3);
                     break;
                 }
                 case 2:
-                {
-                    player = new Swordsman(gameController.GetName(), 12, 12, 9, 9, 5, true, true, true,5);
+                {   
+                    player = new Character(gameController.GetName(),CharClass.Swordsman, 12, 12, 9, 9, 5, true, true, true,5);
                     break;
                 }
                 case 3:
                 {
-                    player = new Volunteer(gameController.GetName(), 15, 15, 9, 9, 3, true, true, true,3);
+                    player = new Character(gameController.GetName(),CharClass.Volunteer, 15, 15, 9, 9, 3, true, true, true,3);
                     break;
                 }
+                
             }
+            
+            
+            
+            
+            
             
             //Item Declaration
             EquipableItem atkSet = new EquipableItem(ItemName.AtkSet, 3, 1, 1, "Equip Atk Set");
@@ -56,17 +61,17 @@ namespace Orima02
             EquipableItem hpSet = new EquipableItem(ItemName.HpSet, 1, 3, 1, "Equip HP Set");
             EquipableItem balanceSet = new EquipableItem(ItemName.BalanceSet, 2, 2, 2, "Equip Balance Set");
             UseableItem fullRegen =
-                new UseableItem(ItemName.FullRegen, $"Instantly regenerate to full Hp");
+                new UseableItem(ItemName.FullRegen, "Instantly regenerate to full Hp");
             UseableItem doubleDamage =
-                new UseableItem(ItemName.DoubleDamage, $"Double your Atk");
+                new UseableItem(ItemName.DoubleDamage, "Double your Atk");
             UseableItem fullMp =
-                new UseableItem(ItemName.FullMp, $"Instantly regenerate to full Mp");
+                new UseableItem(ItemName.FullMp, "Instantly regenerate to full Mp");
             UseableItem stunBomb =
                 new UseableItem(ItemName.StunBomb, "Stun your enemy for 1 turn");
             UseableItem poisonBomb =
                 new UseableItem(ItemName.PoisonBomb, "poisoned your enemy");
             UseableItem damageBomb =
-                new UseableItem(ItemName.DamageBomb, $"deals 5 damage at the enemy");
+                new UseableItem(ItemName.DamageBomb, "deals 5 damage at the enemy");
             UseableItem trapDeflect =
                 new UseableItem(ItemName.TrapDeflect, "Reverse all damage to the enemy (this item will be active on the enemy turn");
             UseableItem trapUltimate =
@@ -107,7 +112,7 @@ namespace Orima02
             
             
              //Scene Declaration
-            Scene scene1_1 = new Scene(1.1, 10, new[]
+             Scene scene1_1 = new Scene(1.1, 10, new[]
             {
                 "While you are traveling had passed through the forest in the same area as the Feri City Kingdom.\n",
                 " which is a forest inhabited by goblins Or almost called their forest. While walking, you meet a young woman.\n",

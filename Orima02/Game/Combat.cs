@@ -12,7 +12,8 @@ namespace Orima02
 
         public void CharPassive(Character player)
         {
-            player.Passive();
+            //TODO
+            //player.Passive();
             player.ModifyMp(1);
             Console.WriteLine($"{player.Mp}/{player.MaxMp}");
         }
@@ -115,16 +116,18 @@ namespace Orima02
                 Console.ResetColor();
                 Console.WriteLine("(Please Select Your Skill)\n" +
                                   "Or Press Enter to Pass...");
+                
+                
 
                 var userInput = Console.ReadKey(true).Key;
                 
                 if (userInput == ConsoleKey.D1)
                 {
-                    player.Skill1();
+                    
                 }
                 else if (userInput == ConsoleKey.D2)
                 {
-                    player.Skill2();
+                    
                 }
                 else if (userInput == ConsoleKey.Enter)
                 {

@@ -40,10 +40,6 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Entity\Character\Character.cs" />
-        <Compile Include="Entity\Character\EmptyCharacter.cs" />
-        <Compile Include="Entity\Character\Magician.cs" />
-        <Compile Include="Entity\Character\Swordsman.cs" />
-        <Compile Include="Entity\Character\Volunteer.cs" />
         <Compile Include="Entity\Enemy\Enemy.cs" />
         <Compile Include="Entity\Enemy\GoblinGuard.cs" />
         <Compile Include="Entity\Enemy\GoblinWarrior.cs" />
