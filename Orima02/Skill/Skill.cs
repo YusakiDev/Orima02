@@ -63,7 +63,7 @@ namespace Orima02
 
         public void Cheat(Character player)
         {
-            Console.WriteLine($"{player.Name} Just Cheated! He doubled his ATK!");
+            Console.WriteLine($"Passive: {player.Name} Just Cheated! He doubled his ATK!");
             player.ModifyAtk(player.Atk);
         }
 
@@ -105,7 +105,46 @@ namespace Orima02
             player.ModifyHp(1);
         }
 
+        public void HeavyAttack(Character player, Enemy enemy)
+        {
+            player.ModifyMp(-3);
+            Console.WriteLine($"{player.Name} use heavy attack...");
+            Thread.Sleep(3000);
+            enemy.ModifyHp(-(player.Atk + 2));
+            Console.WriteLine($"{player.Name} deals {player.Atk + 2} dmg to {enemy.Name}");
+        }
 
+        public void Fear(Character player, Enemy enemy)
+        {
+            player.ModifyMp(-3);
+            Console.WriteLine($"{player.Name} use Fear...");
+            Thread.Sleep(3000);
+            enemy.ModifyAtk(-enemy.Atk);
+            Console.WriteLine($"{enemy.Name} attack decreased to 0");
+        }
+
+        public void MpRegen(Character player)
+        {
+            Console.WriteLine("Passive: You just regenerate 1 more Mp");
+            player.ModifyMp(1);
+        }
+        public void PoisonAttack(Character player, Enemy enemy)
+        {
+            player.ModifyMp(-5);
+            Console.WriteLine($"{player.Name} use PoisonAttack...");
+            Thread.Sleep(3000);
+            enemy.IsPoison = true;
+            enemy.ModifyHp(-2);
+            Console.WriteLine($"{player.Name} deals 2 dmg to {enemy.Name} and poisoned it");
+        }
+
+        public void Heal(Character player)
+        {
+            player.ModifyMp(-4);
+            Console.WriteLine($"{player.Name} use heal...");
+            Thread.Sleep(3000);
+            Console.WriteLine($"{player.Name} now have {player.Hp} (+4) Hp");
+        }
 
 
 
