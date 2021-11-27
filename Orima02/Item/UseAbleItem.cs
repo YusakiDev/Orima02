@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections;
+using System.Media;
+using System.Security.Cryptography;
 using System.Threading;
 
 namespace Orima02
@@ -80,23 +82,88 @@ namespace Orima02
         }
         public void TrapWeakness(Enemy enemy)
         {
-            Console.WriteLine("TrapWeakness");
+            Console.WriteLine("Placing Trap Weakness...");
+            enemy.TrapUltimateIndex.Add(2);
+            Thread.Sleep(3000);
+            Console.WriteLine("It Will Activate on the next Enemy Ultimate Phase!");
         }
 
-        public void AbilityTheWorld(Enemy enemy)
+        public void AbilityTheWorld(Character player, Enemy enemy)
         {
-            
-            Console.WriteLine("The World!!");
+            Random rnd = new Random();
+            if (player.CheckMp(2))
+            {
+                Console.WriteLine("Casting Ability... 'The World!'");
+                Thread.Sleep(3000);
+                var i = rnd.Next(1,3);
+                switch (i)
+                {
+                    case 1:
+                        enemy.IsStun = true;
+                        enemy.ModifyStunToken(1);
+                        Console.WriteLine($"{enemy.Name} stunned for {i} round");
+                        break;
+                    case 2:
+                        enemy.IsStun = true;
+                        enemy.ModifyStunToken(2);
+                        Console.WriteLine($"{enemy.Name} stunned for {i} round");
+                        break;
+                    case 3:
+                        enemy.IsStun = true;
+                        enemy.ModifyStunToken(3);
+                        Console.WriteLine($"{enemy.Name} stunned for {i} round");
+                        break;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Not Enough Mana! Skipping...");
+                Thread.Sleep(3000);
+                
+            }
         }
 
-        public void AbilityOra(Enemy enemy)
+        public void AbilityOra(Character player, Enemy enemy)
         {
-            Console.WriteLine("Ora! Ora!");
+            if (player.CheckMp(4))
+            {
+                Console.WriteLine("Casting Ability... 'Rapid Punch'");
+                Thread.Sleep(3000);
+                for (int i = 0; i < player.Atk * 3; i++)
+                {
+                    enemy.ModifyHp(-1);
+                    Console.Write("Ora! ");
+                    Thread.Sleep(250);
+                }
+                Console.WriteLine($"\n{player.Name} Punch {enemy.Name} {player.Atk*3} times\n" +
+                                  $"Dealing {player.Atk*3} Damage");
+            }
+            else
+            {
+                Console.WriteLine("Not Enough Mana! Skipping...");
+                Thread.Sleep(3000);
+                
+            }
         }
 
-        public void AbilityUseLeg(Enemy enemy)
+        public void AbilityUseLeg(Character player, Enemy enemy)
         {
-            Console.WriteLine("IMMA RUN NOW!");
+            if (player.CheckMp(player.MaxMp))
+            {
+                Console.WriteLine("Casting Ability... 'nigerundayo smokey'");
+                Thread.Sleep(3000);
+                Console.WriteLine("Oops!");
+                Thread.Sleep(5000);
+                enemy.ModifyHp(-enemy.MaxHp);
+                Console.WriteLine($"{player.Name} just accidentally ran over {enemy.Name} Dealing {enemy.MaxHp} Damage");
+
+            }
+            else
+            {
+                Console.WriteLine("Not Enough Mana! Skipping...");
+                Thread.Sleep(3000);
+                
+            }
         }
 
 

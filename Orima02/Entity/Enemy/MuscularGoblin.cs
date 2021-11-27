@@ -34,5 +34,14 @@ namespace Orima02
         public MuscularGoblin(string name, int hp, int maxHp, int atk, int ultPoint, int maxUltPoint, bool isAlive, bool isStun, bool isPoison, int baseAtk, int stunToken, int poisonToken, List<int> trapCombatIndex, List<int> trapUltimateIndex) : base(name, hp, maxHp, atk, ultPoint, maxUltPoint, isAlive, isStun, isPoison, baseAtk, stunToken, poisonToken, trapCombatIndex, trapUltimateIndex)
         {
         }
+
+        public override void Ultimate(Character player, Enemy enemy)
+        {
+            Console.WriteLine($"{enemy.Name} is casting 'Road Roller'");
+            Thread.Sleep(3000);
+            player.ModifyHp(player.MaxHp/4);
+            Console.WriteLine($"{enemy.Name} throw road roller at {player.Name}\n" +
+                              $"dealing {player.MaxHp/4} damage");
+        }
     }
 }

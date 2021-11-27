@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Resources;
 
 namespace Orima02
 {
@@ -38,15 +39,15 @@ namespace Orima02
         }
 
 
-        
+        public abstract void Ultimate(Character player, Enemy enemy);
 
         public void ModifyUlt(int ultPoint)
         {
             UltPoint = UltPoint + ultPoint;
 
-            if (UltPoint > 3)
+            if (UltPoint > MaxUltPoint)
             {
-                UltPoint = 3;
+                UltPoint = MaxUltPoint;
             }
             else if (UltPoint < 0)
             {

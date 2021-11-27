@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Diagnostics;
 using System.Diagnostics.Contracts;
 using System.Security;
 using System.Threading;
@@ -113,6 +114,7 @@ namespace Orima02
                 UseAbleItem fullRegen = new UseAbleItem();
                 Console.Clear();
                 player.Stats();
+                enemy.Stats();
                 fullRegen.FullRegen(player);
                 Thread.Sleep(3000);
                 inventory.Remove(item);
@@ -184,7 +186,7 @@ namespace Orima02
                 UseAbleItem abilityTheWorld = new UseAbleItem();
                 Console.Clear();
                 player.Stats();
-                abilityTheWorld.AbilityTheWorld(enemy);
+                abilityTheWorld.AbilityTheWorld(player,enemy);
                 inventory.Remove(item);
             }
             else if (item == allItem[10])
@@ -192,7 +194,7 @@ namespace Orima02
                 UseAbleItem abilityOra = new UseAbleItem();
                 Console.Clear();
                 player.Stats();
-                abilityOra.AbilityOra(enemy);
+                abilityOra.AbilityOra(player,enemy);
                 inventory.Remove(item);
             }
             else if (item == allItem[11])
@@ -200,7 +202,7 @@ namespace Orima02
                 UseAbleItem abilityUseLeg = new UseAbleItem();
                 Console.Clear();
                 player.Stats();
-                abilityUseLeg.AbilityUseLeg(enemy);
+                abilityUseLeg.AbilityUseLeg(player,enemy);
                 inventory.Remove(item);
             }
 
@@ -272,7 +274,7 @@ namespace Orima02
                 Skill skill2 = new Skill();
                 Console.Clear();
                 player.Stats();
-                skill2.ItemCheat(player, inventory, fullInventory, combat);
+                skill2.ItemCheat(player, enemy, inventory, fullInventory, combat);
                 Thread.Sleep(3000);
             }else if (skill == allSkill[3])
             {
@@ -358,7 +360,7 @@ namespace Orima02
             Thread.Sleep(5000);
         }
 
-        public void EnemyUltimate(Enemy enemy)
+        public void EnemyUltimate(Character player,Enemy enemy)
         {
             Console.BackgroundColor = ConsoleColor.Gray;
             Console.ForegroundColor = ConsoleColor.Black;
@@ -370,7 +372,7 @@ namespace Orima02
                 Console.WriteLine($"{enemy.Name} Casts Ultimate!");
                 Console.ForegroundColor = ConsoleColor.Black;
                 enemy.UltPoint = 0;
-                //TODO
+                enemy.Ultimate(player, enemy);
             }
             else
             {
@@ -466,17 +468,32 @@ namespace Orima02
 
         public bool CheckTrapUltimate(Character player, Enemy enemy)
         {
-            int i = 1;
-            if (enemy.TrapCombatIndex[i] == 1)
+            foreach (int index in enemy.TrapCombatIndex)
             {
-                Console.WriteLine("Trap Activated: Deflect Damage");
-                enemy.ModifyHp(-enemy.Atk);
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"{enemy.Name} Deal {enemy.Atk} Damage to itself");
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"{enemy.Name} now have {enemy.Hp} Hp left");
-                enemy.TrapCombatIndex.Remove(1);
-                return true;
+                if (enemy.TrapCombatIndex[index] == 1)
+                {
+                    Console.WriteLine("Trap Activated: Deflect Damage");
+                    enemy.ModifyHp(-enemy.Atk);
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"{enemy.Name} Deal {enemy.Atk} Damage to itself");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"{enemy.Name} now have {enemy.Hp} Hp left");
+                    Console.ResetColor();
+                    enemy.TrapCombatIndex.Remove(1);
+                    return true;
+                }
+
+                if (enemy.TrapCombatIndex[index] == 2)
+                {
+                    Console.WriteLine("Trap Activated: Weakness");
+                    enemy.ModifyHp(enemy.Atk / 2 - enemy.Atk);
+                    Console.WriteLine($"{enemy.Name}'s Atk is now Halved");
+                    Console.WriteLine($"{enemy.Name} has {enemy.Atk}");
+                    Console.ResetColor();
+                    enemy.TrapCombatIndex.Remove(1);
+                    return false;
+                }
+                
             }
 
             return false;
@@ -484,16 +501,17 @@ namespace Orima02
 
         public bool CheckTrapAttack(Character player, Enemy enemy)
         {
-            int i = 1;
-            if (enemy.TrapCombatIndex[i] == 1 && enemy.UltPoint == 3)
+            foreach (int index in enemy.TrapUltimateIndex)
             {
-                //TODO
-                Console.WriteLine("Trap Activated: Deflect Ultimate");
-                
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"{enemy.Name} Casts its Ultimate to itself");
-                enemy.TrapUltimateIndex.Remove(1);
-                return true;
+                if (enemy.TrapCombatIndex[index] == 1 && enemy.UltPoint == 3)
+                {
+                    Console.WriteLine("Trap Activated: Deflect Ultimate");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"{player.Name} deflect {enemy.Name}'s Ultimate with {(enemy.Atk + player.Atk) * 3} damage");
+                    enemy.ModifyHp(-(enemy.Atk + player.Atk) * 3);
+                    enemy.TrapUltimateIndex.Remove(1);
+                    return true;
+                }
             }
 
             return false;

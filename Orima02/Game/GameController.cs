@@ -302,6 +302,9 @@ _||_    .-;`\..../`;_.-^-._
                 player.ModifyHp(player.MaxHp);
                 player.ModifyMp(player.MaxMp);
                 player.ResetAtk();
+                enemy.ModifyHp(enemy.MaxHp);
+                enemy.ModifyUlt(enemy.MaxUltPoint);
+                enemy.ResetAtk();
                 i = 0;
                 while (true)
                 {
@@ -311,7 +314,6 @@ _||_    .-;`\..../`;_.-^-._
                     Console.Clear();
                     Console.BackgroundColor = ConsoleColor.White;
                     Console.ForegroundColor = ConsoleColor.White;
-                    Console.WriteLine(player.Hp);
                     Console.WriteLine($"Round: {i}");
                     Console.ResetColor();
                     Thread.Sleep(3000);
@@ -321,8 +323,9 @@ _||_    .-;`\..../`;_.-^-._
                         //Player Passive
                         Console.Clear();
                         player.Stats();
+                        enemy.Stats();
                         combat.CharPassive(player,enemy, allSkill,combat, inventory,fullInventory);
-                        combat.Debug(player, enemy);
+                        
                     }
                     else
                     {
@@ -334,8 +337,8 @@ _||_    .-;`\..../`;_.-^-._
                         //Player Item Phase
                         Console.Clear();
                         player.Stats();
+                        enemy.Stats();
                         combat.CheckItem(combat.ItemPhase(inventory), fullInventory, inventory, player, enemy);
-                        combat.Debug(player, enemy);
                     }
                     else
                     {
@@ -347,8 +350,8 @@ _||_    .-;`\..../`;_.-^-._
                         //Player Skill Select
                         Console.Clear();
                         player.Stats();
+                        enemy.Stats();
                         combat.CheckSkill(combat.SkillPhase(player), allSkill, player, enemy, combat, inventory, fullInventory);
-                        combat.Debug(player, enemy);
                     }
                     else
                     {
@@ -360,8 +363,8 @@ _||_    .-;`\..../`;_.-^-._
                         //Player Auto Attack
                         Console.Clear();
                         player.Stats();
+                        enemy.Stats();
                         combat.CharAutoAttack(player, enemy);
-                        combat.Debug(player, enemy);
                     }
                     else
                     {
@@ -373,8 +376,8 @@ _||_    .-;`\..../`;_.-^-._
                         //Enemy Passive Phase
                         Console.Clear();
                         player.Stats();
+                        enemy.Stats();
                         combat.EnemyPassive(enemy);
-                        combat.Debug(player, enemy);
                     }
                     else
                     {
@@ -386,10 +389,10 @@ _||_    .-;`\..../`;_.-^-._
                         //Enemy Ultimate Check
                         Console.Clear();
                         player.Stats();
+                        enemy.Stats();
                         if (!combat.CheckTrapUltimate(player, enemy))
                         {
-                            combat.EnemyUltimate(enemy);
-                            combat.Debug(player, enemy);
+                            combat.EnemyUltimate(player,enemy);
                         }
                         
                     }
@@ -403,6 +406,7 @@ _||_    .-;`\..../`;_.-^-._
                         //Enemy Auto Attack
                         Console.Clear();
                         player.Stats();
+                        enemy.Stats();
                         if (!combat.CheckTrapAttack(player, enemy))
                         {
                             combat.EnemyAutoAttack(player, enemy);
@@ -463,16 +467,13 @@ _||_    .-;`\..../`;_.-^-._
                     {
                         Console.WriteLine("You just got new Item!");
                         inventory.Add(stage1[0]);
-                        Console.ReadKey();
                         yourInventory.OpenInventory();
                         break;
                     }
                     case 2:
                     {
-                        //TODO
                         Console.WriteLine("You just got new Item!");
                         inventory.Add(stage1[1]);
-                        Console.ReadKey();
                         yourInventory.OpenInventory();
                         break;
                     }
@@ -480,7 +481,6 @@ _||_    .-;`\..../`;_.-^-._
                     {
                         Console.WriteLine("You just got new Item!");
                         inventory.Add(stage1[2]);
-                        Console.ReadKey();
                         yourInventory.OpenInventory();
                         break;
                     }

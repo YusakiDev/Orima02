@@ -99,14 +99,14 @@ namespace Orima02
             }
         }
 
-        public void ItemCheat(Character player,ArrayList inventory, ArrayList fullInventory, Combat combat)
+        public void ItemCheat(Character player,Enemy enemy,ArrayList inventory, ArrayList fullInventory, Combat combat)
         {
             if (player.CheckMp(3))
             {
                 Console.WriteLine("Hacking... Item Phase");
                 Thread.Sleep(3000);
                 Console.WriteLine("You now have second Item Phase! Tada!");
-                combat.CheckItem(combat.ItemPhase(inventory), fullInventory, inventory, player);
+                combat.CheckItem(combat.ItemPhase(inventory), fullInventory, inventory, player, enemy);
             }else
             {
                 Console.WriteLine("Not Enough Mana! Skipping...");
