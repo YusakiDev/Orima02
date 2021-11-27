@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Orima02
 {
@@ -8,11 +9,11 @@ namespace Orima02
         public static void Main(string[] args)
         {
             //Enemy Declaration
-            GoblinGuard goblinGuard = new GoblinGuard("Goblin Guard", 100, 100, 3, 0, 3, true, false, true,5,0,0);
-            GoblinWarrior goblinWarrior = new GoblinWarrior("Goblin Warrior", 10, 10, 5, 0, 3, true, true, true,10,0,0);
-            PoisonGoblin poisonGoblin = new PoisonGoblin("Poison Goblin", 10, 10, 5, 0, 3, true, true, true,10,0,0);
-            MuscularGoblin muscularGoblin = new MuscularGoblin("Muscular Goblin", 10, 10, 5, 0, 3, true, true, true,10,0,0);
-            KingGoblin kingGoblin= new KingGoblin("King Goblin", 10, 10, 5, 0, 3, true, true, true,10,0,0);
+            GoblinGuard goblinGuard = new GoblinGuard("Goblin Guard", 100, 100, 3, 0, 3, true, false, false,5,0,0,new List<int>(){}, new List<int>());
+            GoblinWarrior goblinWarrior = new GoblinWarrior("Goblin Warrior", 10, 10, 5, 0, 3, true, false, false,10,0,0,new List<int>(){}, new List<int>());
+            PoisonGoblin poisonGoblin = new PoisonGoblin("Poison Goblin", 10, 10, 5, 0, 3, true, false, false,10,0,0,new List<int>(){}, new List<int>());
+            MuscularGoblin muscularGoblin = new MuscularGoblin("Muscular Goblin", 10, 10, 5, 0, 3, true, false, false,10,0,0,new List<int>(){}, new List<int>());
+            KingGoblin kingGoblin= new KingGoblin("King Goblin", 10, 10, 5, 0, 3, true, false, false,10,0,0,new List<int>(){}, new List<int>());
 
             //Skill Declaration
             Skill cheat = new Skill(SkillName.Cheat,SkillType.Passive,"skillinfo", 0);
@@ -119,6 +120,7 @@ namespace Orima02
                 damageBomb,
                 trapDeflect,
                 trapUltimate,
+                trapWeakness,
                 abilityTheWorld,
                 abilityOra,
                 abilityUseLeg
@@ -437,54 +439,54 @@ namespace Orima02
             //Debug
             //player.Stats();
             //Scene1
-            scene1_1.DisplayScene();
+            //scene1_1.DisplayScene();
             //Scene1 Choice1
             int userInput;
-            userInput = gameController.ChoiceSelector(scene1_1.SceneIndex);
-            switch (userInput)
-            {
-                case 1:
-                    scene1_1C1.DisplayScene();
-                    break;
-                case 2:
-                    scene1_1C2.DisplayScene();
-                    break;
-            }
-            scene1_2.DisplayScene();
-            
-            userInput = gameController.ChoiceSelector(scene1_2.SceneIndex);
-            switch (userInput)
-            {
-                case 1:
-                    scene1_2C1.DisplayScene();
-                    break;
-                case 2:
-                    scene1_2C2.DisplayScene();
-                    break;
-            }
-            scene1_3.DisplayScene();
-            
-            userInput = gameController.ChoiceSelector(scene1_3.SceneIndex);
-            switch (userInput)
-            {
-                case 1:
-                    scene1_3C1.DisplayScene();
-                    break;
-                case 2:
-                    scene1_3C2.DisplayScene();
-                    break;
-            }
+            // userInput = gameController.ChoiceSelector(scene1_1.SceneIndex);
+            // switch (userInput)
+            // {
+            //     case 1:
+            //         scene1_1C1.DisplayScene();
+            //         break;
+            //     case 2:
+            //         scene1_1C2.DisplayScene();
+            //         break;
+            // }
+            // scene1_2.DisplayScene();
+            //
+            // userInput = gameController.ChoiceSelector(scene1_2.SceneIndex);
+            // switch (userInput)
+            // {
+            //     case 1:
+            //         scene1_2C1.DisplayScene();
+            //         break;
+            //     case 2:
+            //         scene1_2C2.DisplayScene();
+            //         break;
+            // }
+            // scene1_3.DisplayScene();
+            //
+            // userInput = gameController.ChoiceSelector(scene1_3.SceneIndex);
+            // switch (userInput)
+            // {
+            //     case 1:
+            //         scene1_3C1.DisplayScene();
+            //         break;
+            //     case 2:
+            //         scene1_3C2.DisplayScene();
+            //         break;
+            // }
             
             
             //Scene2
-            scene2_1.DisplayScene();
+            //scene2_1.DisplayScene();
             //picking item
             gameController.SelectSet(player, atkSet, mpSet, hpSet, balanceSet);
-            scene2_2.DisplayScene();
+            //scene2_2.DisplayScene();
             
             
             //Scene3
-            scene3_1.DisplayScene();
+            //scene3_1.DisplayScene();
             //fight
             gameController.CombatPhase(player, goblinGuard, inventory.Items, allSkill, fullInventory.Items, combat);
             gameController.RandomStage1(inventory,inventory.Items, stage1.Items);
@@ -520,7 +522,7 @@ namespace Orima02
             //Scene7
             scene7_1.DisplayScene();
             //fight
-            gameController.CombatPhase(player, goblinGuard, inventory.Items, player.Skills,fullInventory.Items, combat);
+            gameController.CombatPhase(player, kingGoblin, inventory.Items, player.Skills,fullInventory.Items, combat);
             scene7_2.DisplayScene();
             
 

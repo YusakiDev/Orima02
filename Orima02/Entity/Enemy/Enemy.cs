@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Orima02
@@ -7,12 +9,16 @@ namespace Orima02
     {
         public int UltPoint;
         public int MaxUltPoint;
+        public List<int> TrapUltimateIndex;
+        public List<int> TrapCombatIndex;
         
         
-        protected Enemy(string name, int hp, int maxHp, int atk, int ultPoint, int maxUltPoint, bool isAlive, bool isStun, bool isPoison, int baseAtk, int stunToken, int poisonToken) : base(name, hp, maxHp, atk, isAlive, isStun, isPoison, baseAtk, poisonToken, stunToken)
+        protected Enemy(string name, int hp, int maxHp, int atk, int ultPoint, int maxUltPoint, bool isAlive, bool isStun, bool isPoison, int baseAtk, int stunToken, int poisonToken, List<int> trapCombatIndex, List<int> trapUltimateIndex) : base(name, hp, maxHp, atk, isAlive, isStun, isPoison, baseAtk, poisonToken, stunToken)
         {
             UltPoint = ultPoint;
             MaxUltPoint = maxUltPoint;
+            TrapCombatIndex = trapCombatIndex;
+            TrapUltimateIndex = trapUltimateIndex;
         }
 
 
@@ -32,8 +38,7 @@ namespace Orima02
         }
 
 
-
-        public abstract void Ultimate();
+        
 
         public void ModifyUlt(int ultPoint)
         {

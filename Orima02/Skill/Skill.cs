@@ -69,34 +69,50 @@ namespace Orima02
 
         public void CheatChance(Character player)
         {
-            player.ModifyMp(-3);
-            Random rnd = new Random();
-
-            int chance = rnd.Next(0,1);
-            if (chance == 1)
+            if (player.CheckMp(3))
             {
-                //Go through
-                Console.WriteLine("You cheat to double your atk again!");
-                player.ModifyAtk(player.Atk);
-                Console.WriteLine($"You now have {player.Atk} Atk");
+                Random rnd = new Random();
+
+                int chance = rnd.Next(0, 1);
+                if (chance == 1)
+                {
+                    //Go through
+                    Console.WriteLine("You cheat to double your atk again!");
+                    player.ModifyAtk(player.Atk);
+                    Console.WriteLine($"You now have {player.Atk} Atk");
+                }
+                else
+                {
+                    //Cheat Bomb
+                    Console.WriteLine("Dev caught you cheating! Punishing...");
+                    Thread.Sleep(3000);
+                    player.ModifyHp(-(player.Atk * 2));
+                    Console.WriteLine($"You Deal {player.Atk} to yourself!");
+                }
+                
             }
             else
             {
-                //Cheat Bomb
-                Console.WriteLine("Dev caught you cheating! Punishing...");
+                Console.WriteLine("Not Enough Mana! Skipping...");
                 Thread.Sleep(3000);
-                player.ModifyHp(-(player.Atk*2));
-                Console.WriteLine($"You Deal {player.Atk} to yourself!");
+                
             }
         }
 
         public void ItemCheat(Character player,ArrayList inventory, ArrayList fullInventory, Combat combat)
         {
-            player.ModifyMp(-3);
-            Console.WriteLine("Hacking... Item Phase");
-            Thread.Sleep(3000);
-            Console.WriteLine("You now have second Item Phase! Tada!");
-            combat.CheckItem(combat.ItemPhase(inventory), fullInventory, inventory, player );
+            if (player.CheckMp(3))
+            {
+                Console.WriteLine("Hacking... Item Phase");
+                Thread.Sleep(3000);
+                Console.WriteLine("You now have second Item Phase! Tada!");
+                combat.CheckItem(combat.ItemPhase(inventory), fullInventory, inventory, player);
+            }else
+            {
+                Console.WriteLine("Not Enough Mana! Skipping...");
+                Thread.Sleep(3000);
+                
+            }
         }
 
         public void Regeneration(Character player)
@@ -107,20 +123,34 @@ namespace Orima02
 
         public void HeavyAttack(Character player, Enemy enemy)
         {
-            player.ModifyMp(-3);
-            Console.WriteLine($"{player.Name} use heavy attack...");
-            Thread.Sleep(3000);
-            enemy.ModifyHp(-(player.Atk + 2));
-            Console.WriteLine($"{player.Name} deals {player.Atk + 2} dmg to {enemy.Name}");
+            if (player.CheckMp(3))
+            {
+                Console.WriteLine($"{player.Name} use heavy attack...");
+                Thread.Sleep(3000);
+                enemy.ModifyHp(-(player.Atk + 2));
+                Console.WriteLine($"{player.Name} deals {player.Atk + 2} dmg to {enemy.Name}");
+            }else
+            {
+                Console.WriteLine("Not Enough Mana! Skipping...");
+                Thread.Sleep(3000);
+                
+            }
         }
 
         public void Fear(Character player, Enemy enemy)
         {
-            player.ModifyMp(-3);
-            Console.WriteLine($"{player.Name} use Fear...");
-            Thread.Sleep(3000);
-            enemy.ModifyAtk(-enemy.Atk);
-            Console.WriteLine($"{enemy.Name} attack decreased to 0");
+            if (player.CheckMp(3))
+            {
+                Console.WriteLine($"{player.Name} use Fear...");
+                Thread.Sleep(3000);
+                enemy.ModifyAtk(-enemy.Atk);
+                Console.WriteLine($"{enemy.Name} attack decreased to 0");
+            }else
+            {
+                Console.WriteLine("Not Enough Mana! Skipping...");
+                Thread.Sleep(3000);
+                
+            }
         }
 
         public void MpRegen(Character player)
@@ -130,24 +160,37 @@ namespace Orima02
         }
         public void PoisonAttack(Character player, Enemy enemy)
         {
-            player.ModifyMp(-5);
-            Console.WriteLine($"{player.Name} use PoisonAttack...");
-            Thread.Sleep(3000);
-            enemy.IsPoison = true;
-            enemy.ModifyHp(-2);
-            enemy.ModifyPoisonToken(3);
-            Console.WriteLine($"{player.Name} deals 2 dmg to {enemy.Name} and poisoned it");
+            if (player.CheckMp(5))
+            {
+                Console.WriteLine($"{player.Name} use PoisonAttack...");
+                Thread.Sleep(3000);
+                enemy.IsPoison = true;
+                enemy.ModifyHp(-2);
+                enemy.ModifyPoisonToken(3);
+                Console.WriteLine($"{player.Name} deals 2 dmg to {enemy.Name} and poisoned it");
+            }else
+            {
+                Console.WriteLine("Not Enough Mana! Skipping...");
+                Thread.Sleep(3000);
+                
+            }
         }
 
         public void Heal(Character player)
         {
-            player.ModifyMp(-4);
-            Console.WriteLine($"{player.Name} use heal...");
-            Thread.Sleep(3000);
-            Console.WriteLine($"{player.Name} now have {player.Hp} (+4) Hp");
+            if (player.CheckMp(4))
+            {
+                Console.WriteLine($"{player.Name} use heal...");
+                Thread.Sleep(3000);
+                player.ModifyHp(4);
+                Console.WriteLine($"{player.Name} now have {player.Hp} (+4) Hp");
+            }else
+            {
+                Console.WriteLine("Not Enough Mana! Skipping...");
+                Thread.Sleep(3000);
+            }
         }
 
-
-
+        
     }
 }

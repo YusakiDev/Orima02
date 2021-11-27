@@ -99,16 +99,15 @@ namespace Orima02
                             
                     }
                 }
-                catch (IndexOutOfRangeException)
+                catch (ArgumentOutOfRangeException)
                 {
                     
                 }
             }
         }
 
-        public void CheckItem(object item, ArrayList allItem, ArrayList inventory, Character player)
+        public void CheckItem(object item, ArrayList allItem, ArrayList inventory, Character player, Enemy enemy)
         {
-            //TODO
             if (item == allItem[0])
             {
                 UseAbleItem fullRegen = new UseAbleItem();
@@ -127,84 +126,84 @@ namespace Orima02
             }
             else if (item == allItem[2])
             {
-                UseAbleItem doubleDamage = new UseAbleItem();
+                UseAbleItem fullMp = new UseAbleItem();
                 Console.Clear();
                 player.Stats();
-                doubleDamage.DoubleDamage(player);
+                fullMp.FullMp(player);
                 inventory.Remove(item);
             }
             else if (item == allItem[3])
             {
-                UseAbleItem doubleDamage = new UseAbleItem();
+                UseAbleItem stunBomb = new UseAbleItem();
                 Console.Clear();
                 player.Stats();
-                doubleDamage.DoubleDamage(player);
+                stunBomb.StunBomb(player, enemy);
                 inventory.Remove(item);
             }
             else if (item == allItem[4])
             {
-                UseAbleItem doubleDamage = new UseAbleItem();
+                UseAbleItem poisonBomb = new UseAbleItem();
                 Console.Clear();
                 player.Stats();
-                doubleDamage.DoubleDamage(player);
+                poisonBomb.PoisonBomb(player,enemy);
                 inventory.Remove(item);
             }
             else if (item == allItem[5])
             {
-                UseAbleItem doubleDamage = new UseAbleItem();
+                UseAbleItem damageBomb = new UseAbleItem();
                 Console.Clear();
                 player.Stats();
-                doubleDamage.DoubleDamage(player);
+                damageBomb.DamageBomb(player,enemy);
                 inventory.Remove(item);
             }else if (item == allItem[6])
             {
-                UseAbleItem doubleDamage = new UseAbleItem();
+                UseAbleItem trapDeflect = new UseAbleItem();
                 Console.Clear();
                 player.Stats();
-                doubleDamage.DoubleDamage(player);
+                trapDeflect.TrapDeflectDamage(enemy);
                 inventory.Remove(item);
             }
             else if (item == allItem[7])
             {
-                UseAbleItem doubleDamage = new UseAbleItem();
+                UseAbleItem trapUltimate = new UseAbleItem();
                 Console.Clear();
                 player.Stats();
-                doubleDamage.DoubleDamage(player);
+                trapUltimate.TrapUltimateDeflect(enemy);
                 inventory.Remove(item);
             }
             else if (item == allItem[8])
             {
-                UseAbleItem doubleDamage = new UseAbleItem();
+                UseAbleItem trapWeakness = new UseAbleItem();
                 Console.Clear();
                 player.Stats();
-                doubleDamage.DoubleDamage(player);
+                trapWeakness.TrapWeakness(enemy);
                 inventory.Remove(item);
             }
             else if (item == allItem[9])
             {
-                UseAbleItem doubleDamage = new UseAbleItem();
+                UseAbleItem abilityTheWorld = new UseAbleItem();
                 Console.Clear();
                 player.Stats();
-                doubleDamage.DoubleDamage(player);
+                abilityTheWorld.AbilityTheWorld(enemy);
                 inventory.Remove(item);
             }
             else if (item == allItem[10])
             {
-                UseAbleItem doubleDamage = new UseAbleItem();
+                UseAbleItem abilityOra = new UseAbleItem();
                 Console.Clear();
                 player.Stats();
-                doubleDamage.DoubleDamage(player);
+                abilityOra.AbilityOra(enemy);
                 inventory.Remove(item);
             }
             else if (item == allItem[11])
             {
-                UseAbleItem doubleDamage = new UseAbleItem();
+                UseAbleItem abilityUseLeg = new UseAbleItem();
                 Console.Clear();
                 player.Stats();
-                doubleDamage.DoubleDamage(player);
+                abilityUseLeg.AbilityUseLeg(enemy);
                 inventory.Remove(item);
             }
-            
+
 
         }
 
@@ -214,7 +213,6 @@ namespace Orima02
         {
             while (true)
             {
-                //TODO
                 int i = 0;
                 Console.BackgroundColor = ConsoleColor.Gray;
                 Console.ForegroundColor = ConsoleColor.Black;
@@ -341,12 +339,7 @@ namespace Orima02
                 Console.ForegroundColor = ConsoleColor.Black;
                 Console.WriteLine($"{player.Name} AutoAttack Phase");
                 Console.ResetColor();
-                enemy.ModifyHp(-player.Atk);
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"{player.Name} Deal {player.Atk} Damage to {enemy.Name}");
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"{enemy.Name} now have {enemy.Hp} Hp left");
-                Console.ForegroundColor = ConsoleColor.Black;
+                player.Attack(player,enemy);
                 Thread.Sleep(5000);
             }
         }
@@ -360,7 +353,7 @@ namespace Orima02
             enemy.ModifyUlt(1);
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
             Console.WriteLine($"Enemy got {enemy.UltPoint}/{enemy.MaxUltPoint} (+1) Ultpoint");
-            Console.ForegroundColor = ConsoleColor.Black;
+            Console.ResetColor();
             EnemyCheckPoison(enemy);
             Thread.Sleep(5000);
         }
@@ -377,7 +370,7 @@ namespace Orima02
                 Console.WriteLine($"{enemy.Name} Casts Ultimate!");
                 Console.ForegroundColor = ConsoleColor.Black;
                 enemy.UltPoint = 0;
-                enemy.Ultimate();
+                //TODO
             }
             else
             {
@@ -400,12 +393,7 @@ namespace Orima02
                 Console.ForegroundColor = ConsoleColor.Black;
                 Console.WriteLine($"{enemy.Name} AutoAttack Phase");
                 Console.ResetColor();
-                player.ModifyHp(-enemy.Atk);
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"{enemy.Name} Deal {enemy.Atk} Damage to {player.Name}");
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"{player.Name} now have {player.Hp} Hp left");
-                Console.ForegroundColor = ConsoleColor.Black;
+                enemy.Attack(player, enemy);
                 Thread.Sleep(3000);
             }
         }
@@ -415,8 +403,6 @@ namespace Orima02
             Console.WriteLine($"Player HP: {player.Hp}");
             Console.WriteLine($"Enemy HP: {enemy.Hp}");
         }
-        
-        
         
         
         
@@ -477,11 +463,44 @@ namespace Orima02
                 enemy.IsStun = false;
             }
         }
-        
-        
-        
-        
-        
-        
+
+        public bool CheckTrapUltimate(Character player, Enemy enemy)
+        {
+            int i = 1;
+            if (enemy.TrapCombatIndex[i] == 1)
+            {
+                Console.WriteLine("Trap Activated: Deflect Damage");
+                enemy.ModifyHp(-enemy.Atk);
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"{enemy.Name} Deal {enemy.Atk} Damage to itself");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"{enemy.Name} now have {enemy.Hp} Hp left");
+                enemy.TrapCombatIndex.Remove(1);
+                return true;
+            }
+
+            return false;
+        }
+
+        public bool CheckTrapAttack(Character player, Enemy enemy)
+        {
+            int i = 1;
+            if (enemy.TrapCombatIndex[i] == 1 && enemy.UltPoint == 3)
+            {
+                //TODO
+                Console.WriteLine("Trap Activated: Deflect Ultimate");
+                
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"{enemy.Name} Casts its Ultimate to itself");
+                enemy.TrapUltimateIndex.Remove(1);
+                return true;
+            }
+
+            return false;
+        }
+
+
+
+
     }
 }

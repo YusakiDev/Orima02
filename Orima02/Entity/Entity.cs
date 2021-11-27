@@ -42,7 +42,7 @@ namespace Orima02
 
 
         //force abstract use
-        public abstract void Attack();
+        public abstract void Attack(Character player, Enemy enemy);
 
 
 
@@ -76,6 +76,11 @@ namespace Orima02
                 Hp = 0;
                 IsAlive = false;
             }
+
+            if (Hp > 0)
+            {
+                IsAlive = true;
+            }
         }
         
         public void ModifyAtk(int atk)
@@ -108,10 +113,8 @@ namespace Orima02
             {
                 return "Poisoned";
             }
-            else
-            {
-                return null;
-            }
+
+            return null;
         }
 
         protected string CheckIfStunned()
@@ -120,10 +123,9 @@ namespace Orima02
             {
                 return "Stunned";
             }
-            else
-            {
-                return null;
-            }
+
+            return null;
         }
+        
     }
 }

@@ -47,8 +47,17 @@ namespace Orima02
                 Mp = 0;
             }
         }
-        
-        
+
+        public bool CheckMp(int mp)
+        {
+            if (Mp >= mp)
+            {
+                Mp = Mp - mp;
+                return true;
+            }
+            
+            return false;
+        }
         
 
         public void Stats()
@@ -65,10 +74,18 @@ namespace Orima02
             Console.WriteLine();
         }
 
+        
+        
+        
 
-        public override void Attack()
+        public override void Attack(Character player, Enemy enemy)
         {
-            throw new NotImplementedException();
+            enemy.ModifyHp(-Atk);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"{player.Name} Deal {player.Atk} Damage to {enemy.Name}");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"{enemy.Name} now have {enemy.Hp} Hp left");
+            Console.ResetColor();
         }
     }
 }

@@ -296,12 +296,13 @@ _||_    .-;`\..../`;_.-^-._
         public void CombatPhase(Character player, Enemy enemy, ArrayList inventory,ArrayList allSkill, ArrayList fullInventory,
             Combat combat)
         {
-            var i = 0;
+            int i;
             while (true)
             {
                 player.ModifyHp(player.MaxHp);
                 player.ModifyMp(player.MaxMp);
                 player.ResetAtk();
+                i = 0;
                 while (true)
                 {
                     player.ResetAtk();
@@ -310,6 +311,7 @@ _||_    .-;`\..../`;_.-^-._
                     Console.Clear();
                     Console.BackgroundColor = ConsoleColor.White;
                     Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine(player.Hp);
                     Console.WriteLine($"Round: {i}");
                     Console.ResetColor();
                     Thread.Sleep(3000);
@@ -332,7 +334,7 @@ _||_    .-;`\..../`;_.-^-._
                         //Player Item Phase
                         Console.Clear();
                         player.Stats();
-                        combat.CheckItem(combat.ItemPhase(inventory), fullInventory, inventory, player);
+                        combat.CheckItem(combat.ItemPhase(inventory), fullInventory, inventory, player, enemy);
                         combat.Debug(player, enemy);
                     }
                     else
@@ -384,8 +386,12 @@ _||_    .-;`\..../`;_.-^-._
                         //Enemy Ultimate Check
                         Console.Clear();
                         player.Stats();
-                        combat.EnemyUltimate(enemy);
-                        combat.Debug(player, enemy);
+                        if (!combat.CheckTrapUltimate(player, enemy))
+                        {
+                            combat.EnemyUltimate(enemy);
+                            combat.Debug(player, enemy);
+                        }
+                        
                     }
                     else
                     {
@@ -397,8 +403,12 @@ _||_    .-;`\..../`;_.-^-._
                         //Enemy Auto Attack
                         Console.Clear();
                         player.Stats();
-                        combat.EnemyAutoAttack(player, enemy);
-                        combat.Debug(player, enemy);
+                        if (!combat.CheckTrapAttack(player, enemy))
+                        {
+                            combat.EnemyAutoAttack(player, enemy);
+                            combat.Debug(player, enemy);
+                        }
+                        
                     }
                     else
                     {
@@ -444,35 +454,37 @@ _||_    .-;`\..../`;_.-^-._
             Console.Clear();
             Console.WriteLine("Welcome to Random Item Stage");
             Console.ReadKey();
-            var random = rnd.Next(1, 3);
-            switch (random)
+            for (int i = 0; i < 2 ; i++)
             {
-                case 1:
+                var random = rnd.Next(1, 3);
+                switch (random)
                 {
-                    Console.WriteLine("You just got new Item!");
-                    inventory.Add(stage1[0]);
-                    Console.ReadKey();
-                    yourInventory.OpenInventory();
-                    break;
+                    case 1:
+                    {
+                        Console.WriteLine("You just got new Item!");
+                        inventory.Add(stage1[0]);
+                        Console.ReadKey();
+                        yourInventory.OpenInventory();
+                        break;
+                    }
+                    case 2:
+                    {
+                        //TODO
+                        Console.WriteLine("You just got new Item!");
+                        inventory.Add(stage1[1]);
+                        Console.ReadKey();
+                        yourInventory.OpenInventory();
+                        break;
+                    }
+                    case 3:
+                    {
+                        Console.WriteLine("You just got new Item!");
+                        inventory.Add(stage1[2]);
+                        Console.ReadKey();
+                        yourInventory.OpenInventory();
+                        break;
+                    }
                 }
-                case 2:
-                {
-                    //TODO
-                    Console.WriteLine("You just got new Item!");
-                    inventory.Add(stage1[1]);
-                    Console.ReadKey();
-                    yourInventory.OpenInventory();
-                    break;
-                }
-                case 3:
-                {
-                    Console.WriteLine("You just got new Item!");
-                    inventory.Add(stage1[2]);
-                    Console.ReadKey();
-                    yourInventory.OpenInventory();
-                    break;
-                }
-
             }
 
             Console.ReadKey();
@@ -485,33 +497,34 @@ _||_    .-;`\..../`;_.-^-._
             Console.WriteLine("Welcome to Random Item Stage");
             Console.ReadKey();
             var random = rnd.Next(1, 3);
-            switch (random)
-            {
-                case 1:
+            for (int i = 0; i < 2 ; i++){
+                switch (random)
                 {
-                    Console.WriteLine("You just got new Item!");
-                    inventory.Add(stage2[0]);
-                    Console.ReadKey();
-                    yourInventory.OpenInventory();
-                    break;
+                    case 1:
+                    {
+                        Console.WriteLine("You just got new Item!");
+                        inventory.Add(stage2[0]);
+                        Console.ReadKey();
+                        yourInventory.OpenInventory();
+                        break;
+                    }
+                    case 2:
+                    {
+                        Console.WriteLine("You just got new Item!");
+                        inventory.Add(stage2[1]);
+                        Console.ReadKey();
+                        yourInventory.OpenInventory();
+                        break;
+                    }
+                    case 3:
+                    {
+                        Console.WriteLine("You just got new Item!");
+                        inventory.Add(stage2[2]);
+                        Console.ReadKey();
+                        yourInventory.OpenInventory();
+                        break;
+                    }
                 }
-                case 2:
-                {
-                    Console.WriteLine("You just got new Item!");
-                    inventory.Add(stage2[1]);
-                    Console.ReadKey();
-                    yourInventory.OpenInventory();
-                    break;
-                }
-                case 3:
-                {
-                    Console.WriteLine("You just got new Item!");
-                    inventory.Add(stage2[2]);
-                    Console.ReadKey();
-                    yourInventory.OpenInventory();
-                    break;
-                }
-
             }
 
             Console.ReadKey();
@@ -524,33 +537,34 @@ _||_    .-;`\..../`;_.-^-._
             Console.WriteLine("Welcome to Random Item Stage");
             Console.ReadKey();
             var random = rnd.Next(1, 3);
-            switch (random)
-            {
-                case 1:
+            for (int i = 0; i < 2 ; i++){
+                switch (random)
                 {
-                    Console.WriteLine("You just got new Item!");
-                    inventory.Add(stage3[0]);
-                    Console.ReadKey();
-                    yourInventory.OpenInventory();
-                    break;
+                    case 1:
+                    {
+                        Console.WriteLine("You just got new Item!");
+                        inventory.Add(stage3[0]);
+                        Console.ReadKey();
+                        yourInventory.OpenInventory();
+                        break;
+                    }
+                    case 2:
+                    {
+                        Console.WriteLine("You just got new Item!");
+                        inventory.Add(stage3[1]);
+                        Console.ReadKey();
+                        yourInventory.OpenInventory();
+                        break;
+                    }
+                    case 3:
+                    {
+                        Console.WriteLine("You just got new Item!");
+                        inventory.Add(stage3[2]);
+                        Console.ReadKey();
+                        yourInventory.OpenInventory();
+                        break;
+                    }
                 }
-                case 2:
-                {
-                    Console.WriteLine("You just got new Item!");
-                    inventory.Add(stage3[1]);
-                    Console.ReadKey();
-                    yourInventory.OpenInventory();
-                    break;
-                }
-                case 3:
-                {
-                    Console.WriteLine("You just got new Item!");
-                    inventory.Add(stage3[2]);
-                    Console.ReadKey();
-                    yourInventory.OpenInventory();
-                    break;
-                }
-
             }
         }
         
@@ -561,33 +575,34 @@ _||_    .-;`\..../`;_.-^-._
             Console.WriteLine("Welcome to Random Item Stage");
             Console.ReadKey();
             var random = rnd.Next(1, 3);
-            switch (random)
-            {
-                case 1:
+            for (int i = 0; i < 2 ; i++){
+                switch (random)
                 {
-                    Console.WriteLine("You just got new Item!");
-                    inventory.Add(stage4[0]);
-                    Console.ReadKey();
-                    yourInventory.OpenInventory();
-                    break;
+                    case 1:
+                    {
+                        Console.WriteLine("You just got new Item!");
+                        inventory.Add(stage4[0]);
+                        Console.ReadKey();
+                        yourInventory.OpenInventory();
+                        break;
+                    }
+                    case 2:
+                    {
+                        Console.WriteLine("You just got new Item!");
+                        inventory.Add(stage4[1]);
+                        Console.ReadKey();
+                        yourInventory.OpenInventory();
+                        break;
+                    }
+                    case 3:
+                    {
+                        Console.WriteLine("You just got new Item!");
+                        inventory.Add(stage4[2]);
+                        Console.ReadKey();
+                        yourInventory.OpenInventory();
+                        break;
+                    }
                 }
-                case 2:
-                {
-                    Console.WriteLine("You just got new Item!");
-                    inventory.Add(stage4[1]);
-                    Console.ReadKey();
-                    yourInventory.OpenInventory();
-                    break;
-                }
-                case 3:
-                {
-                    Console.WriteLine("You just got new Item!");
-                    inventory.Add(stage4[2]);
-                    Console.ReadKey();
-                    yourInventory.OpenInventory();
-                    break;
-                }
-
             }
         }
     }

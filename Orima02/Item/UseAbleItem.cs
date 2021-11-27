@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Threading;
 
 namespace Orima02
@@ -63,13 +64,19 @@ namespace Orima02
             Console.WriteLine($"{enemy.Name} took 10 Damage");
         }
 
-        public void TrapDeflect(Enemy enemy)
+        public void TrapDeflectDamage(Enemy enemy)
         {
-            Console.WriteLine("TrapDeflect");
+            Console.WriteLine("Placing Trap DeflectDamage...");
+            enemy.TrapCombatIndex.Add(1);
+            Thread.Sleep(3000);
+            Console.WriteLine("It Will Activate on the next Enemy AutoAttack Phase!");
         }
-        public void UltimateSteal(Enemy enemy)
+        public void TrapUltimateDeflect(Enemy enemy)
         {
-            Console.WriteLine("UltimateSteal");
+            Console.WriteLine("Placing Trap UltimateDeflect...");
+            enemy.TrapUltimateIndex.Add(1);
+            Thread.Sleep(3000);
+            Console.WriteLine("It Will Activate on the next Enemy Ultimate Phase!");
         }
         public void TrapWeakness(Enemy enemy)
         {
@@ -78,6 +85,7 @@ namespace Orima02
 
         public void AbilityTheWorld(Enemy enemy)
         {
+            
             Console.WriteLine("The World!!");
         }
 
