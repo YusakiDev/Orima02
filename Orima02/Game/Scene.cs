@@ -26,7 +26,7 @@ namespace Orima02
                 Console.WriteLine("████████████████");
                 Console.WriteLine("|   Dialogue   |");
                 Console.WriteLine("████████████████");
-                Console.ForegroundColor = ConsoleColor.Black;
+                Console.ResetColor();
                 for (int i = 0; i < Text[line].Length; i++)
                 {
                     Console.Write($"{Text[line][i]}");

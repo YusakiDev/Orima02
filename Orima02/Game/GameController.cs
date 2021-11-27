@@ -23,7 +23,7 @@ namespace Orima02
                                   "                              |                                            |\n" +
                                   "                              |          A Goblin Slayer Origin Story      |\n" +
                                   "                              ==============================================");
-                Console.ForegroundColor = ConsoleColor.Black;
+                Console.ResetColor();
                 Console.WriteLine("\n\n\n\n\n");
 
                 Console.WriteLine("                                         Press Enter to Start...\n");
@@ -34,11 +34,8 @@ namespace Orima02
                     Console.Clear();
                     break;
                 }
-                else
-                {
-                    Console.Clear();
-                    continue;
-                }
+
+                Console.Clear();
             }
         }
 
@@ -72,7 +69,7 @@ namespace Orima02
                 Console.WriteLine("███████████████████████");
                 Console.WriteLine("|  Choose Your Class  | ");
                 Console.WriteLine("███████████████████████");
-                Console.ForegroundColor = ConsoleColor.Black;
+                Console.ResetColor();
                 Console.WriteLine("|→  1. Magician       |\n" +
                                   "|→  2. Swordsman      |\n" +
                                   "|→  3. Volunteer      |");
@@ -177,13 +174,13 @@ _||_    .-;`\..../`;_.-^-._
             Console.WriteLine("█████████████████████████████████████████");
             Console.WriteLine("|   Choose Your Beginner Enhancement    |\n" +
                               "█████████████████████████████████████████");
-            Console.ForegroundColor = ConsoleColor.Black;
+            Console.ResetColor();
             Console.WriteLine("|→ 1. Atk Set                           |\n" +
                               "|→ 2. Mp Set                            |\n" +
                               "|→ 3. Hp Set                            |\n" +
                               "|→ 4. Balanced set                      |");
             Console.WriteLine("█████████████████████████████████████████");
-            ConsoleKey userInput = Console.ReadKey().Key;
+            ConsoleKey userInput = Console.ReadKey(true).Key;
             if (userInput == ConsoleKey.D1)
             {
                 EquipSet(player, atkSet);
@@ -200,6 +197,7 @@ _||_    .-;`\..../`;_.-^-._
             {
                 EquipSet(player, balancedSet);
             }
+            Console.Clear();
 
         }
 
@@ -220,7 +218,7 @@ _||_    .-;`\..../`;_.-^-._
                 Console.WriteLine("\n███████████████████\n" +
                                   "|     Choice!     |\n" +
                                   "███████████████████");
-                Console.ForegroundColor = ConsoleColor.Black;
+                Console.ResetColor();
 
                 switch (sceneIndex)
                 {
@@ -313,7 +311,7 @@ _||_    .-;`\..../`;_.-^-._
                     i++;
                     Console.Clear();
                     Console.BackgroundColor = ConsoleColor.White;
-                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.ForegroundColor = ConsoleColor.Black;
                     Console.WriteLine($"Round: {i}");
                     Console.ResetColor();
                     Thread.Sleep(3000);
@@ -410,7 +408,6 @@ _||_    .-;`\..../`;_.-^-._
                         if (!combat.CheckTrapAttack(player, enemy))
                         {
                             combat.EnemyAutoAttack(player, enemy);
-                            combat.Debug(player, enemy);
                         }
                         
                     }
@@ -496,8 +493,8 @@ _||_    .-;`\..../`;_.-^-._
             Console.Clear();
             Console.WriteLine("Welcome to Random Item Stage");
             Console.ReadKey();
-            var random = rnd.Next(1, 3);
             for (int i = 0; i < 2 ; i++){
+                var random = rnd.Next(1, 3);
                 switch (random)
                 {
                     case 1:
@@ -536,8 +533,8 @@ _||_    .-;`\..../`;_.-^-._
             Console.Clear();
             Console.WriteLine("Welcome to Random Item Stage");
             Console.ReadKey();
-            var random = rnd.Next(1, 3);
             for (int i = 0; i < 2 ; i++){
+                var random = rnd.Next(1, 3);
                 switch (random)
                 {
                     case 1:
@@ -574,8 +571,8 @@ _||_    .-;`\..../`;_.-^-._
             Console.Clear();
             Console.WriteLine("Welcome to Random Item Stage");
             Console.ReadKey();
-            var random = rnd.Next(1, 3);
             for (int i = 0; i < 2 ; i++){
+                var random = rnd.Next(1, 3);
                 switch (random)
                 {
                     case 1:

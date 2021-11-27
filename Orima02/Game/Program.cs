@@ -209,7 +209,7 @@ namespace Orima02
             });
             Scene scene2_1 = new Scene(2.1, 10, new[]
             {
-                "[1/4] Narrator The goblins are besieging the princess.\n",
+                "[1/4] Narrator: The goblins are besieging the princess.\n",
                 "[2/4] Irene : Help me!!\n",
                 $"[3/4] {player.Name} : There are too many of them. If I break in without a weapon, I'm sure I will lose.\n",
                 $"[4/4] {player.Name} : (Equitable Item Set) must be prepared first.\n"
