@@ -54,7 +54,7 @@
         <Compile Include="Game\Scene.cs" />
         <Compile Include="Item\EquipableItem.cs" />
         <Compile Include="Item\Inventory.cs" />
-        <Compile Include="Item\UseableItem.cs" />
+        <Compile Include="Item\UseAbleItem.cs" />
         <Compile Include="Item\Item.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="Skill\Skill.cs" />

@@ -10,11 +10,16 @@ namespace Orima02
     {
         
 
-        public void CharPassive(Character player, ArrayList allSkill)
+        public void CharPassive(Character player,Enemy enemy, ArrayList allSkill, Combat combat, ArrayList inventory, ArrayList fullInventory)
         {
-            //TODO
-            CheckSkill(player.Skills[0], allSkill, player);
+            Console.BackgroundColor = ConsoleColor.Gray;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.WriteLine($"{player.Name} Passive Phase");
+            Console.ResetColor();
+            Console.WriteLine("GamePassive: You regenerated 1 Mp");
             player.ModifyMp(1);
+            Thread.Sleep(3000);
+            CheckSkill(player.Skills[0], allSkill, player, enemy, combat, inventory, fullInventory);
             Console.WriteLine($"{player.Mp}/{player.MaxMp}");
         }
         
@@ -30,7 +35,7 @@ namespace Orima02
                 Console.ResetColor();
                 Console.WriteLine("(Please Select Your Item)\n" +
                                   "Or Press Enter to Pass...");
-                foreach (UseableItem item in inventory)
+                foreach (UseAbleItem item in inventory)
                 {
                     Console.BackgroundColor = ConsoleColor.White;
                     Console.ForegroundColor = ConsoleColor.Black;
@@ -61,6 +66,27 @@ namespace Orima02
                         {
                             return inventory[3];
                         }
+                        case ConsoleKey.D5:
+                        {
+                            return inventory[4];
+                        }
+                        case ConsoleKey.D6:
+                        {
+                            return inventory[5];
+                        }
+                        case ConsoleKey.D7:
+                        {
+                            return inventory[6];
+                        }
+                        case ConsoleKey.D8:
+                        {
+                            return inventory[7];
+                        }
+                        case ConsoleKey.D9:
+                        {
+                            return inventory[8];
+                        }
+                        
                         case ConsoleKey.Enter:
                         {
                             return null;
@@ -84,23 +110,100 @@ namespace Orima02
             //TODO
             if (item == allItem[0])
             {
-                UseableItem fullRegen = new UseableItem(ItemName.FullRegen, "blaBla");
-                fullRegen.FullRegen(player);
+                UseAbleItem fullRegen = new UseAbleItem();
                 Console.Clear();
                 player.Stats();
-                Console.WriteLine("You Choose FullRegen\n" +
-                                  $"You now have {player.Hp}");
+                fullRegen.FullRegen(player);
                 Thread.Sleep(3000);
                 inventory.Remove(item);
             } else if (item == allItem[1])
             {
-                UseableItem doubleDamage = new UseableItem(ItemName.DoubleDamage, "Bla Bla");
+                UseAbleItem doubleDamage = new UseAbleItem();
+                Console.Clear();
+                player.Stats();
                 doubleDamage.DoubleDamage(player);
                 inventory.Remove(item);
-            }else if (item == allItem[2])
-            {
-                
             }
+            else if (item == allItem[2])
+            {
+                UseAbleItem doubleDamage = new UseAbleItem();
+                Console.Clear();
+                player.Stats();
+                doubleDamage.DoubleDamage(player);
+                inventory.Remove(item);
+            }
+            else if (item == allItem[3])
+            {
+                UseAbleItem doubleDamage = new UseAbleItem();
+                Console.Clear();
+                player.Stats();
+                doubleDamage.DoubleDamage(player);
+                inventory.Remove(item);
+            }
+            else if (item == allItem[4])
+            {
+                UseAbleItem doubleDamage = new UseAbleItem();
+                Console.Clear();
+                player.Stats();
+                doubleDamage.DoubleDamage(player);
+                inventory.Remove(item);
+            }
+            else if (item == allItem[5])
+            {
+                UseAbleItem doubleDamage = new UseAbleItem();
+                Console.Clear();
+                player.Stats();
+                doubleDamage.DoubleDamage(player);
+                inventory.Remove(item);
+            }else if (item == allItem[6])
+            {
+                UseAbleItem doubleDamage = new UseAbleItem();
+                Console.Clear();
+                player.Stats();
+                doubleDamage.DoubleDamage(player);
+                inventory.Remove(item);
+            }
+            else if (item == allItem[7])
+            {
+                UseAbleItem doubleDamage = new UseAbleItem();
+                Console.Clear();
+                player.Stats();
+                doubleDamage.DoubleDamage(player);
+                inventory.Remove(item);
+            }
+            else if (item == allItem[8])
+            {
+                UseAbleItem doubleDamage = new UseAbleItem();
+                Console.Clear();
+                player.Stats();
+                doubleDamage.DoubleDamage(player);
+                inventory.Remove(item);
+            }
+            else if (item == allItem[9])
+            {
+                UseAbleItem doubleDamage = new UseAbleItem();
+                Console.Clear();
+                player.Stats();
+                doubleDamage.DoubleDamage(player);
+                inventory.Remove(item);
+            }
+            else if (item == allItem[10])
+            {
+                UseAbleItem doubleDamage = new UseAbleItem();
+                Console.Clear();
+                player.Stats();
+                doubleDamage.DoubleDamage(player);
+                inventory.Remove(item);
+            }
+            else if (item == allItem[11])
+            {
+                UseAbleItem doubleDamage = new UseAbleItem();
+                Console.Clear();
+                player.Stats();
+                doubleDamage.DoubleDamage(player);
+                inventory.Remove(item);
+            }
+            
 
         }
 
@@ -149,25 +252,76 @@ namespace Orima02
             }
         }
         
-        public void CheckSkill(object skill, ArrayList allSkill, Character player)
+        public void CheckSkill(object skill, ArrayList allSkill, Character player,Enemy enemy, Combat combat, ArrayList inventory, ArrayList fullInventory)
         {
-            //TODO
             if (skill == allSkill[0])
             {
                 Skill passive = new Skill();
-                passive.Cheat(player);
                 Console.Clear();
                 player.Stats();
-                Console.WriteLine("You Choose FullRegen\n" +
-                                  $"You now have {player.Hp}");
+                passive.Cheat(player);
                 Thread.Sleep(3000);
             } else if (skill == allSkill[1])
             {
-                UseableItem doubleDamage = new UseableItem(ItemName.DoubleDamage, "Bla Bla");
-                doubleDamage.DoubleDamage(player);
+                Skill skill1 = new Skill();
+                Console.Clear();
+                player.Stats();
+                skill1.CheatChance(player);
+                Thread.Sleep(3000);
             }else if (skill == allSkill[2])
             {
-                
+                Skill skill2 = new Skill();
+                Console.Clear();
+                player.Stats();
+                skill2.ItemCheat(player, inventory, fullInventory, combat);
+                Thread.Sleep(3000);
+            }else if (skill == allSkill[3])
+            {
+                Skill passive = new Skill();
+                Console.Clear();
+                player.Stats();
+                passive.Regeneration(player);
+                Thread.Sleep(3000);
+            }
+            else if (skill == allSkill[4])
+            {
+                Skill skill1 = new Skill();
+                Console.Clear();
+                player.Stats();
+                skill1.HeavyAttack(player,enemy);
+                Thread.Sleep(3000);
+            }
+            else if (skill == allSkill[5])
+            {
+                Skill skill2 = new Skill();
+                Console.Clear();
+                player.Stats();
+                skill2.Fear(player,enemy);
+                Thread.Sleep(3000);
+            }
+            else if (skill == allSkill[6])
+            {
+                Skill passive = new Skill();
+                Console.Clear();
+                player.Stats();
+                passive.MpRegen(player);
+                Thread.Sleep(3000);
+            }
+            else if (skill == allSkill[7])
+            {
+                Skill skill1 = new Skill();
+                Console.Clear();
+                player.Stats();
+                skill1.PoisonAttack(player,enemy);
+                Thread.Sleep(3000);
+            }
+            else if (skill == allSkill[8])
+            {
+                Skill skill2 = new Skill();
+                Console.Clear();
+                player.Stats();
+                skill2.Heal(player);
+                Thread.Sleep(3000);
             }
 
         }

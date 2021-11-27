@@ -28,8 +28,11 @@ namespace Orima02
             //Skill Inventory Declaration
             var allSkill = new ArrayList 
                 {cheat, damageChance, useSpecialItem, regeneration, heavyAttack, dodge, mpRegen, fireAttack, heal};
+            
 
-
+                
+                
+                
             //Combat Class Declaration
             Combat combat = new Combat();
 
@@ -75,30 +78,30 @@ namespace Orima02
             EquipableItem mpSet = new EquipableItem(ItemName.MpSet, 1, 3, 1, "Equip MP Set");
             EquipableItem hpSet = new EquipableItem(ItemName.HpSet, 1, 3, 1, "Equip HP Set");
             EquipableItem balanceSet = new EquipableItem(ItemName.BalanceSet, 2, 2, 2, "Equip Balance Set");
-            UseableItem fullRegen =
-                new UseableItem(ItemName.FullRegen, "Instantly regenerate to full Hp");
-            UseableItem doubleDamage =
-                new UseableItem(ItemName.DoubleDamage, "Double your Atk");
-            UseableItem fullMp =
-                new UseableItem(ItemName.FullMp, "Instantly regenerate to full Mp");
-            UseableItem stunBomb =
-                new UseableItem(ItemName.StunBomb, "Stun your enemy for 1 turn");
-            UseableItem poisonBomb =
-                new UseableItem(ItemName.PoisonBomb, "poisoned your enemy");
-            UseableItem damageBomb =
-                new UseableItem(ItemName.DamageBomb, "deals 5 damage at the enemy");
-            UseableItem trapDeflect =
-                new UseableItem(ItemName.TrapDeflect, "Reverse all damage to the enemy (this item will be active on the enemy turn");
-            UseableItem trapUltimate =
-                new UseableItem(ItemName.TrapUltimate, "Steal enemy's Ultimate (this item will be active on the enemy turn)");
-            UseableItem trapWeakness = 
-                new UseableItem(ItemName.TrapWeakness, "Set enemy damage to half");
-            UseableItem abilityTheWorld =
-                new UseableItem(ItemName.AbilityTheWorld, "Stunt enemy for 1-3 turn");
-            UseableItem abilityOra =
-                new UseableItem(ItemName.AbilityOra, "multiply player attack by 4");
-            UseableItem abilityUseLeg =
-                new UseableItem(ItemName.AbilityUseLeg, "50/50 chance to skip the current stage");
+            UseAbleItem fullRegen =
+                new UseAbleItem(ItemName.FullRegen, "Instantly regenerate to full Hp");
+            UseAbleItem doubleDamage =
+                new UseAbleItem(ItemName.DoubleDamage, "Double your Atk");
+            UseAbleItem fullMp =
+                new UseAbleItem(ItemName.FullMp, "Instantly regenerate to full Mp");
+            UseAbleItem stunBomb =
+                new UseAbleItem(ItemName.StunBomb, "Stun your enemy for 1 turn");
+            UseAbleItem poisonBomb =
+                new UseAbleItem(ItemName.PoisonBomb, "poisoned your enemy");
+            UseAbleItem damageBomb =
+                new UseAbleItem(ItemName.DamageBomb, "deals 5 damage at the enemy");
+            UseAbleItem trapDeflect =
+                new UseAbleItem(ItemName.TrapDeflect, "Reverse all damage to the enemy (this item will be active on the enemy turn");
+            UseAbleItem trapUltimate =
+                new UseAbleItem(ItemName.TrapUltimate, "Steal enemy's Ultimate (this item will be active on the enemy turn)");
+            UseAbleItem trapWeakness = 
+                new UseAbleItem(ItemName.TrapWeakness, "Set enemy damage to half");
+            UseAbleItem abilityTheWorld =
+                new UseAbleItem(ItemName.AbilityTheWorld, "Stunt enemy for 1-3 turn");
+            UseAbleItem abilityOra =
+                new UseAbleItem(ItemName.AbilityOra, "multiply player attack by 4");
+            UseAbleItem abilityUseLeg =
+                new UseAbleItem(ItemName.AbilityUseLeg, "50/50 chance to skip the current stage");
             
             
             
@@ -436,7 +439,8 @@ namespace Orima02
             //Scene1
             //scene1_1.DisplayScene();
             //Scene1 Choice1
-            var userInput = gameController.ChoiceSelector(scene1_1.SceneIndex);
+            int userInput;
+            gameController.ChoiceSelector(scene1_1.SceneIndex);
             // switch (userInput)
             // {
             //     case 1:
@@ -521,6 +525,11 @@ namespace Orima02
             
 
             inventory.OpenInventory();
+            
+            
+            
+            combat.CharAutoAttack(player,goblinGuard);
+            
         }
     }
 }

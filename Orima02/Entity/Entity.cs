@@ -46,7 +46,7 @@ namespace Orima02
         {
             
             Hp = Hp + hp;
-                if (Hp > MaxHp)
+            if (Hp > MaxHp)
             {
                 Hp = MaxHp;
             }
@@ -70,6 +70,7 @@ namespace Orima02
         }
         
         
+        
         public void ResetAtk()
         {
             Atk = BaseAtk;
@@ -82,7 +83,7 @@ namespace Orima02
         //Check Stats
         protected string CheckIfPoison()
         {
-            if (IsPoison == true)
+            if (IsPoison)
             {
                 return "Poisoned";
             }
@@ -94,7 +95,7 @@ namespace Orima02
 
         protected string CheckIfStunned()
         {
-            if (IsStun == true)
+            if (IsStun)
             {
                 return "Stunned";
             }

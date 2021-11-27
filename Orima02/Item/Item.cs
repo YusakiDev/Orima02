@@ -36,6 +36,11 @@ namespace Orima02
             Name = name;
             Info = info;
         }
+
+        public Item()
+        {
+            
+        }
         
 
 

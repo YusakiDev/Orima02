@@ -299,7 +299,7 @@ _||_    .-;`\..../`;_.-^-._
                         //Player Passive
                         Console.Clear();
                         player.Stats();
-                        combat.CharPassive(player, player.Skills);
+                        combat.CharPassive(player,enemy, allSkill,combat, inventory,fullInventory);
                         combat.Debug(player, enemy);
                     }
                     else
@@ -325,7 +325,7 @@ _||_    .-;`\..../`;_.-^-._
                         //Player Skill Select
                         Console.Clear();
                         player.Stats();
-                        combat.CheckSkill(combat.SkillPhase(player), allSkill, player);
+                        combat.CheckSkill(combat.SkillPhase(player), allSkill, player, enemy, combat, inventory, fullInventory);
                         combat.Debug(player, enemy);
                     }
                     else
