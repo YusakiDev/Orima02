@@ -16,7 +16,9 @@ namespace Orima02
             Console.ForegroundColor = ConsoleColor.Black;
             Console.WriteLine($"{player.Name} Passive Phase");
             Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine("GamePassive: You regenerated 1 Mp");
+            Console.ForegroundColor = ConsoleColor.Black;
             PlayerCheckPoison(player);
             player.ModifyMp(1);
             Thread.Sleep(3000);
@@ -163,48 +165,10 @@ namespace Orima02
                 player.Stats();
                 doubleDamage.DoubleDamage(player);
                 inventory.Remove(item);
-            }
-            else if (item == allItem[7])
+            }else if (item == allItem[2])
             {
-                UseAbleItem doubleDamage = new UseAbleItem();
-                Console.Clear();
-                player.Stats();
-                doubleDamage.DoubleDamage(player);
-                inventory.Remove(item);
+                
             }
-            else if (item == allItem[8])
-            {
-                UseAbleItem doubleDamage = new UseAbleItem();
-                Console.Clear();
-                player.Stats();
-                doubleDamage.DoubleDamage(player);
-                inventory.Remove(item);
-            }
-            else if (item == allItem[9])
-            {
-                UseAbleItem doubleDamage = new UseAbleItem();
-                Console.Clear();
-                player.Stats();
-                doubleDamage.DoubleDamage(player);
-                inventory.Remove(item);
-            }
-            else if (item == allItem[10])
-            {
-                UseAbleItem doubleDamage = new UseAbleItem();
-                Console.Clear();
-                player.Stats();
-                doubleDamage.DoubleDamage(player);
-                inventory.Remove(item);
-            }
-            else if (item == allItem[11])
-            {
-                UseAbleItem doubleDamage = new UseAbleItem();
-                Console.Clear();
-                player.Stats();
-                doubleDamage.DoubleDamage(player);
-                inventory.Remove(item);
-            }
-            
 
         }
 
@@ -255,9 +219,11 @@ namespace Orima02
         
         public void CheckSkill(object skill, ArrayList allSkill, Character player,Enemy enemy, Combat combat, ArrayList inventory, ArrayList fullInventory)
         {
+            //TODO
             if (skill == allSkill[0])
             {
                 Skill passive = new Skill();
+                passive.Cheat(player);
                 Console.Clear();
                 player.Stats();
                 passive.Cheat(player);
@@ -331,21 +297,17 @@ namespace Orima02
 
         public void CharAutoAttack(Character player, Enemy enemy)
         {
-            if (player.IsStun)
-            {
-                PlayerCheckStun(player);
-            }
-            else
-            {
-                Console.BackgroundColor = ConsoleColor.Gray;
-                Console.ForegroundColor = ConsoleColor.Black;
-                Console.WriteLine($"{player.Name} AutoAttack Phase");
-                Console.ResetColor();
-                enemy.ModifyHp(-player.Atk);
-                Console.WriteLine($"{player.Name} Deal {player.Atk} Damage to {enemy.Name}");
-                Console.WriteLine($"{enemy.Name} now have {enemy.Hp} Hp left");
-                Thread.Sleep(5000);
-            }
+            Console.BackgroundColor = ConsoleColor.Gray;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.WriteLine($"{player.Name} AutoAttack Phase");
+            Console.ResetColor();
+            enemy.ModifyHp(-player.Atk);
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine($"{player.Name} Deal {player.Atk} Damage to {enemy.Name}");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine($"{enemy.Name} now have {enemy.Hp} Hp left");
+            Console.ForegroundColor = ConsoleColor.Black;
+            Thread.Sleep(5000);
         }
 
         public void EnemyPassive(Enemy enemy)
@@ -368,7 +330,9 @@ namespace Orima02
             Console.ResetColor();
             if (enemy.UltPoint == 3)
             {
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
                 Console.WriteLine($"{enemy.Name} Casts Ultimate!");
+                Console.ForegroundColor = ConsoleColor.Black;
                 enemy.UltPoint = 0;
                 enemy.Ultimate();
             }
@@ -394,16 +358,21 @@ namespace Orima02
                 Console.WriteLine($"{enemy.Name} AutoAttack Phase");
                 Console.ResetColor();
                 player.ModifyHp(-enemy.Atk);
+                Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine($"{enemy.Name} Deal {enemy.Atk} Damage to {player.Name}");
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine($"{player.Name} now have {player.Hp} Hp left");
+                Console.ForegroundColor = ConsoleColor.Black;
                 Thread.Sleep(3000);
             }
         }
         
         public void Debug(Character player, Enemy enemy)
         {
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"Player HP: {player.Hp}");
             Console.WriteLine($"Enemy HP: {enemy.Hp}");
+            Console.ForegroundColor = ConsoleColor.Black;
         }
         
         
@@ -419,7 +388,9 @@ namespace Orima02
             if (player.PoisonToken > 0)
             {
                 player.ModifyHp(-1);
+                Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine($"Poison: {player.Name} took 1 Damage from Poison");
+                Console.ForegroundColor = ConsoleColor.Black;
                 player.ModifyPoisonToken(-1);
             }
             if (player.PoisonToken == 0)
@@ -432,8 +403,10 @@ namespace Orima02
             if (enemy.PoisonToken > 0)
             {
                 enemy.ModifyHp(-1);
+                Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine($"Poison: {enemy.Name} took 1 Damage from Poison");
                 enemy.ModifyPoisonToken(-1);
+                Console.ForegroundColor = ConsoleColor.Black;
             }
             if (enemy.PoisonToken == 0)
             {
@@ -467,11 +440,6 @@ namespace Orima02
                 enemy.IsStun = false;
             }
         }
-        
-        
-        
-        
-        
         
     }
 }

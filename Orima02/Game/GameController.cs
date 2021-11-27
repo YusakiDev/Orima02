@@ -400,6 +400,7 @@ _||_    .-;`\..../`;_.-^-._
                         combat.EnemyAutoAttack(player, enemy);
                         combat.Debug(player, enemy);
                     }
+                 
                     else
                     {
                         break;
