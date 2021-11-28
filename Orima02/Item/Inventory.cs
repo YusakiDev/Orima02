@@ -37,7 +37,7 @@ namespace Orima02
                     Console.Write($" → {i}. {item.Name}\n");
                 }
 
-                if (Console.ReadKey(true).Key == ConsoleKey.D0)
+                if (Console.ReadKey(true).Key == ConsoleKey.Enter)
                 {
                     Console.Clear();
                 }

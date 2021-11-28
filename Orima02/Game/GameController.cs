@@ -454,7 +454,6 @@ _||_    .-;`\..../`;_.-^-._
         {
             var rnd = new Random();
             Console.Clear();
-            Console.WriteLine("Welcome to Random Item Stage");
             Console.ReadKey();
             for (int i = 0; i < 2 ; i++)
             {
@@ -490,16 +489,12 @@ _||_    .-;`\..../`;_.-^-._
                     }
                 }
             }
-
-            Console.ReadKey();
         }
 
         public void RandomStage2(Inventory yourInventory, ArrayList inventory, ArrayList stage2)
         {
             var rnd = new Random();
             Console.Clear();
-            Console.WriteLine("Welcome to Random Item Stage");
-            Console.ReadKey();
             for (int i = 0; i < 2 ; i++){
                 var random = rnd.Next(1, 4);
                 switch (random)
@@ -530,16 +525,13 @@ _||_    .-;`\..../`;_.-^-._
                     }
                 }
             }
-
-            Console.ReadKey();
+            
         }
         
         public void RandomStage3(Inventory yourInventory, ArrayList inventory, ArrayList stage3)
         {
             var rnd = new Random();
             Console.Clear();
-            Console.WriteLine("Welcome to Random Item Stage");
-            Console.ReadKey();
             for (int i = 0; i < 2 ; i++){
                 var random = rnd.Next(1, 4);
                 switch (random)
@@ -576,8 +568,6 @@ _||_    .-;`\..../`;_.-^-._
         {
             var rnd = new Random();
             Console.Clear();
-            Console.WriteLine("Welcome to Random Item Stage");
-            Console.ReadKey();
             for (int i = 0; i < 2 ; i++){
                 var random = rnd.Next(1, 4);
                 switch (random)
