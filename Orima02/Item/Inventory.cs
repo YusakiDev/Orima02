@@ -33,9 +33,8 @@ namespace Orima02
                     i++;
                     Console.ForegroundColor = ConsoleColor.DarkBlue;
                     Console.Write("|\n|");
-                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.ResetColor();
                     Console.Write($" → {i}. {item.Name}\n");
-                    Console.ForegroundColor = ConsoleColor.Black;
                 }
 
                 if (Console.ReadKey(true).Key == ConsoleKey.D0)

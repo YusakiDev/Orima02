@@ -311,7 +311,7 @@ _||_    .-;`\..../`;_.-^-._
                     i++;
                     Console.Clear();
                     Console.BackgroundColor = ConsoleColor.White;
-                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.ResetColor();
                     Console.WriteLine($"Round: {i}");
                     Console.ResetColor();
                     Thread.Sleep(3000);
@@ -465,7 +465,7 @@ _||_    .-;`\..../`;_.-^-._
                     {
                         Console.ForegroundColor = ConsoleColor.Magenta;
                         Console.WriteLine("You just got new Item!");
-                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.ResetColor();
                         inventory.Add(stage1[0]);
                         yourInventory.OpenInventory();
                         break;
@@ -474,7 +474,7 @@ _||_    .-;`\..../`;_.-^-._
                     {
                         Console.ForegroundColor = ConsoleColor.Magenta;
                         Console.WriteLine("You just got new Item!");
-                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.ResetColor();
                         inventory.Add(stage1[1]);
                         yourInventory.OpenInventory();
                         break;
@@ -483,7 +483,7 @@ _||_    .-;`\..../`;_.-^-._
                     {
                         Console.ForegroundColor = ConsoleColor.Magenta;
                         Console.WriteLine("You just got new Item!");
-                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.ResetColor();
                         inventory.Add(stage1[2]);
                         yourInventory.OpenInventory();
                         break;

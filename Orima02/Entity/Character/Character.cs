@@ -72,7 +72,7 @@ namespace Orima02
                               $"| Mp       | {Mp, 10}/{MaxMp}\n" +
                               "| Stats    |        {0}", string.Join(" ", stats.Where(s => !string.IsNullOrEmpty(s))));
             Console.WriteLine();
-            Console.ForegroundColor = ConsoleColor.Black;
+            Console.ResetColor();
         }
 
         

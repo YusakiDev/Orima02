@@ -27,7 +27,7 @@ namespace Orima02
             Thread.Sleep(3000);
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"{player.Name}'s Hp is full");
-            Console.ForegroundColor = ConsoleColor.Black;
+            Console.ResetColor();
         }
         
         public void DoubleDamage(Character player)
@@ -37,7 +37,7 @@ namespace Orima02
             player.ModifyAtk(player.Atk);
             Thread.Sleep(3000);
             Console.WriteLine($"{player.Name}'s Atk is Doubled");
-            Console.ForegroundColor = ConsoleColor.Black;
+            Console.ResetColor();
         }
 
         public void FullMp(Character player)
@@ -48,7 +48,7 @@ namespace Orima02
             Thread.Sleep(3000);
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine($"{player.Name}'s Mp is full");
-            Console.ForegroundColor = ConsoleColor.Black;
+            Console.ResetColor();
         }
         public void StunBomb(Character player,Enemy enemy)
         {
@@ -59,7 +59,7 @@ namespace Orima02
             Thread.Sleep(3000);
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine($"{enemy.Name} took 2 Damage and it is now stunned");
-            Console.ForegroundColor = ConsoleColor.Black;
+            Console.ResetColor();
         }
         public void PoisonBomb(Character player,Enemy enemy)
         {
@@ -70,7 +70,7 @@ namespace Orima02
             Thread.Sleep(3000);
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine($"{enemy.Name} took 2 Damage and it is now poisoned");
-            Console.ForegroundColor = ConsoleColor.Black;
+            Console.ResetColor();
         }
         public void DamageBomb(Character player, Enemy enemy)
         {
@@ -80,7 +80,7 @@ namespace Orima02
             Thread.Sleep(3000);
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine($"{enemy.Name} took 10 Damage");
-            Console.ForegroundColor = ConsoleColor.Black;
+            Console.ResetColor();
         }
 
         public void TrapDeflectDamage(Enemy enemy)

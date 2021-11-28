@@ -37,7 +37,7 @@ namespace Orima02
                               $"| UltPoint | {UltPoint, 10}/{MaxUltPoint}\n" +
                               "| Stats    |          {0}", string.Join(" ", stats.Where(s => !string.IsNullOrEmpty(s))));
             Console.WriteLine();
-            Console.ForegroundColor = ConsoleColor.Black;
+            Console.ResetColor();
 
         }
 

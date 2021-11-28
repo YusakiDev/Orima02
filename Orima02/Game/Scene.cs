@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 
-namespace Orima02
+namespace Orima02H
 {
     public class Scene
     {

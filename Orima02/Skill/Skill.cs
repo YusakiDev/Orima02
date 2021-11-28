@@ -66,7 +66,7 @@ namespace Orima02
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine($"Passive: {player.Name} Just Cheated! He doubled his ATK!");
             player.ModifyAtk(player.Atk);
-            Console.ForegroundColor = ConsoleColor.Black;
+            Console.ResetColor();
         }
 
         public void CheatChance(Character player)
@@ -83,7 +83,7 @@ namespace Orima02
                     Console.WriteLine("You cheat to double your atk again!");
                     player.ModifyAtk(player.Atk);
                     Console.WriteLine($"You now have {player.Atk} Atk");
-                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.ResetColor();
                 }
                 else
                 {
@@ -94,7 +94,7 @@ namespace Orima02
                     player.ModifyHp(-(player.Atk * 2));
                     Console.ForegroundColor = ConsoleColor.DarkRed;
                     Console.WriteLine($"You Deal {player.Atk} to yourself!");
-                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.ResetColor();
                 }
                 
             }
@@ -115,7 +115,7 @@ namespace Orima02
                 Thread.Sleep(3000);
                 Console.WriteLine("You now have second Item Phase! Tada!");
                 combat.CheckItem(combat.ItemPhase(inventory), fullInventory, inventory, player, enemy);
-                Console.ForegroundColor = ConsoleColor.Black;
+                Console.ResetColor();
             }else
             {
                 
@@ -141,7 +141,7 @@ namespace Orima02
                 enemy.ModifyHp(-(player.Atk + 2));
                 Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine($"{player.Name} deals {player.Atk + 2} dmg to {enemy.Name}");
-                Console.ForegroundColor = ConsoleColor.Black;
+                Console.ResetColor();
             }else
             {
                 Console.WriteLine("Not Enough Mana! Skipping...");
@@ -159,7 +159,7 @@ namespace Orima02
                 Thread.Sleep(3000);
                 enemy.ModifyAtk(-enemy.Atk);
                 Console.WriteLine($"{enemy.Name} attack decreased to 0");
-                Console.ForegroundColor = ConsoleColor.Black;
+                Console.ResetColor();
             }else
             {
                 Console.WriteLine("Not Enough Mana! Skipping...");
@@ -187,7 +187,7 @@ namespace Orima02
                 enemy.ModifyPoisonToken(3);
                 Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine($"{player.Name} deals 2 dmg to {enemy.Name} and poisoned it");
-                Console.ForegroundColor = ConsoleColor.Black;
+                Console.ResetColor();
             }else
             {
                 Console.WriteLine("Not Enough Mana! Skipping...");
@@ -206,7 +206,7 @@ namespace Orima02
                 player.ModifyHp(4);
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine($"{player.Name} now have {player.Hp} (+4) Hp");
-                Console.ForegroundColor = ConsoleColor.Black;
+                Console.ResetColor();
             }else
             {
                 Console.WriteLine("Not Enough Mana! Skipping...");
