@@ -1,4 +1,4 @@
-﻿using System;
+﻿ 
 
 namespace Orima02
 {
@@ -11,7 +11,7 @@ namespace Orima02
         public int Atk { get; private set; }
         public int BaseAtk;
         
-        public bool IsAlive { get; protected set; }
+        public bool IsAlive { get; protected  set; }
         public bool IsStun;
         public bool IsPoison;
         public int PoisonToken { get; private set; }

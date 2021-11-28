@@ -26,7 +26,6 @@ namespace Orima02
             Console.WriteLine($"{player.Name}'s Hp is full");
             Console.ResetColor();
         }
-        
         public void DoubleDamage(Character player)
         {
             Console.ForegroundColor = ConsoleColor.Magenta;
@@ -36,7 +35,6 @@ namespace Orima02
             Console.WriteLine($"{player.Name}'s Atk is Doubled");
             Console.ResetColor();
         }
-
         public void FullMp(Character player)
         {
             Console.ForegroundColor = ConsoleColor.Magenta;
@@ -79,7 +77,6 @@ namespace Orima02
             Console.WriteLine($"{enemy.Name} took 10 Damage");
             Console.ResetColor();
         }
-
         public void TrapDeflectDamage(Enemy enemy)
         {
             Console.WriteLine("Placing Trap DeflectDamage...");
@@ -101,7 +98,6 @@ namespace Orima02
             Thread.Sleep(3000);
             Console.WriteLine("It Will Activate on the next Enemy Ultimate Phase!");
         }
-
         public void AbilityTheWorld(Character player, Enemy enemy)
         {
             Random rnd = new Random();
@@ -136,7 +132,6 @@ namespace Orima02
                 
             }
         }
-
         public void AbilityOra(Character player, Enemy enemy)
         {
             if (player.CheckMp(4))
@@ -159,7 +154,6 @@ namespace Orima02
                 
             }
         }
-
         public void AbilityUseLeg(Character player, Enemy enemy)
         {
             if (player.CheckMp(player.MaxMp))
@@ -179,9 +173,5 @@ namespace Orima02
                 
             }
         }
-
-
-
-
     }
 }

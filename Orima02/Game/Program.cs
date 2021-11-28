@@ -149,7 +149,7 @@ namespace Orima02
                 $"[3/6] {player.Name} : My name is {player.Name}\n",
                 $"[4/6] {player.Name} : I'm just a man passing this way.\n",
                 $"[5/6] {player.Name} : And you?\n",
-                "[6/6] Irene : My name is Irene the Felicity, I'm the princess of the Felicity Kingdom.\n"
+                "[6/6] Irene : My name is Irene Der Felicity, I'm the princess of the Felicity Kingdom.\n"
             });
 
             Scene scene1_1C2 = new Scene(1.1, 10, new[]
@@ -198,7 +198,7 @@ namespace Orima02
             });
             Scene scene1_3C1 = new Scene(1.3, 10, new[]
             {
-                "\n",
+                "Press Enter You Dummy\n",
                 //skip to scene2
             });
             Scene scene1_3C2 = new Scene(1.3, 10, new[]
