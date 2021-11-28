@@ -23,6 +23,7 @@ namespace Orima02
         }
         public object ItemPhase(ArrayList inventory)
         {
+            
             while (true)
             {
                 int i = 1;
