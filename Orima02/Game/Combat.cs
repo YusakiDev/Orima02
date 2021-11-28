@@ -33,7 +33,7 @@ namespace Orima02
             {
                 int i = 1;
                 Console.BackgroundColor = ConsoleColor.Gray;
-                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.Black;
                 Console.WriteLine("Item Phase");
                 Console.ResetColor();
                 Console.WriteLine("(Please Select Your Item)\n" +
@@ -41,7 +41,7 @@ namespace Orima02
                 foreach (UseAbleItem item in inventory)
                 {
                     Console.BackgroundColor = ConsoleColor.White;
-                    Console.ResetColor();
+                    Console.ForegroundColor = ConsoleColor.Black;
                     Console.WriteLine($"{i}.{item.Name}");
                     Console.ResetColor();
                     item.Stats();
@@ -234,7 +234,7 @@ namespace Orima02
             {
                 int i = 0;
                 Console.BackgroundColor = ConsoleColor.Gray;
-                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.Black;
                 Console.WriteLine("Skill Phase");
                 Console.ResetColor();
                 Console.WriteLine("(Please Select Your Skill)\n" +
@@ -248,7 +248,7 @@ namespace Orima02
                     else
                     {
                         Console.BackgroundColor = ConsoleColor.White;
-                        Console.ResetColor();
+                        Console.BackgroundColor = ConsoleColor.Black;
                         Console.WriteLine($"{i}.{skill.Name}");
                         Console.ResetColor();
                         skill.Stats();
@@ -367,7 +367,7 @@ namespace Orima02
             else
             {
                 Console.BackgroundColor = ConsoleColor.Gray;
-                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.Black;
                 Console.WriteLine($"{player.Name} AutoAttack Phase");
                 Console.ResetColor();
                 player.Attack(player,enemy);
@@ -378,7 +378,7 @@ namespace Orima02
         public void EnemyPassive(Enemy enemy)
         {
             Console.BackgroundColor = ConsoleColor.Gray;
-            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.Black;
             Console.WriteLine($"{enemy.Name} Passive Phase");
             Console.ResetColor();
             enemy.ModifyUlt(1);
@@ -392,7 +392,7 @@ namespace Orima02
         public void EnemyUltimate(Character player,Enemy enemy)
         {
             Console.BackgroundColor = ConsoleColor.Gray;
-            Console.ResetColor();
+            Console.BackgroundColor = ConsoleColor.Black;
             Console.WriteLine($"{enemy.Name} Ultimate Phase");
             Console.ResetColor();
             if (enemy.UltPoint == 3)
@@ -421,7 +421,7 @@ namespace Orima02
             else
             {
                 Console.BackgroundColor = ConsoleColor.Gray;
-                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.Black;
                 Console.WriteLine($"{enemy.Name} AutoAttack Phase");
                 Console.ResetColor();
                 enemy.Attack(player, enemy);
