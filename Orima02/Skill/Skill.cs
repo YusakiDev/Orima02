@@ -8,16 +8,16 @@ namespace Orima02
     public enum SkillName
     {
         //Volunteer
-        DamageChance,
-        UseSpecialItem,
         Cheat,
+        CheatChance,
+        ItemCheat,
         // Swordsman
         Regeneration,
         HeavyAttack,
-        Dodge,
+        Fear,
         //Magician
         MpRegen,
-        FireAttack,
+        PoisonAttack,
         Heal,
     }
 
