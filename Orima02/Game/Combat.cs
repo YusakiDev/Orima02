@@ -495,55 +495,61 @@ namespace Orima02
             }
         }
 
-        public bool CheckTrapUltimate(Character player, Enemy enemy)
+        public bool CheckTrapAttack(Character player, Enemy enemy)
         {
-            foreach (int index in enemy.TrapCombatIndex)
+            bool returnAll = false;
+            if (enemy.TrapCombatIndex.Count > 0)
             {
-                if (enemy.TrapCombatIndex[index] == 1)
+                if (enemy.TrapCombatIndex[0] == 1)
                 {
                     Console.WriteLine("Trap Activated: Deflect Damage");
+                    Thread.Sleep(3000);
                     enemy.ModifyHp(-enemy.Atk);
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine($"{enemy.Name} Deal {enemy.Atk} Damage to itself");
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine($"{enemy.Name} now have {enemy.Hp} Hp left");
                     Console.ResetColor();
+                    Thread.Sleep(3000);
                     enemy.TrapCombatIndex.Remove(1);
-                    return true;
+                    returnAll = true;
                 }
-
-                if (enemy.TrapCombatIndex[index] == 2)
+                else if (enemy.TrapCombatIndex[0] == 2)
                 {
                     Console.WriteLine("Trap Activated: Weakness");
+                    Thread.Sleep(3000);
                     enemy.ModifyHp(enemy.Atk / 2 - enemy.Atk);
                     Console.WriteLine($"{enemy.Name}'s Atk is now Halved");
                     Console.WriteLine($"{enemy.Name} has {enemy.Atk}");
                     Console.ResetColor();
-                    enemy.TrapCombatIndex.Remove(1);
-                    return false;
+                    Thread.Sleep(3000);
+                    enemy.TrapCombatIndex.Remove(2);
                 }
-                
             }
 
-            return false;
+            return returnAll;
         }
 
-        public bool CheckTrapAttack(Character player, Enemy enemy)
+        public bool CheckTrapUltimate(Character player, Enemy enemy)
         {
-            foreach (int index in enemy.TrapUltimateIndex)
+            bool returnAll = false;
+            if (enemy.TrapUltimateIndex.Count > 0)
             {
-                if (enemy.TrapCombatIndex[index] == 1 && enemy.UltPoint == 3)
+                if (enemy.TrapUltimateIndex[0] == 1 && enemy.UltPoint == 3)
                 {
                     Console.WriteLine("Trap Activated: Deflect Ultimate");
+                    Thread.Sleep(3000);
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine($"{player.Name} deflect {enemy.Name}'s Ultimate with {(enemy.Atk + player.Atk) * 3} damage");
+                    Console.WriteLine(
+                        $"{player.Name} deflect {enemy.Name}'s Ultimate with {(enemy.Atk + player.Atk) * 3} damage");
                     enemy.ModifyHp(-(enemy.Atk + player.Atk) * 3);
+                    Thread.Sleep(3000);
                     enemy.TrapUltimateIndex.Remove(1);
-                    return true;
+                    returnAll = true;
                 }
             }
 
-            return false;
+            return returnAll;
         }
 
 

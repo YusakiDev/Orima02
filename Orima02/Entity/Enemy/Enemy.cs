@@ -13,7 +13,6 @@ namespace Orima02
         public List<int> TrapUltimateIndex;
         public List<int> TrapCombatIndex;
         
-        
         protected Enemy(string name, int hp, int maxHp, int atk, int ultPoint, int maxUltPoint, bool isAlive, bool isStun, bool isPoison, int baseAtk, int stunToken, int poisonToken, List<int> trapCombatIndex, List<int> trapUltimateIndex) : base(name, hp, maxHp, atk, isAlive, isStun, isPoison, baseAtk, poisonToken, stunToken)
         {
             UltPoint = ultPoint;
