@@ -13,7 +13,7 @@ namespace Orima02
         {
             Random rnd = new Random();
             Console.WriteLine("AttackPassive: StunChance");
-            if (rnd.Next(1, 5) == 1)
+            if (rnd.Next(1, 6) == 1)
             {
                 player.IsStun = true;
                 player.ModifyStunToken(1);

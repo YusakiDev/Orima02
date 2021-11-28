@@ -72,8 +72,8 @@ namespace Orima02
             if (player.CheckMp(3))
             {
                 Random rnd = new Random();
-
-                int chance = rnd.Next(0, 1);
+                int chance = rnd.Next(1, 3);
+                
                 if (chance == 1)
                 {
                     //Go through
@@ -81,7 +81,7 @@ namespace Orima02
                     player.ModifyAtk(player.Atk);
                     Console.WriteLine($"You now have {player.Atk} Atk");
                 }
-                else
+                else if (chance == 2)
                 {
                     //Cheat Bomb
                     Console.WriteLine("Dev caught you cheating! Punishing...");

@@ -14,7 +14,7 @@ namespace Orima02
         {
             Random rnd = new Random();
             Console.WriteLine("AttackPassive: Double Attack");
-            if (rnd.Next(1, 2) == 1)
+            if (rnd.Next(1, 3) == 1)
             {
                 player.ModifyHp(-Atk);
                 Console.WriteLine($"{enemy.Name} quickly hit you with an attack that deals {enemy.Atk} Damage");
@@ -37,7 +37,7 @@ namespace Orima02
         public override void Ultimate(Character player, Enemy enemy)
         {
             Random rnd = new Random();
-            var i = rnd.Next(1, 3);
+            var i = rnd.Next(1, 4);
             Console.WriteLine($"{enemy.Name} is casting 'King Goblin Super Buff'");
             Thread.Sleep(3000);
             if (i == 1)

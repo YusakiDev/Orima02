@@ -301,7 +301,7 @@ _||_    .-;`\..../`;_.-^-._
                 player.ModifyMp(player.MaxMp);
                 player.ResetAtk();
                 enemy.ModifyHp(enemy.MaxHp);
-                enemy.ModifyUlt(enemy.MaxUltPoint);
+                enemy.ModifyUlt(-enemy.MaxUltPoint);
                 enemy.ResetAtk();
                 i = 0;
                 while (true)
@@ -457,7 +457,7 @@ _||_    .-;`\..../`;_.-^-._
             Console.ReadKey();
             for (int i = 0; i < 2 ; i++)
             {
-                var random = rnd.Next(1, 3);
+                var random = rnd.Next(1, 4);
                 switch (random)
                 {
                     case 1:
@@ -494,7 +494,7 @@ _||_    .-;`\..../`;_.-^-._
             Console.WriteLine("Welcome to Random Item Stage");
             Console.ReadKey();
             for (int i = 0; i < 2 ; i++){
-                var random = rnd.Next(1, 3);
+                var random = rnd.Next(1, 4);
                 switch (random)
                 {
                     case 1:
@@ -534,7 +534,7 @@ _||_    .-;`\..../`;_.-^-._
             Console.WriteLine("Welcome to Random Item Stage");
             Console.ReadKey();
             for (int i = 0; i < 2 ; i++){
-                var random = rnd.Next(1, 3);
+                var random = rnd.Next(1, 4);
                 switch (random)
                 {
                     case 1:
@@ -572,7 +572,7 @@ _||_    .-;`\..../`;_.-^-._
             Console.WriteLine("Welcome to Random Item Stage");
             Console.ReadKey();
             for (int i = 0; i < 2 ; i++){
-                var random = rnd.Next(1, 3);
+                var random = rnd.Next(1, 4);
                 switch (random)
                 {
                     case 1:
