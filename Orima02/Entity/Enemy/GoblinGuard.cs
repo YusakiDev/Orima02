@@ -31,6 +31,7 @@ namespace Orima02
             Console.WriteLine($"{enemy.Name} is casting 'Ahhhh Imma Run Away'");
             Thread.Sleep(3000);
             enemy.ModifyHp(-enemy.Hp);
+            IsAlive = false;
             Console.WriteLine($"{enemy.Name} tripped on his own leg, so he died");
             Thread.Sleep(3000);
             Console.WriteLine("Dev: Um.... I didn't Expect That");

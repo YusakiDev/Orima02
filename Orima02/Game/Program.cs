@@ -505,25 +505,25 @@ namespace Orima02
             }
             //scene4_2.DisplayScene();
             //fight
-            gameController.CombatPhase(player, goblinWarrior, inventory.Items, player.Skills,fullInventory.Items, combat);
+            gameController.CombatPhase(player, goblinWarrior, inventory.Items, allSkill,fullInventory.Items, combat);
             gameController.RandomStage2(inventory,inventory.Items, stage2.Items);
             
             //Scene5
             //scene5_1.DisplayScene();
             //fight
-            gameController.CombatPhase(player, poisonGoblin, inventory.Items, player.Skills,fullInventory.Items, combat);
+            gameController.CombatPhase(player, poisonGoblin, inventory.Items, allSkill,fullInventory.Items, combat);
             gameController.RandomStage3(inventory,inventory.Items, stage3.Items);
             //Scene6
             //scene6_1.DisplayScene();
             //fight
-            gameController.CombatPhase(player, muscularGoblin, inventory.Items, player.Skills,fullInventory.Items, combat);
+            gameController.CombatPhase(player, muscularGoblin, inventory.Items, allSkill,fullInventory.Items, combat);
             gameController.RandomStage4(inventory,inventory.Items, stage4.Items);
             //scene6_2.DisplayScene();
             
             //Scene7
             //cene7_1.DisplayScene();
             //fight
-            gameController.CombatPhase(player, kingGoblin, inventory.Items, player.Skills,fullInventory.Items, combat);
+            gameController.CombatPhase(player, kingGoblin, inventory.Items, allSkill,fullInventory.Items, combat);
             //scene7_2.DisplayScene();
 
         }

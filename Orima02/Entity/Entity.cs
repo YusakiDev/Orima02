@@ -11,7 +11,7 @@ namespace Orima02
         public int Atk { get; private set; }
         public int BaseAtk;
         
-        public bool IsAlive { get; private set; }
+        public bool IsAlive { get; set; }
         public bool IsStun;
         public bool IsPoison;
         public int PoisonToken { get; private set; }
