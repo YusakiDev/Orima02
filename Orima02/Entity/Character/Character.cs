@@ -64,7 +64,7 @@ namespace Orima02
         {
             string[] stats = {CheckIfPoison(), CheckIfStunned()};
 
-
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine($"==={Name} Stats===\n" +
                               $"| Class    | {CharClass, 15}\n" +
                               $"| Hp       | {Hp, 10}/{MaxHp}\n" +
@@ -72,6 +72,7 @@ namespace Orima02
                               $"| Mp       | {Mp, 10}/{MaxMp}\n" +
                               "| Stats    |        {0}", string.Join(" ", stats.Where(s => !string.IsNullOrEmpty(s))));
             Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Black;
         }
 
         
@@ -83,7 +84,7 @@ namespace Orima02
             enemy.ModifyHp(-Atk);
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"{player.Name} Deal {player.Atk} Damage to {enemy.Name}");
-            Console.ForegroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine($"{enemy.Name} now have {enemy.Hp} Hp left");
             Console.ResetColor();
         }

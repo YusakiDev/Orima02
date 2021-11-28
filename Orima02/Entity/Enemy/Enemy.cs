@@ -30,12 +30,14 @@ namespace Orima02
             
 
 
+            Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine($"==={Name} Stats===\n" +
                               $"| Hp       | {Hp, 10}/{MaxHp}\n" +
                               $"| Atk      | {Atk, 10}\n" +
                               $"| UltPoint | {UltPoint, 10}/{MaxUltPoint}\n" +
                               "| Stats    |          {0}", string.Join(" ", stats.Where(s => !string.IsNullOrEmpty(s))));
             Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Black;
 
         }
 

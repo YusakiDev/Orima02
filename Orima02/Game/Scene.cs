@@ -6,8 +6,8 @@ namespace Orima02
     public class Scene
     {
         public double SceneIndex { get; private set; }
-        public int TextDelay;
-        public string[] Text;
+        public readonly int TextDelay;
+        public readonly string[] Text;
 
 
         public Scene(double sceneIndex, int textDelay, string[] text)
@@ -41,7 +41,6 @@ namespace Orima02
                 else
                 {
                     Console.Clear();
-                    continue;
                 }
             }
         }

@@ -31,11 +31,10 @@ namespace Orima02
                 foreach (Item item in Items)
                 {
                     i++;
+                    Console.ForegroundColor = ConsoleColor.DarkBlue;
                     Console.Write("|\n|");
                     Console.ForegroundColor = ConsoleColor.Black;
                     Console.Write($" → {i}. {item.Name}\n");
-                    Console.ForegroundColor = ConsoleColor.DarkBlue;
-                    Console.Write("|");
                     Console.ForegroundColor = ConsoleColor.Black;
                 }
 

@@ -13,10 +13,10 @@ namespace Orima02
             
             //Enemy Declaration
             GoblinGuard goblinGuard = new GoblinGuard("Goblin Guard", 100, 100, 3, 0, 3, true, false, false,5,0,0,new List<int>(){}, new List<int>());
-            GoblinWarrior goblinWarrior = new GoblinWarrior("Goblin Warrior", 10, 10, 5, 0, 3, true, false, false,10,0,0,new List<int>(){}, new List<int>());
-            PoisonGoblin poisonGoblin = new PoisonGoblin("Poison Goblin", 10, 10, 5, 0, 3, true, false, false,10,0,0,new List<int>(){}, new List<int>());
-            MuscularGoblin muscularGoblin = new MuscularGoblin("Muscular Goblin", 10, 10, 5, 0, 3, true, false, false,10,0,0,new List<int>(){}, new List<int>());
-            KingGoblin kingGoblin= new KingGoblin("King Goblin", 10, 10, 5, 0, 3, true, false, false,10,0,0,new List<int>(){}, new List<int>());
+            GoblinWarrior goblinWarrior = new GoblinWarrior("Goblin Warrior", 100, 100, 5, 0, 3, true, false, false,10,0,0,new List<int>(){}, new List<int>());
+            PoisonGoblin poisonGoblin = new PoisonGoblin("Poison Goblin", 100, 100, 5, 0, 3, true, false, false,10,0,0,new List<int>(){}, new List<int>());
+            MuscularGoblin muscularGoblin = new MuscularGoblin("Muscular Goblin", 100, 100, 5, 0, 3, true, false, false,10,0,0,new List<int>(){}, new List<int>());
+            KingGoblin kingGoblin= new KingGoblin("King Goblin", 100, 100, 5, 0, 3, true, false, false,10,0,0,new List<int>(){}, new List<int>());
 
 
             //Character Declaration
@@ -93,9 +93,9 @@ namespace Orima02
             UseAbleItem damageBomb =
                 new UseAbleItem(ItemName.DamageBomb, "deals 5 damage at the enemy");
             UseAbleItem trapDeflect =
-                new UseAbleItem(ItemName.TrapDeflect, "Reverse all damage to the enemy (this item will be active on the enemy turn");
+                new UseAbleItem(ItemName.TrapDeflect, "Reverse all damage to the enemy (this item will be active on the enemy auto attack turn)");
             UseAbleItem trapUltimate =
-                new UseAbleItem(ItemName.TrapUltimate, "Steal enemy's Ultimate (this item will be active on the enemy turn)");
+                new UseAbleItem(ItemName.TrapUltimate, "Steal enemy's Ultimate (this item will be active on the enemy ultimate turn)");
             UseAbleItem trapWeakness = 
                 new UseAbleItem(ItemName.TrapWeakness, "Set enemy damage to half");
             UseAbleItem abilityTheWorld =
