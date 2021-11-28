@@ -1,6 +1,6 @@
 ﻿namespace Orima02
 {
-    public class EquipableItem: Item
+    public class EquipAbleItem: Item
     {
         public readonly int Atk;
         public readonly int MaxMp;
@@ -8,7 +8,7 @@
         
         
         
-        public EquipableItem(ItemName name,int atk, int mp, int hp, string info) : base(name, info)
+        public EquipAbleItem(ItemName name,int atk, int mp, int hp, string info) : base(name, info)
         {
             Atk = atk;
             MaxMp = mp;

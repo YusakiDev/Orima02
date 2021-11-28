@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Reflection;
 
 namespace Orima02
 {
     public class Inventory
     {
-        public ArrayList Items;
+        public readonly ArrayList Items;
 
         public Inventory(ArrayList items)
         {

@@ -52,7 +52,7 @@
         <Compile Include="Game\IStats.cs" />
         <Compile Include="Game\Program.cs" />
         <Compile Include="Game\Scene.cs" />
-        <Compile Include="Item\EquipableItem.cs" />
+        <Compile Include="Item\EquipAbleItem.cs" />
         <Compile Include="Item\Inventory.cs" />
         <Compile Include="Item\UseAbleItem.cs" />
         <Compile Include="Item\Item.cs" />

@@ -55,7 +55,7 @@ namespace Orima02
             }
             else if (i == 3)
             {
-                Console.WriteLine("The Great Debuff");
+                Console.WriteLine("The Great DeBuff");
                 player.ModifyHp(-player.Hp/8);
                 player.ModifyMp(-player.Mp/4);
                 player.IsPoison = true;

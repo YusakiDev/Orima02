@@ -14,8 +14,8 @@ namespace Orima02
     
     public class Character: Entity, IStats
     {
-        public readonly CharClass CharClass;
-        public ArrayList Skills;
+        private readonly CharClass _charClass;
+        public readonly ArrayList Skills;
         public int Mp { get; private set; }
         public int MaxMp;
 
@@ -23,7 +23,7 @@ namespace Orima02
         {
             Mp = mp;
             MaxMp = maxMp;
-            CharClass = charClass;
+            _charClass = charClass;
             Skills = skills;
         }
 
@@ -66,7 +66,7 @@ namespace Orima02
 
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine($"==={Name} Stats===\n" +
-                              $"| Class    | {CharClass, 15}\n" +
+                              $"| Class    | {_charClass, 15}\n" +
                               $"| Hp       | {Hp, 10}/{MaxHp}\n" +
                               $"| Atk      | {Atk, 10}\n" +
                               $"| Mp       | {Mp, 10}/{MaxMp}\n" +

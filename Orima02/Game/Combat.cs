@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections;
-using System.Diagnostics;
-using System.Diagnostics.Contracts;
-using System.Security;
 using System.Threading;
-using Microsoft.Win32;
 
 namespace Orima02
 {
@@ -25,8 +21,6 @@ namespace Orima02
             CheckSkill(player.Skills[0], allSkill, player, enemy, combat, inventory, fullInventory);
             Console.WriteLine($"{player.Mp}/{player.MaxMp}");
         }
-        
-
         public object ItemPhase(ArrayList inventory)
         {
             while (true)
@@ -107,7 +101,6 @@ namespace Orima02
                 }
             }
         }
-
         public void CheckItem(object item, ArrayList allItem, ArrayList inventory, Character player, Enemy enemy)
         {
             if (item == null)
@@ -225,8 +218,6 @@ namespace Orima02
 
 
         }
-
-
 
         public object SkillPhase(Character player)
         {
@@ -355,9 +346,6 @@ namespace Orima02
             }
 
         }
-        
-        
-
         public void CharAutoAttack(Character player, Enemy enemy)
         {
             if (player.IsStun)
@@ -374,7 +362,6 @@ namespace Orima02
                 Thread.Sleep(5000);
             }
         }
-
         public void EnemyPassive(Enemy enemy)
         {
             Console.BackgroundColor = ConsoleColor.Gray;
@@ -383,12 +370,11 @@ namespace Orima02
             Console.ResetColor();
             enemy.ModifyUlt(1);
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
-            Console.WriteLine($"Enemy got {enemy.UltPoint}/{enemy.MaxUltPoint} (+1) Ultpoint");
+            Console.WriteLine($"Enemy got {enemy.UltPoint}/{enemy.MaxUltPoint} (+1) UltPoint");
             Console.ResetColor();
             EnemyCheckPoison(enemy);
             Thread.Sleep(5000);
         }
-
         public void EnemyUltimate(Character player,Enemy enemy)
         {
             Console.BackgroundColor = ConsoleColor.Gray;
@@ -410,8 +396,6 @@ namespace Orima02
             }
             Thread.Sleep(3000);
         }
-
-
         public void EnemyAutoAttack(Character player, Enemy enemy)
         {
             if (enemy.IsStun)
@@ -428,20 +412,14 @@ namespace Orima02
                 Thread.Sleep(3000);
             }
         }
-        
-        public void Debug(Character player, Enemy enemy)
-        {
-            Console.WriteLine($"Player HP: {player.Hp}");
-            Console.WriteLine($"Enemy HP: {enemy.Hp}");
-        }
-        
-        
-        
-        
+        // public void Debug(Character player, Enemy enemy)
+        // {
+        //     Console.WriteLine($"Player HP: {player.Hp}");
+        //     Console.WriteLine($"Enemy HP: {enemy.Hp}");
+        // }
         //Check Method
 
-
-        public void PlayerCheckPoison(Character player)
+        private void PlayerCheckPoison(Character player)
         {
             if (player.PoisonToken > 0)
             {
@@ -454,7 +432,8 @@ namespace Orima02
                 player.IsPoison = false;
             }
         }
-        public void EnemyCheckPoison(Enemy enemy)
+
+        private void EnemyCheckPoison(Enemy enemy)
         {
             if (enemy.PoisonToken > 0)
             {
@@ -467,8 +446,8 @@ namespace Orima02
                 enemy.IsPoison = false;
             }
         }
-        
-        public void PlayerCheckStun(Character player)
+
+        private void PlayerCheckStun(Character player)
         {
             if (player.StunToken > 0)
             {
@@ -481,8 +460,8 @@ namespace Orima02
                 player.IsStun = false;
             }
         }
-        
-        public void EnemyCheckStun(Enemy enemy)
+
+        private void EnemyCheckStun(Enemy enemy)
         {
             if (enemy.StunToken > 0)
             {
@@ -494,8 +473,7 @@ namespace Orima02
                 enemy.IsStun = false;
             }
         }
-
-        public bool CheckTrapAttack(Character player, Enemy enemy)
+        public bool CheckTrapAttack(Enemy enemy)
         {
             bool returnAll = false;
             if (enemy.TrapCombatIndex.Count > 0)
@@ -529,7 +507,6 @@ namespace Orima02
 
             return returnAll;
         }
-
         public bool CheckTrapUltimate(Character player, Enemy enemy)
         {
             bool returnAll = false;

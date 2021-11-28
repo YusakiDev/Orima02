@@ -27,17 +27,16 @@ namespace Orima02
     public class Item: IStats
     {
         public readonly ItemName Name;
-        public readonly string Info;
+        private readonly string Info;
 
 
-
-        public Item(ItemName name, string info)
+        protected Item(ItemName name, string info)
         {
             Name = name;
             Info = info;
         }
 
-        public Item()
+        protected Item()
         {
             
         }
@@ -48,7 +47,7 @@ namespace Orima02
         {
             Console.WriteLine($"==={Name} Stats===\n" +
                               $"| Name        | {Name}\n" +
-                              $"| MpCost      | 0 \n" +
+                              "| MpCost      |  ?\n" +
                               $"| Info        | {Info}\n");
         }
 

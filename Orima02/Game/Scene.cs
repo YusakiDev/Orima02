@@ -5,32 +5,32 @@ namespace Orima02
 {
     public class Scene
     {
-        public double SceneIndex { get; private set; }
-        public readonly int TextDelay;
-        public readonly string[] Text;
+        public double SceneIndex { get; }
+        private readonly int _textDelay;
+        private readonly string[] _text;
 
 
         public Scene(double sceneIndex, int textDelay, string[] text)
         {
             SceneIndex= sceneIndex;
-            TextDelay = textDelay;
-            Text = text;
+            _textDelay = textDelay;
+            _text = text;
         }
 
         public void DisplayScene()
         {
             int line = 0;
-            while (line < Text.Length)
+            while (line < _text.Length)
             {
                 Console.ForegroundColor = ConsoleColor.DarkBlue;
                 Console.WriteLine("████████████████");
                 Console.WriteLine("|   Dialogue   |");
                 Console.WriteLine("████████████████");
                 Console.ResetColor();
-                for (int i = 0; i < Text[line].Length; i++)
+                for (int i = 0; i < _text[line].Length; i++)
                 {
-                    Console.Write($"{Text[line][i]}");
-                    Thread.Sleep(TextDelay);
+                    Console.Write($"{_text[line][i]}");
+                    Thread.Sleep(_textDelay);
                 }
                 Console.WriteLine("[Enter]");
                 if (Console.ReadKey().Key == ConsoleKey.Enter)

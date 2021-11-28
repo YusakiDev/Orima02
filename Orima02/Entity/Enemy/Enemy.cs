@@ -1,17 +1,15 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Resources;
 
 namespace Orima02
 {
     public abstract class Enemy: Entity, IStats
     {
         public int UltPoint;
-        public int MaxUltPoint;
-        public List<int> TrapUltimateIndex;
-        public List<int> TrapCombatIndex;
+        public readonly int MaxUltPoint;
+        public readonly List<int> TrapUltimateIndex;
+        public readonly List<int> TrapCombatIndex;
         
         protected Enemy(string name, int hp, int maxHp, int atk, int ultPoint, int maxUltPoint, bool isAlive, bool isStun, bool isPoison, int baseAtk, int stunToken, int poisonToken, List<int> trapCombatIndex, List<int> trapUltimateIndex) : base(name, hp, maxHp, atk, isAlive, isStun, isPoison, baseAtk, poisonToken, stunToken)
         {

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Media;
 using System.Threading;
 
 namespace Orima02
@@ -31,18 +30,18 @@ namespace Orima02
     public class Skill : IStats
     {
         public readonly SkillName Name;
-        public readonly SkillType Type;
-        public readonly string Info;
-        public readonly int MpCost;
+        private readonly SkillType _type;
+        private readonly string _info;
+        private readonly int _mpCost;
 
 
 
         public Skill(SkillName name,SkillType type, string info, int mpCost)
         {
             Name = name;
-            Type = type;
-            Info = info;
-            MpCost = mpCost;
+            _type = type;
+            _info = info;
+            _mpCost = mpCost;
         }
 
         public Skill()
@@ -55,9 +54,9 @@ namespace Orima02
         {
             Console.WriteLine($"==={Name} Stats===\n" +
                               $"| Name        | {Name}\n" +
-                              $"| Type        | {Type}\n" +
-                              $"| MpCost      | {MpCost} \n" +
-                              $"| Info        | {Info}\n");
+                              $"| Type        | {_type}\n" +
+                              $"| MpCost      | {_mpCost} \n" +
+                              $"| Info        | {_info}\n");
         }
 
 

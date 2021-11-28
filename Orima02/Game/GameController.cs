@@ -158,16 +158,11 @@ _||_    .-;`\..../`;_.-^-._
 ");
                     return 3;
                 }
-                else
-                {
-                    continue;
-                }
-
             }
         }
 
-        public void SelectSet(Character player, EquipableItem atkSet, EquipableItem mpSet, EquipableItem hpSet,
-            EquipableItem balancedSet)
+        public void SelectSet(Character player, EquipAbleItem atkSet, EquipAbleItem mpSet, EquipAbleItem hpSet,
+            EquipAbleItem balancedSet)
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.DarkBlue;
@@ -201,7 +196,7 @@ _||_    .-;`\..../`;_.-^-._
 
         }
 
-        public void EquipSet(Character player, EquipableItem item)
+        private void EquipSet(Character player, EquipAbleItem item)
         {
             player.MaxHp = player.MaxHp + item.MaxHp;
             player.ModifyAtk(item.Atk);
@@ -406,7 +401,7 @@ _||_    .-;`\..../`;_.-^-._
                         Console.Clear();
                         player.Stats();
                         enemy.Stats();
-                        if (!combat.CheckTrapAttack(player, enemy))
+                        if (!combat.CheckTrapAttack(enemy))
                         {
                             combat.EnemyAutoAttack(player, enemy);
                         }
@@ -600,5 +595,6 @@ _||_    .-;`\..../`;_.-^-._
                 }
             }
         }
+        
     }
 }

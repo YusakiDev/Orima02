@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Media;
-using System.Security.Cryptography;
 using System.Threading;
 
 namespace Orima02
@@ -22,7 +19,7 @@ namespace Orima02
         public void FullRegen(Character player)
         {
             Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.WriteLine($"{player.Name} use Item Fullregen...");
+            Console.WriteLine($"{player.Name} use Item FullRegen...");
             player.ModifyHp(player.MaxHp);
             Thread.Sleep(3000);
             Console.ForegroundColor = ConsoleColor.Green;

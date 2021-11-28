@@ -12,11 +12,11 @@ namespace Orima02
             Combat combat = new Combat();
             
             //Enemy Declaration
-            GoblinGuard goblinGuard = new GoblinGuard("Goblin Guard", 100, 100, 3, 0, 3, true, false, false,5,0,0,new List<int>(){}, new List<int>());
-            GoblinWarrior goblinWarrior = new GoblinWarrior("Goblin Warrior", 100, 100, 5, 0, 3, true, false, false,10,0,0,new List<int>(){}, new List<int>());
-            PoisonGoblin poisonGoblin = new PoisonGoblin("Poison Goblin", 100, 100, 5, 0, 3, true, false, false,10,0,0,new List<int>(){}, new List<int>());
-            MuscularGoblin muscularGoblin = new MuscularGoblin("Muscular Goblin", 100, 100, 5, 0, 3, true, false, false,10,0,0,new List<int>(){}, new List<int>());
-            KingGoblin kingGoblin= new KingGoblin("King Goblin", 100, 100, 5, 0, 3, true, false, false,10,0,0,new List<int>(){}, new List<int>());
+            GoblinGuard goblinGuard = new GoblinGuard("Goblin Guard", 20, 20, 2, 0, 3, true, false, false,2,0,0,new List<int>(){}, new List<int>());
+            GoblinWarrior goblinWarrior = new GoblinWarrior("Goblin Warrior", 40, 40, 3, 0, 3, true, false, false,3,0,0,new List<int>(){}, new List<int>());
+            PoisonGoblin poisonGoblin = new PoisonGoblin("Poison Goblin", 60, 60, 4, 0, 3, true, false, false,4,0,0,new List<int>(){}, new List<int>());
+            MuscularGoblin muscularGoblin = new MuscularGoblin("Muscular Goblin", 80, 80, 5, 0, 3, true, false, false,5,0,0,new List<int>(){}, new List<int>());
+            KingGoblin kingGoblin= new KingGoblin("King Goblin", 100, 100, 6, 0, 3, true, false, false,6,0,0,new List<int>(){}, new List<int>());
 
 
             //Character Declaration
@@ -64,7 +64,7 @@ namespace Orima02
                 }
                 case 3:
                 {
-                    player = new Character(gameController.GetName(),CharClass.Volunteer, 15, 15, 9, 9, 2, true, false, false,3,0,0,new ArrayList(){cheat,cheatChance,itemCheat});
+                    player = new Character(gameController.GetName(),CharClass.Volunteer, 16, 16, 9, 9, 1, true, false, false,1,0,0,new ArrayList(){cheat,cheatChance,itemCheat});
                     break;
                 }
                 
@@ -76,10 +76,10 @@ namespace Orima02
             
             
             //Item Declaration
-            EquipableItem atkSet = new EquipableItem(ItemName.AtkSet, 3, 1, 1, "Equip Atk Set");
-            EquipableItem mpSet = new EquipableItem(ItemName.MpSet, 1, 3, 1, "Equip MP Set");
-            EquipableItem hpSet = new EquipableItem(ItemName.HpSet, 1, 3, 1, "Equip HP Set");
-            EquipableItem balanceSet = new EquipableItem(ItemName.BalanceSet, 2, 2, 2, "Equip Balance Set");
+            EquipAbleItem atkSet = new EquipAbleItem(ItemName.AtkSet, 3, 1, 1, "Equip Atk Set");
+            EquipAbleItem mpSet = new EquipAbleItem(ItemName.MpSet, 1, 3, 1, "Equip MP Set");
+            EquipAbleItem hpSet = new EquipAbleItem(ItemName.HpSet, 1, 3, 1, "Equip HP Set");
+            EquipAbleItem balanceSet = new EquipAbleItem(ItemName.BalanceSet, 2, 2, 2, "Equip Balance Set");
             UseAbleItem fullRegen =
                 new UseAbleItem(ItemName.FullRegen, "Instantly regenerate to full Hp");
             UseAbleItem doubleDamage =
@@ -435,65 +435,97 @@ namespace Orima02
                 $"[33/34] {player.Name} : Hey! Wait, why is it? What about the passing knight?\n",
                 $"[34/34] {player.Name} : I just killed 10 goblins.\n",
             });
-            
+
+            Scene credit = new Scene(8, 50, new[]
+            {
+                "Good Ending!\n" +
+                "\n" +
+                "Thank you for playing our game.\n",
+                "We have put a lot of effort into this game to make it as perfect as possible\n" +
+                "thank you for your support and your feedback\n" +
+                "It will definitely improve our game\n" +
+                "\n" +
+                "- Mashed Potato Group\n" +
+                "\n" +
+                "Game Design\n" +
+                "- Puree Pangma\n" +
+                "\n" +
+                "Character & Item Design\n" +
+                "- Puree Pangma\n" +
+                "- Pongsapas Siriwong\n" +
+                "- Pitcha Hutajuta\n" +
+                "\n" +
+                "Story Design\n" +
+                "- Narapat Moungsree\n" +
+                "- Pathitta Khanathikul\n" +
+                "\n" +
+                "Programming\n" +
+                "- 95% Puree Pangma\n" +
+                "- 5% Pitcha Hutajuta\n" +
+                "\n" +
+                "Translation and Decoration\n" +
+                "- Puree Pangma\n" +
+                "- Pongsapas Siriwong\n" +
+                "- Pitcha Hutajuta\n"
+            });
+                
             
             //Debug
             //player.Stats();
             //Scene1
             Console.Clear();
-            //scene1_1.DisplayScene();
+            scene1_1.DisplayScene();
             //Scene1 Choice1
-            int userInput;
-            // userInput = gameController.ChoiceSelector(scene1_1.SceneIndex);
-            // switch (userInput)
-            // {
-            //     case 1:
-            //         scene1_1C1.DisplayScene();
-            //         break;
-            //     case 2:
-            //         scene1_1C2.DisplayScene();
-            //         break;
-            // }
-            // scene1_2.DisplayScene();
-            //
-            // userInput = gameController.ChoiceSelector(scene1_2.SceneIndex);
-            // switch (userInput)
-            // {
-            //     case 1:
-            //         scene1_2C1.DisplayScene();
-            //         break;
-            //     case 2:
-            //         scene1_2C2.DisplayScene();
-            //         break;
-            // }
-            // scene1_3.DisplayScene();
-            //
-            // userInput = gameController.ChoiceSelector(scene1_3.SceneIndex);
-            // switch (userInput)
-            // {
-            //     case 1:
-            //         scene1_3C1.DisplayScene();
-            //         break;
-            //     case 2:
-            //         scene1_3C2.DisplayScene();
-            //         break;
-            // }
+            var userInput = gameController.ChoiceSelector(scene1_1.SceneIndex);
+            switch (userInput)
+            {
+                case 1:
+                    scene1_1C1.DisplayScene();
+                    break;
+                case 2:
+                    scene1_1C2.DisplayScene();
+                    break;
+            }
+            scene1_2.DisplayScene();
+            
+            userInput = gameController.ChoiceSelector(scene1_2.SceneIndex);
+            switch (userInput)
+            {
+                case 1:
+                    scene1_2C1.DisplayScene();
+                    break;
+                case 2:
+                    scene1_2C2.DisplayScene();
+                    break;
+            }
+            scene1_3.DisplayScene();
+            
+            userInput = gameController.ChoiceSelector(scene1_3.SceneIndex);
+            switch (userInput)
+            {
+                case 1:
+                    scene1_3C1.DisplayScene();
+                    break;
+                case 2:
+                    scene1_3C2.DisplayScene();
+                    goto Ending1;
+            }
             
             
             //Scene2
-            //scene2_1.DisplayScene();
+            scene2_1.DisplayScene();
             //picking item
             gameController.SelectSet(player, atkSet, mpSet, hpSet, balanceSet);
-            //scene2_2.DisplayScene();
+            scene2_2.DisplayScene();
             
             
             //Scene3
-            //scene3_1.DisplayScene();
+            scene3_1.DisplayScene();
             //fight
             gameController.CombatPhase(player, goblinGuard, inventory.Items, allSkill, fullInventory.Items, combat);
             gameController.RandomStage1(inventory,inventory.Items, stage1.Items);
             //Scene4
-            //scene4_1.DisplayScene();
+            scene4_1.DisplayScene();
             userInput = gameController.ChoiceSelector(scene4_1.SceneIndex);
             switch (userInput)
             {
@@ -504,29 +536,35 @@ namespace Orima02
                     scene4_1C2.DisplayScene();
                     break;
             }
-            //scene4_2.DisplayScene();
+            scene4_2.DisplayScene();
             //fight
             gameController.CombatPhase(player, goblinWarrior, inventory.Items, allSkill,fullInventory.Items, combat);
             gameController.RandomStage2(inventory,inventory.Items, stage2.Items);
             
             //Scene5
-            //scene5_1.DisplayScene();
+            scene5_1.DisplayScene();
             //fight
             gameController.CombatPhase(player, poisonGoblin, inventory.Items, allSkill,fullInventory.Items, combat);
             gameController.RandomStage3(inventory,inventory.Items, stage3.Items);
             //Scene6
-            //scene6_1.DisplayScene();
+            scene6_1.DisplayScene();
             //fight
             gameController.CombatPhase(player, muscularGoblin, inventory.Items, allSkill,fullInventory.Items, combat);
             gameController.RandomStage4(inventory,inventory.Items, stage4.Items);
-            //scene6_2.DisplayScene();
+            scene6_2.DisplayScene();
             
             //Scene7
-            //cene7_1.DisplayScene();
+            scene7_1.DisplayScene();
             //fight
             gameController.CombatPhase(player, kingGoblin, inventory.Items, allSkill,fullInventory.Items, combat);
-            //scene7_2.DisplayScene();
+            scene7_2.DisplayScene();
+            credit.DisplayScene();
 
+        Ending1:
+        Console.WriteLine("Bad Ending!\n" +
+                          "Thanks for Playing!");
+        
         }
+        
     }
 }
