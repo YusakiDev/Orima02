@@ -1,2 +1,2 @@
 # Orima02
-aTHis is OrimaProject Version 02
+Orima Project By Puree Pangma
