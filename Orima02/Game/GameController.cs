@@ -314,6 +314,7 @@ _||_    .-;`\..../`;_.-^-._
                     Console.ResetColor();
                     Console.WriteLine($"Round: {i}");
                     Console.ResetColor();
+                    Console.WriteLine($"{player.Name} VS {enemy.Name}");
                     Thread.Sleep(3000);
 
                     if (player.IsAlive && enemy.IsAlive)
