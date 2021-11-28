@@ -8,6 +8,9 @@ namespace Orima02
     {
         public static void Main(string[] args)
         {
+            //Combat Class Declaration
+            Combat combat = new Combat();
+            
             //Enemy Declaration
             GoblinGuard goblinGuard = new GoblinGuard("Goblin Guard", 100, 100, 3, 0, 3, true, false, false,5,0,0,new List<int>(){}, new List<int>());
             GoblinWarrior goblinWarrior = new GoblinWarrior("Goblin Warrior", 100, 100, 5, 0, 3, true, false, false,10,0,0,new List<int>(){}, new List<int>());
@@ -15,31 +18,29 @@ namespace Orima02
             MuscularGoblin muscularGoblin = new MuscularGoblin("Muscular Goblin", 100, 100, 5, 0, 3, true, false, false,10,0,0,new List<int>(){}, new List<int>());
             KingGoblin kingGoblin= new KingGoblin("King Goblin", 100, 100, 5, 0, 3, true, false, false,10,0,0,new List<int>(){}, new List<int>());
 
-            //Skill Declaration
-            Skill cheat = new Skill(SkillName.Cheat,SkillType.Passive,"skillinfo", 0);
-            Skill damageChance = new Skill(SkillName.DamageChance,SkillType.Active, " skillinfo", 3);
-            Skill useSpecialItem = new Skill(SkillName.UseSpecialItem,SkillType.Active, " skillinfo", 3);
-            Skill regeneration = new Skill(SkillName.Regeneration,SkillType.Passive, " skillinfo", 0);
-            Skill heavyAttack = new Skill(SkillName.HeavyAttack,SkillType.Active, "Skill", 3);
-            Skill dodge = new Skill(SkillName.Dodge,SkillType.Active, "info", 3);
-            Skill mpRegen = new Skill(SkillName.MpRegen,SkillType.Passive, "info", 0);
-            Skill fireAttack = new Skill(SkillName.FireAttack,SkillType.Active, "Fire Attack", 3);
-            Skill heal = new Skill(SkillName.Heal,SkillType.Active, "Heal", 3);
-            
-            //Skill Inventory Declaration
-            var allSkill = new ArrayList 
-                {cheat, damageChance, useSpecialItem, regeneration, heavyAttack, dodge, mpRegen, fireAttack, heal};
-            
-
-                
-                
-                
-            //Combat Class Declaration
-            Combat combat = new Combat();
-
 
             //Character Declaration
             Character player = new Character();
+
+
+            //Skill Declaration
+            Skill cheat = new Skill(SkillName.Cheat,SkillType.Passive,"double your atk", 0);
+            Skill cheatChance = new Skill(SkillName.CheatChance,SkillType.Active, "50/50 to double your atk or get punish", 3);
+            Skill itemCheat = new Skill(SkillName.ItemCheat,SkillType.Active, "have another the item phase", 3);
+            Skill regeneration = new Skill(SkillName.Regeneration,SkillType.Passive, " regenerate hp", 0);
+            Skill heavyAttack = new Skill(SkillName.HeavyAttack,SkillType.Active, $"deal {player.Atk + 2} damage to enemy", 3);
+            Skill fear = new Skill(SkillName.Fear,SkillType.Active, "enemy atk decrease to 0 ", 3);
+            Skill mpRegen = new Skill(SkillName.MpRegen,SkillType.Passive, "regenerate mp", 0);
+            Skill poisonAttack = new Skill(SkillName.PoisonAttack,SkillType.Active, "deals 2 damage to enemy and poisoned it", 3);
+            Skill heal = new Skill(SkillName.Heal,SkillType.Active, "+4 hp to player", 3);
+            
+            //Skill Inventory Declaration
+            var allSkill = new ArrayList 
+                {cheat, cheatChance, itemCheat, regeneration, heavyAttack, fear, mpRegen, poisonAttack, heal};
+
+
+            
+
 
 
             //game controller Declaration
@@ -53,17 +54,17 @@ namespace Orima02
             {
                 case 1:
                 {
-                    player = new Character(gameController.GetName(),CharClass.Magician, 12, 12, 12, 12, 3, true, false, false, 3,0,0 ,new ArrayList(){mpRegen,fireAttack,heal});
+                    player = new Character(gameController.GetName(),CharClass.Magician, 12, 12, 12, 12, 3, true, false, false, 3,0,0 ,new ArrayList(){mpRegen,poisonAttack,heal});
                     break;
                 }
                 case 2:
                 {   
-                    player = new Character(gameController.GetName(),CharClass.Swordsman, 12, 12, 9, 9, 5, true, false, false,5,0,0,new ArrayList(){regeneration,heavyAttack,dodge});
+                    player = new Character(gameController.GetName(),CharClass.Swordsman, 12, 12, 9, 9, 5, true, false, false,5,0,0,new ArrayList(){regeneration,heavyAttack,fear});
                     break;
                 }
                 case 3:
                 {
-                    player = new Character(gameController.GetName(),CharClass.Volunteer, 15, 15, 9, 9, 2, true, false, false,3,0,0,new ArrayList(){cheat,damageChance,useSpecialItem});
+                    player = new Character(gameController.GetName(),CharClass.Volunteer, 15, 15, 9, 9, 2, true, false, false,3,0,0,new ArrayList(){cheat,cheatChance,itemCheat});
                     break;
                 }
                 

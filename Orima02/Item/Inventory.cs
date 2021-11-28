@@ -23,12 +23,18 @@ namespace Orima02
             while (true)
             {
                 int i = 0;
-                Console.WriteLine("===================\n" + "|    Inventory    |                          Press 0 to Exit ....\n" + "===================");
+                Console.ForegroundColor = ConsoleColor.DarkBlue;
+                Console.WriteLine("█████████████" + "|Inventory|" + "████████████████████");
+                Console.WriteLine("| |Press 0 to Exit ....|");
 
+                                 
                 foreach (Item item in Items)
                 {
                     i++;
-                    Console.WriteLine($"\n" + $"   {i}. {item.Name}");
+                    Console.ForegroundColor = ConsoleColor.DarkBlue;
+                    Console.Write("|\n|");
+                    Console.ResetColor();
+                    Console.Write($" → {i}. {item.Name}\n");
                 }
 
                 if (Console.ReadKey(true).Key == ConsoleKey.D0)

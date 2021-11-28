@@ -46,7 +46,7 @@ namespace Orima02
             {
                 Console.Clear();
                 Console.WriteLine("███████████████████████████████████████████");
-                Console.Write("Please Enter Your Name:");
+                Console.Write("█Please Enter Your Name:");
                 string name = Console.ReadLine();
                 name = name.Trim();
                 if (string.IsNullOrEmpty(name))
@@ -311,7 +311,7 @@ _||_    .-;`\..../`;_.-^-._
                     i++;
                     Console.Clear();
                     Console.BackgroundColor = ConsoleColor.White;
-                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.ResetColor();
                     Console.WriteLine($"Round: {i}");
                     Console.ResetColor();
                     Thread.Sleep(3000);
@@ -411,6 +411,7 @@ _||_    .-;`\..../`;_.-^-._
                         }
                         
                     }
+                 
                     else
                     {
                         break;
@@ -462,21 +463,27 @@ _||_    .-;`\..../`;_.-^-._
                 {
                     case 1:
                     {
+                        Console.ForegroundColor = ConsoleColor.Magenta;
                         Console.WriteLine("You just got new Item!");
+                        Console.ResetColor();
                         inventory.Add(stage1[0]);
                         yourInventory.OpenInventory();
                         break;
                     }
                     case 2:
                     {
+                        Console.ForegroundColor = ConsoleColor.Magenta;
                         Console.WriteLine("You just got new Item!");
+                        Console.ResetColor();
                         inventory.Add(stage1[1]);
                         yourInventory.OpenInventory();
                         break;
                     }
                     case 3:
                     {
+                        Console.ForegroundColor = ConsoleColor.Magenta;
                         Console.WriteLine("You just got new Item!");
+                        Console.ResetColor();
                         inventory.Add(stage1[2]);
                         yourInventory.OpenInventory();
                         break;
