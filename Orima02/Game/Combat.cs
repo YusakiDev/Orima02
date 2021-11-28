@@ -39,19 +39,12 @@ namespace Orima02
                                   "Or Press Enter to Pass...");
                 foreach (UseAbleItem item in inventory)
                 {
-                    if (i == 1)
-                    {
-                        i++;
-                    }
-                    else
-                    {
-                        Console.BackgroundColor = ConsoleColor.White;
-                        Console.ForegroundColor = ConsoleColor.Black;
-                        Console.WriteLine($"{i}.{item.Name}");
-                        Console.ResetColor();
-                        item.Stats();
-                        i++;
-                    }
+                    Console.BackgroundColor = ConsoleColor.White;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.WriteLine($"{i}.{item.Name}");
+                    Console.ResetColor();
+                    item.Stats();
+                    i++;
                 }
 
                 try
@@ -231,12 +224,19 @@ namespace Orima02
                                   "Or Press Enter to Pass...");
                 foreach (Skill skill in player.Skills)
                 {
-                    Console.BackgroundColor = ConsoleColor.White;
-                    Console.ForegroundColor = ConsoleColor.Black;
-                    Console.WriteLine($"{i}.{skill.Name}");
-                    Console.ResetColor();
-                    skill.Stats();
-                    i++;
+                    if (i == 0)
+                    {
+                        i++;
+                    }
+                    else
+                    {
+                        Console.BackgroundColor = ConsoleColor.White;
+                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.WriteLine($"{i}.{skill.Name}");
+                        Console.ResetColor();
+                        skill.Stats();
+                        i++;
+                    }
                 }
                 
 
