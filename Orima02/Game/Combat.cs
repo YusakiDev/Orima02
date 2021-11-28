@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Diagnostics.Contracts;
 using System.Security;
 using System.Threading;
+using Microsoft.Win32;
 
 namespace Orima02
 {
@@ -109,7 +110,12 @@ namespace Orima02
 
         public void CheckItem(object item, ArrayList allItem, ArrayList inventory, Character player, Enemy enemy)
         {
-            if (item == allItem[0])
+            if (item == null)
+            {
+                Console.WriteLine("You did not select item. Passing...");
+                Thread.Sleep(3000);
+            }
+            else if (item == allItem[0])
             {
                 UseAbleItem fullRegen = new UseAbleItem();
                 Console.Clear();
@@ -124,6 +130,7 @@ namespace Orima02
                 Console.Clear();
                 player.Stats();
                 doubleDamage.DoubleDamage(player);
+                Thread.Sleep(3000);
                 inventory.Remove(item);
             }
             else if (item == allItem[2])
@@ -132,6 +139,7 @@ namespace Orima02
                 Console.Clear();
                 player.Stats();
                 fullMp.FullMp(player);
+                Thread.Sleep(3000);
                 inventory.Remove(item);
             }
             else if (item == allItem[3])
@@ -140,6 +148,7 @@ namespace Orima02
                 Console.Clear();
                 player.Stats();
                 stunBomb.StunBomb(player, enemy);
+                Thread.Sleep(3000);
                 inventory.Remove(item);
             }
             else if (item == allItem[4])
@@ -148,6 +157,7 @@ namespace Orima02
                 Console.Clear();
                 player.Stats();
                 poisonBomb.PoisonBomb(player,enemy);
+                Thread.Sleep(3000);
                 inventory.Remove(item);
             }
             else if (item == allItem[5])
@@ -156,6 +166,7 @@ namespace Orima02
                 Console.Clear();
                 player.Stats();
                 damageBomb.DamageBomb(player,enemy);
+                Thread.Sleep(3000);
                 inventory.Remove(item);
             }else if (item == allItem[6])
             {
@@ -163,6 +174,7 @@ namespace Orima02
                 Console.Clear();
                 player.Stats();
                 trapDeflect.TrapDeflectDamage(enemy);
+                Thread.Sleep(3000);
                 inventory.Remove(item);
             }
             else if (item == allItem[7])
@@ -171,6 +183,7 @@ namespace Orima02
                 Console.Clear();
                 player.Stats();
                 trapUltimate.TrapUltimateDeflect(enemy);
+                Thread.Sleep(3000);
                 inventory.Remove(item);
             }
             else if (item == allItem[8])
@@ -179,6 +192,7 @@ namespace Orima02
                 Console.Clear();
                 player.Stats();
                 trapWeakness.TrapWeakness(enemy);
+                Thread.Sleep(3000);
                 inventory.Remove(item);
             }
             else if (item == allItem[9])
@@ -187,6 +201,7 @@ namespace Orima02
                 Console.Clear();
                 player.Stats();
                 abilityTheWorld.AbilityTheWorld(player,enemy);
+                Thread.Sleep(3000);
                 inventory.Remove(item);
             }
             else if (item == allItem[10])
@@ -195,6 +210,7 @@ namespace Orima02
                 Console.Clear();
                 player.Stats();
                 abilityOra.AbilityOra(player,enemy);
+                Thread.Sleep(3000);
                 inventory.Remove(item);
             }
             else if (item == allItem[11])
@@ -203,6 +219,7 @@ namespace Orima02
                 Console.Clear();
                 player.Stats();
                 abilityUseLeg.AbilityUseLeg(player,enemy);
+                Thread.Sleep(3000);
                 inventory.Remove(item);
             }
 
@@ -262,7 +279,12 @@ namespace Orima02
         
         public void CheckSkill(object skill, ArrayList allSkill, Character player,Enemy enemy, Combat combat, ArrayList inventory, ArrayList fullInventory)
         {
-            if (skill == allSkill[0])
+            if (skill == null)
+            {
+                Console.WriteLine("You did not select skill. Passing...");
+                Thread.Sleep(3000);
+            }
+            else if (skill == allSkill[0])
             {
                 Skill passive = new Skill();
                 Console.Clear();

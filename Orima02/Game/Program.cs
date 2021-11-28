@@ -10,10 +10,10 @@ namespace Orima02
         {
             //Enemy Declaration
             GoblinGuard goblinGuard = new GoblinGuard("Goblin Guard", 100, 100, 3, 0, 3, true, false, false,5,0,0,new List<int>(){}, new List<int>());
-            GoblinWarrior goblinWarrior = new GoblinWarrior("Goblin Warrior", 10, 10, 5, 0, 3, true, false, false,10,0,0,new List<int>(){}, new List<int>());
-            PoisonGoblin poisonGoblin = new PoisonGoblin("Poison Goblin", 10, 10, 5, 0, 3, true, false, false,10,0,0,new List<int>(){}, new List<int>());
-            MuscularGoblin muscularGoblin = new MuscularGoblin("Muscular Goblin", 10, 10, 5, 0, 3, true, false, false,10,0,0,new List<int>(){}, new List<int>());
-            KingGoblin kingGoblin= new KingGoblin("King Goblin", 10, 10, 5, 0, 3, true, false, false,10,0,0,new List<int>(){}, new List<int>());
+            GoblinWarrior goblinWarrior = new GoblinWarrior("Goblin Warrior", 100, 100, 5, 0, 3, true, false, false,10,0,0,new List<int>(){}, new List<int>());
+            PoisonGoblin poisonGoblin = new PoisonGoblin("Poison Goblin", 100, 100, 5, 0, 3, true, false, false,10,0,0,new List<int>(){}, new List<int>());
+            MuscularGoblin muscularGoblin = new MuscularGoblin("Muscular Goblin", 100, 100, 5, 0, 3, true, false, false,10,0,0,new List<int>(){}, new List<int>());
+            KingGoblin kingGoblin= new KingGoblin("King Goblin", 100, 100, 5, 0, 3, true, false, false,10,0,0,new List<int>(){}, new List<int>());
 
             //Skill Declaration
             Skill cheat = new Skill(SkillName.Cheat,SkillType.Passive,"skillinfo", 0);
