@@ -110,7 +110,7 @@ namespace Orima02
             
 
             //Inventory Declaration
-            Inventory inventory = new Inventory(new ArrayList() {trapDeflect, trapUltimate,trapWeakness});
+            Inventory inventory = new Inventory(new ArrayList() {fullRegen, doubleDamage,fullMp});
             Inventory stage1 = new Inventory(new ArrayList() {fullRegen, doubleDamage, fullMp});
             Inventory stage2 = new Inventory(new ArrayList() {stunBomb, poisonBomb, damageBomb});
             Inventory stage3 = new Inventory(new ArrayList() {trapDeflect, trapUltimate, trapWeakness});
