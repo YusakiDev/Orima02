@@ -92,9 +92,9 @@ namespace Orima02
             UseAbleItem damageBomb =
                 new UseAbleItem(ItemName.DamageBomb, "deals 5 damage at the enemy");
             UseAbleItem trapDeflect =
-                new UseAbleItem(ItemName.TrapDeflect, "Reverse all damage to the enemy (this item will be active on the enemy turn");
+                new UseAbleItem(ItemName.TrapDeflect, "Reverse all damage to the enemy (this item will be active on the enemy auto attack turn)");
             UseAbleItem trapUltimate =
-                new UseAbleItem(ItemName.TrapUltimate, "Steal enemy's Ultimate (this item will be active on the enemy turn)");
+                new UseAbleItem(ItemName.TrapUltimate, "Steal enemy's Ultimate (this item will be active on the enemy ultimate turn)");
             UseAbleItem trapWeakness = 
                 new UseAbleItem(ItemName.TrapWeakness, "Set enemy damage to half");
             UseAbleItem abilityTheWorld =
