@@ -172,7 +172,7 @@ namespace Orima02
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine("Passive: You just regenerate 1 more Mp");
             player.ModifyMp(1);
-            Console.ForegroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Cyan;
         }
         public void PoisonAttack(Character player, Enemy enemy)
         {

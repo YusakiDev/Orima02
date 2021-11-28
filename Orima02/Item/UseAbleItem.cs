@@ -43,7 +43,7 @@ namespace Orima02
             Console.WriteLine($"{player.Name} use Item FullMp...");
             player.ModifyMp(player.Mp);
             Thread.Sleep(3000);
-            Console.ForegroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine($"{player.Name}'s Mp is full");
             Console.ResetColor();
         }
