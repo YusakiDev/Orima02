@@ -22,7 +22,7 @@ namespace Orima02
             int line = 0;
             while (line < _text.Length)
             {
-                Console.ForegroundColor = ConsoleColor.White;
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("████████████████");
                 Console.WriteLine("|   Dialogue   |");
                 Console.WriteLine("████████████████");

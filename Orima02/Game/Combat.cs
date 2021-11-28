@@ -11,7 +11,7 @@ namespace Orima02
         public void CharPassive(Character player,Enemy enemy, ArrayList allSkill, Combat combat, ArrayList inventory, ArrayList fullInventory)
         {
             Console.BackgroundColor = ConsoleColor.Gray;
-            Console.ForegroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine($"{player.Name} Passive Phase");
             Console.ResetColor();
             Console.WriteLine("GamePassive: You regenerated 1 Mp");

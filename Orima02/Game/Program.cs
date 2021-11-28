@@ -154,9 +154,15 @@ namespace Orima02
 
             Scene scene1_1C2 = new Scene(1.1, 10, new[]
             {
-                $"[1/3] {player.Name} : I'm arrogant, better not go in\n",
-                "[2/3] Dev : You can't be that arrogant. If so, how will the game continue?\n",
-                "[3/3] Dev : Go in and say hi to that woman now.\n"
+                $"[1/9] {player.Name} : I'm arrogant, better not go in\n",
+                "[2/9] Dev : You can't be that arrogant. If so, how will the game continue?\n",
+                "[3/9] Dev : Go in and say hi to that woman now.\n",
+                $"[4/9] {player.Name} : Hey that woman over there.\n",
+                "[5/9] ??? : Who are you?\n",
+                $"[6/9] {player.Name} : My name is {player.Name}\n",
+                $"[7/9] {player.Name} : I'm just a man passing this way.\n",
+                $"[8/9] {player.Name} : And you?\n",
+                "[9/9] Irene : My name is Irene the Felicity, I'm the princess of the Felicity Kingdom.\n"
             });
             Scene scene1_2 = new Scene(1.2, 10, new[]
             {
@@ -266,21 +272,21 @@ namespace Orima02
                 $"[3/20] {player.Name} : Then I'd better take her as a hostage instead of the princess. Hmm..interesting.\n",
                 "[4/20] Annie : Sorry!! I won't be loud anymore.\n",
                 "[5/20] Annie : Let's go find the Goblin Castle!\n",
-                "[6/20] {see grandma and grandpa}\n",
+                "[6/20] {see grandma and Grandpa}\n",
                 "[7/20] Annie : There are people over there.\n",
-                "[8/20] player.Name} : Grandfather and grandmother? Are there human beings here?\n",
+                "[8/20] {player.Name} : Grandfather and grandmother? Are there human beings here?\n",
                 "[9/20] Annie : Don't forget that this forest It's not just the goblins. Those two might be some creatures living in this forest.\n",
                 "10/20] Annie : We'd better go in and ask for directions.\n",
                 "[11/20] {Go and talk to Grandpa and Grandma.}\n",
                 "[12/20] Annie : Hello, we are looking for the Goblin Castle. Do you guys know where it is?\n",
-                "[13/20] granny : We know, it's deep in the woods. You guys have to go left and walk a little deeper into the forest.\n",
-                "[14/20] grandpa : Don't listen to old grandma. That's not the way to Goblin Castle. It's the way to the Tiger Cave.\n",
-                "[15/20] grandpa : The correct way to the Goblin Castle is On the right?\n",
-                "[16/20] granny : Don't be foolish Forgetful and still want to come and tell you the way again. The castle must go to the left separately.\n",
+                "[13/20] Granny : We know, it's deep in the woods. You guys have to go left and walk a little deeper into the forest.\n",
+                "[14/20] Grandpa : Don't listen to old grandma. That's not the way to Goblin Castle. It's the way to the Tiger Cave.\n",
+                "[15/20] Grandpa : The correct way to the Goblin Castle is On the right?\n",
+                "[16/20] Granny : Don't be foolish Forgetful and still want to come and tell you the way again. The castle must go to the left separately.\n",
                 $"[17/20] {player.Name} : Who can I believe?\n",
                 "[18/20] Annie : Excuse me. So, where exactly do we have to go?\n",
-                "[19/20] granny : On the left\n",
-                "[20/20] grandpa : On the right\n",
+                "[19/20] Granny : On the left\n",
+                "[20/20] Grandpa : On the right\n",
             });
             Scene scene4_1C1 = new Scene(4.1, 10, new[]
             {
