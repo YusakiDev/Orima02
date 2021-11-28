@@ -25,7 +25,7 @@ namespace Orima02
                 int i = 0;
                 Console.ForegroundColor = ConsoleColor.DarkBlue;
                 Console.WriteLine("█████████████" + "|Inventory|" + "████████████████████");
-                Console.WriteLine("| |Press 0 to Exit ....|");
+                Console.WriteLine("| |press enter to process ....|");
 
                                  
                 foreach (Item item in Items)
