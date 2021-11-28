@@ -21,7 +21,7 @@ namespace Orima02
             while (true)
             {
                 int i = 0;
-                Console.ForegroundColor = ConsoleColor.DarkBlue;
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("█████████████" + "|Inventory|" + "████████████████████");
                 Console.WriteLine("| |press enter to process ....|");
 
@@ -29,7 +29,7 @@ namespace Orima02
                 foreach (Item item in Items)
                 {
                     i++;
-                    Console.ForegroundColor = ConsoleColor.DarkBlue;
+                    Console.ForegroundColor = ConsoleColor.White;
                     Console.Write("|\n|");
                     Console.ResetColor();
                     Console.Write($" → {i}. {item.Name}\n");

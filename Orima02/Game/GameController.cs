@@ -11,7 +11,7 @@ namespace Orima02
         {
             while (true)
             {
-                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("                              ==============================================\n" +
                                   "                              |                                            |\n" +
                                   "                              |    ________        .__                     |\n" +
@@ -65,7 +65,7 @@ namespace Orima02
 
 
                 Console.Clear();
-                Console.ForegroundColor = ConsoleColor.DarkBlue;
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("███████████████████████");
                 Console.WriteLine("|  Choose Your Class  | ");
                 Console.WriteLine("███████████████████████");
@@ -165,7 +165,7 @@ _||_    .-;`\..../`;_.-^-._
             EquipAbleItem balancedSet)
         {
             Console.Clear();
-            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("█████████████████████████████████████████");
             Console.WriteLine("|   Choose Your Beginner Enhancement    |\n" +
                               "█████████████████████████████████████████");
@@ -208,7 +208,7 @@ _||_    .-;`\..../`;_.-^-._
         {
             while (true)
             {
-                Console.ForegroundColor = ConsoleColor.DarkBlue;
+                Console.ForegroundColor = ConsoleColor.White;
                 
                 Console.WriteLine("\n███████████████████\n" +
                                   "|     Choice!     |\n" +
