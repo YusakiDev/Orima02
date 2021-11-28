@@ -112,7 +112,7 @@ namespace Orima02
                 Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.WriteLine("Hacking... Item Phase");
                 Thread.Sleep(3000);
-                Console.WriteLine("You now have second Item Phase! Tada!");
+                Console.WriteLine("You now have second Ite m Phase! Tada!");
                 combat.CheckItem(combat.ItemPhase(inventory), fullInventory, inventory, player, enemy);
                 Console.ResetColor();
             }else
