@@ -440,59 +440,59 @@ namespace Orima02
             //player.Stats();
             //Scene1
             Console.Clear();
-            scene1_1.DisplayScene();
+            //scene1_1.DisplayScene();
             //Scene1 Choice1
             int userInput;
-            userInput = gameController.ChoiceSelector(scene1_1.SceneIndex);
-            switch (userInput)
-            {
-                case 1:
-                    scene1_1C1.DisplayScene();
-                    break;
-                case 2:
-                    scene1_1C2.DisplayScene();
-                    break;
-            }
-            scene1_2.DisplayScene();
-            
-            userInput = gameController.ChoiceSelector(scene1_2.SceneIndex);
-            switch (userInput)
-            {
-                case 1:
-                    scene1_2C1.DisplayScene();
-                    break;
-                case 2:
-                    scene1_2C2.DisplayScene();
-                    break;
-            }
-            scene1_3.DisplayScene();
-            
-            userInput = gameController.ChoiceSelector(scene1_3.SceneIndex);
-            switch (userInput)
-            {
-                case 1:
-                    scene1_3C1.DisplayScene();
-                    break;
-                case 2:
-                    scene1_3C2.DisplayScene();
-                    break;
-            }
+            // userInput = gameController.ChoiceSelector(scene1_1.SceneIndex);
+            // switch (userInput)
+            // {
+            //     case 1:
+            //         scene1_1C1.DisplayScene();
+            //         break;
+            //     case 2:
+            //         scene1_1C2.DisplayScene();
+            //         break;
+            // }
+            // scene1_2.DisplayScene();
+            //
+            // userInput = gameController.ChoiceSelector(scene1_2.SceneIndex);
+            // switch (userInput)
+            // {
+            //     case 1:
+            //         scene1_2C1.DisplayScene();
+            //         break;
+            //     case 2:
+            //         scene1_2C2.DisplayScene();
+            //         break;
+            // }
+            // scene1_3.DisplayScene();
+            //
+            // userInput = gameController.ChoiceSelector(scene1_3.SceneIndex);
+            // switch (userInput)
+            // {
+            //     case 1:
+            //         scene1_3C1.DisplayScene();
+            //         break;
+            //     case 2:
+            //         scene1_3C2.DisplayScene();
+            //         break;
+            // }
             
             
             //Scene2
-            scene2_1.DisplayScene();
+            //scene2_1.DisplayScene();
             //picking item
             gameController.SelectSet(player, atkSet, mpSet, hpSet, balanceSet);
-            scene2_2.DisplayScene();
+            //scene2_2.DisplayScene();
             
             
             //Scene3
-            scene3_1.DisplayScene();
+            //scene3_1.DisplayScene();
             //fight
             gameController.CombatPhase(player, goblinGuard, inventory.Items, allSkill, fullInventory.Items, combat);
             gameController.RandomStage1(inventory,inventory.Items, stage1.Items);
             //Scene4
-            scene4_1.DisplayScene();
+            //scene4_1.DisplayScene();
             userInput = gameController.ChoiceSelector(scene4_1.SceneIndex);
             switch (userInput)
             {
@@ -503,28 +503,28 @@ namespace Orima02
                     scene4_1C2.DisplayScene();
                     break;
             }
-            scene4_2.DisplayScene();
+            //scene4_2.DisplayScene();
             //fight
             gameController.CombatPhase(player, goblinWarrior, inventory.Items, player.Skills,fullInventory.Items, combat);
             gameController.RandomStage2(inventory,inventory.Items, stage2.Items);
             
             //Scene5
-            scene5_1.DisplayScene();
+            //scene5_1.DisplayScene();
             //fight
             gameController.CombatPhase(player, poisonGoblin, inventory.Items, player.Skills,fullInventory.Items, combat);
             gameController.RandomStage3(inventory,inventory.Items, stage3.Items);
             //Scene6
-            scene6_1.DisplayScene();
+            //scene6_1.DisplayScene();
             //fight
             gameController.CombatPhase(player, muscularGoblin, inventory.Items, player.Skills,fullInventory.Items, combat);
             gameController.RandomStage4(inventory,inventory.Items, stage4.Items);
-            scene6_2.DisplayScene();
+            //scene6_2.DisplayScene();
             
             //Scene7
-            scene7_1.DisplayScene();
+            //cene7_1.DisplayScene();
             //fight
             gameController.CombatPhase(player, kingGoblin, inventory.Items, player.Skills,fullInventory.Items, combat);
-            scene7_2.DisplayScene();
+            //scene7_2.DisplayScene();
 
         }
     }

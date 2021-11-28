@@ -39,12 +39,19 @@ namespace Orima02
                                   "Or Press Enter to Pass...");
                 foreach (UseAbleItem item in inventory)
                 {
-                    Console.BackgroundColor = ConsoleColor.White;
-                    Console.ForegroundColor = ConsoleColor.Black;
-                    Console.WriteLine($"{i}.{item.Name}");
-                    Console.ResetColor();
-                    item.Stats();
-                    i++;
+                    if (i == 1)
+                    {
+                        i++;
+                    }
+                    else
+                    {
+                        Console.BackgroundColor = ConsoleColor.White;
+                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.WriteLine($"{i}.{item.Name}");
+                        Console.ResetColor();
+                        item.Stats();
+                        i++;
+                    }
                 }
 
                 try
